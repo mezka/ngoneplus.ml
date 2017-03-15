@@ -1,0 +1,10 @@
+bundleId,bundleName,category1,category2,category3,productId1,productId2,productId3,productId4,productId5,image1,image2,image3,image4,image5,discount
+1,OnePlus 3/3T Go Big Or Go Home Bundle,2,4,7,2,20,21,28,16,/bundles/go-big-go-home/black-apricot.png,/bundles/go-big-go-home/ebony-wood.png,/bundles/go-big-go-home/karbon.png,/bundles/go-big-go-home/rosewood.png,/bundles/go-big-go-home/sandstone.png,10
+2,OnePlus 3/3T Essentials Bundle,2,,,2,16,,,,/bundles/essentials/black-apricot.png,/bundles/essentials/ebony-wood.png,/bundles/essentials/karbon.png,/bundles/essentials/rosewood.png,/bundles/essentials/sandstone.png,10
+3,Dash Power Bundle,4,5,,20,21,,,,/bundles/dash-power/side-left.png,/bundles/dash-power/side.png,/bundles/dash-power/side-european.png,/bundles/dash-power/dash-cable.png,,5
+4,OnePlus 3/3T StyleSwap Bundle,2,,,2,21,,,,/bundles/style-swap/karbon.png,/bundles/style-swap/rosewood.png,/bundles/style-swap/bamboo.png,/bundles/style-swap/black-apricot.png,/bundles/style-swap/sandstone.png,5
+5,OnePlus Power Up! Bundle,2,6,,27,13,,,,/bundles/power-up/black-translucent.png,/bundles/power-up/black-green.png,/bundles/power-up/black-blue.png,/bundles/power-up/black-black.png,,5
+6,OnePlus 2 Go Big Or Go Home,2,,7,5,6,28,3,,/bundles/2-go-big-go-home/bamboo.png,/bundles/2-go-big-go-home/black-apricot.png,/bundles/2-go-big-go-home/karbon.png,/bundles/2-go-big-go-home/rosewood.png,,15
+7,OnePlus 2 Essentials Bundle,2,,7,5,28,,,,/bundles/2-essentials/bamboo.png,/bundles/2-essentials/black-apricot.png,/bundles/2-essentials/karbon.png,/bundles/2-essentials/rosewood.png,,15
+8,OnePlus X Essentials Bundle,2,,7,8,18,19,28,,/bundles/x-essentials/bamboo.png,/bundles/x-essentials/black-apricot.png,/bundles/x-essentials/karbon.png,/bundles/x-essentials/rosewood.png,/bundles/x-essentials/sandstone.png,15
+9,OnePlus Gear Bundle,8,,,30,31,34,,,/bundles/gear/backpack-dash.png,/bundles/gear/travel-blue-dash.png,/bundles/gear/travel-black-dash.png,,,10
