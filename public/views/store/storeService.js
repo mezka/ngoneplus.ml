@@ -3,7 +3,7 @@ function storeService($http){
 
     return $http({
       method: 'GET',
-      url: '/api/products/'
+      url: '/api/store/'
     }).then(function(response){
       if(response.status === 200)
         return response.data;
@@ -11,6 +11,10 @@ function storeService($http){
         console.log('Get store elements failed, logging response.status: ', response.status);
     });
 
+  };
+
+  this.getProductById= function(){
+    console.log('todo');
   };
 
 

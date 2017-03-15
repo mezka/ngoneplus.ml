@@ -25,15 +25,26 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 
 
-app.get('/api/products', function(req, res) {
-    console.log('Server works ...');
-
+app.get('/api/store', function(req, res) {
+    console.log('/api/store');
 
     db.get_store_element_data(function(error, result) {
       res.status(200).send(result);
     });
+});
+
+app.get('/api/products/:productid', function(req, res){
+
+  var productid = req.param('productid');
+
+  db.get_product_by_id([productid], function(error, result){
+    console.log(result);
+    res.status(200).send(result);
+  });
 
 });
+
+
 
 app.listen(port, function() {
     console.log('Listening on port: ', port);
