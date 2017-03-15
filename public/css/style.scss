@@ -23,6 +23,8 @@ html {
     }
 }
 
+/******************************HOME********************************************/
+
 .header,
 .middle-container,
 .middle-container > .row,
@@ -289,4 +291,17 @@ html {
             margin-top: 2px;
         }
     }
+}
+
+/******************************STORE*******************************************/
+
+.storeElement{
+
+  display: inline-block;
+
+  width: 25%;
+  img{
+    width: 100%;
+    height: auto;
+  }
 }

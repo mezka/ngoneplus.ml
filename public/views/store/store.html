@@ -1,4 +1,3 @@
-<nav class="row">
-  <div class="col-sm-offset-2 col-sm-1">caca</div>
-  <div class="col-sm-offset-3 col-sm-6">no</div>
-</nav>
+<div class="main" ng-controller = "storeController">
+  <store-element ng-repeat = "storeElement in storeElements" product-id="{{storeElement.productid}}"product-name="{{storeElement.productname}}" product-image = "{{storeElement.optionimage1}}" product-price="{{storeElement.productprice}}"></store-element>
+</div>

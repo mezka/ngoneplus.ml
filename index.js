@@ -1,10 +1,13 @@
 var Express = require('express');
 var bodyParser = require('body-parser');
 var massive = require('massive');
+var cors = require('cors');
 
 var port = 9876;
 
 var app = Express();
+app.use(Express.static('public'));
+
 var connectionString = "postgres://mezka@localhost:5432/oneplus";
 
 // connect to Massive and get the db instance. You can safely use the
@@ -19,6 +22,8 @@ var db = app.get('db');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
+
 
 app.get('/api/products', function(req, res) {
     console.log('Server works ...');

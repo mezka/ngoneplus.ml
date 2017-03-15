@@ -1,6 +1,6 @@
 optionId,optionName,optionImageColor,optionImageIcon,optionImage1,optionImage2,optionImage3,optionImage4,optionImage5,optionDimensions,optionWeight,optionMaterials,optionInput,optionOutput,optionPrice
-1,64GB Gunmetal,#5A5050,,/oneplus3t/3t,/oneplus3t/3t-back,,,,152.7 x 74.7 x 7.35 mm,158g,Anodized aluminum,,,439.00
-2,64GB SoftGold,#B1A897,,/oneplus3t/3t-gold,/oneplus3t/3t-back,,,,152.7 x 74.7 x 7.35 mm,158g,Anodized aluminum,,,439.00
+1,64GB Gunmetal,#5A5050,,/oneplus3t/3t.png,/oneplus3t/3t-back.png,,,,152.7 x 74.7 x 7.35 mm,158g,Anodized aluminum,,,439.00
+2,64GB SoftGold,#B1A897,,/oneplus3t/3t-gold.png,/oneplus3t/3t-back.png,,,,152.7 x 74.7 x 7.35 mm,158g,Anodized aluminum,,,439.00
 3,Sandstone,#333333,,/cases/3t-protective-case/sandstone/back.png,/cases/3t-protective-case/sandstone/back-side-left.png,/cases/protective-case/sandstone/back-side-right.png,/cases/protective-case/sandstone/front.png,/cases/protective-case/sandstone/side.png,152.5 x 76.8 x 9.2mm,18g,PC,,,19.95
 4,Bamboo,,/cases/protective-case/bamboo/iconbg.jpg,/cases/3t-protective-case/bamboo/back.png,/cases/3t-protective-case/bamboo/back-side-left.png,/cases/protective-case/bamboo/back-side-right.png,/cases/protective-case/bamboo/front.png,/cases/protective-case/bamboo/side.png,152.5 x 76.8 x 9mm,12g,Bamboo+Kevlar,,,24.95
 5,Ebony Wood,,/cases/protective-case/ebony-wood/iconbg.jpg,/cases/3t-protective-case/ebony-wood/back.png,/cases/3t-protective-case/ebony-wood/back-side-left.png,/cases/protective-case/ebony-wood/back-side-right.png,/cases/protective-case/ebony-wood/front.png,/cases/protective-case/ebony-wood/side.png,153.5 x 76.8 x 9mm,12g,Ebony+Kevlar,,,24.95
@@ -23,21 +23,21 @@ optionId,optionName,optionImageColor,optionImageIcon,optionImage1,optionImage2,o
 22,Red,#EB0028,,/cases/2-siliconecase/red/red-back.png,,,,,153.9 x 77.6 x 11.45 mm,23.9g,Silicone + PC,,,10.49
 23,White,#FFFFFF,,/cases/2-siliconecase/white/white-back.png,,,,,153.9 x 77.6 x 11.45 mm,23.9g,Silicone + PC,,,10.49
 24,Blue,#33AFD9,,/cases/2-siliconecase/blue/blue-back.png,,,,,153.9 x 77.6 x 11.45 mm,23.9g,Silicone + PC,,,10.49
-25,Sandstone,#333333,,/cases/x-protective-case/sandstone/sandstone-back,,,,,141.8 x 70.8 x 8.3mm,13g,Sandstone PET,,,13.99
-26,Bamboo,,/cases/x-protective-case/bamboo/iconbg.jpg,/cases/x-protective-case/bamboo/bamboo-back,,,,,141.8 x 70.8 x 8.3mm,13g,Nan Bamboo,,,17.49
-27,Black Apricot,,/cases/x-protective-case/black-apricot/iconbg.jpg,/cases/x-protective-case/black-apricot/black-apricot-back,,,,,141.8 x 70.8 x 8.3mm,13g,Black Apricot,,,17.49
-28,Karbon,,/cases/x-protective-case/karbon/iconbg.jpg,/cases/x-protective-case/karbon/karbon-back.jpg,,,,,141.8 x 70.8 x 8.3mm,13g,DuPont Kevlar fiber,,,17.49
-29,Rosewood,,/cases/x-protective-case/rosewood/iconbg.jpg,/cases/x-protective-case/karbon/rosewood-back.jpg,,,,,141.8 x 70.8 x 8.3mm,13g,Rosewood,,,17.49
-30,Black,#333333,,/cases/x-flipcover/black/black-front.jpg,,,,,142 x 72 x 10.5mm,48g,PET,,,10.49
-31,White,#FFFFFF,,/cases/x-flipcover/white/white-front.jpg,,,,,142 x 72 x 10.5mm,48g,PET,,,10.49
-32,Orange,#E6621D,,/cases/x-flipcover/orange/orange-front.jpg,,,,,142 x 72 x 10.5mm,48g,PET,,,10.49
-33,Gray,#B0B0B0,,/cases/x-flipcover/gray/gray-front.jpg,,,,,142 x 72 x 10.5mm,48g,PET,,,10.49
+25,Sandstone,#333333,,/cases/x-protective-case/sandstone/sandstone-back.png,,,,,141.8 x 70.8 x 8.3mm,13g,Sandstone PET,,,13.99
+26,Bamboo,,/cases/x-protective-case/bamboo/iconbg.jpg,/cases/x-protective-case/bamboo/bamboo-back.png,,,,,141.8 x 70.8 x 8.3mm,13g,Nan Bamboo,,,17.49
+27,Black Apricot,,/cases/x-protective-case/black-apricot/iconbg.jpg,/cases/x-protective-case/black-apricot/black-apricot-back.png,,,,,141.8 x 70.8 x 8.3mm,13g,Black Apricot,,,17.49
+28,Karbon,,/cases/x-protective-case/karbon/iconbg.jpg,/cases/x-protective-case/karbon/karbon-back.png,,,,,141.8 x 70.8 x 8.3mm,13g,DuPont Kevlar fiber,,,17.49
+29,Rosewood,,/cases/x-protective-case/rosewood/iconbg.jpg,/cases/x-protective-case/karbon/rosewood-back.png,,,,,141.8 x 70.8 x 8.3mm,13g,Rosewood,,,17.49
+30,Black,#333333,,/cases/x-flipcover/black/black-front.png,,,,,142 x 72 x 10.5mm,48g,PET,,,10.49
+31,White,#FFFFFF,,/cases/x-flipcover/white/white-front.png,,,,,142 x 72 x 10.5mm,48g,PET,,,10.49
+32,Orange,#E6621D,,/cases/x-flipcover/orange/orange-front.png,,,,,142 x 72 x 10.5mm,48g,PET,,,10.49
+33,Gray,#B0B0B0,,/cases/x-flipcover/gray/gray-front.png,,,,,142 x 72 x 10.5mm,48g,PET,,,10.49
 34,Red,#EB0028,,/cases/x-silicone/red/red-back.png,,,,,143.2 x 72.4 x 9.6mm,17g,Silicone+PC,,,10.49
 35,Black,#333333,,/cases/x-silicone/black/black-back.png,,,,,143.2 x 72.4 x 9.6mm,17g,Silicone+PC,,,10.49
 36,White,#FFFFFF,,/cases/x-silicone/white/white-back.png,,,,,143.2 x 72.4 x 9.6mm,17g,Silicone+PC,,,10.49
 37,Blue,#33AFD9,,/cases/x-silicone/blue/blue-back.png,,,,,143.2 x 72.4 x 9.6mm,17g,Silicone+PC,,,10.49
-38,Clear,#E8E8EA,,/cases/x-translucent/clear/clear-back.jpg,,,,,141.6 x 70.8 x 8.4mm,15g,PC,,,6.29
-39,Gray,#B0B0B0,,/cases/x-translucent/gray/gray-back.jpg,,,,,141.6 x 70.8 x 8.4mm,15g,PC,,,6.29
+38,Clear,#E8E8EA,,/cases/x-translucent/clear/clear-back.png,,,,,141.6 x 70.8 x 8.4mm,15g,PC,,,6.29
+39,Gray,#B0B0B0,,/cases/x-translucent/gray/gray-back.png,,,,,141.6 x 70.8 x 8.4mm,15g,PC,,,6.29
 40,Ocean,#333C4B,,/cases/x-hard-graft-case/ocean/ocean-front.png,/cases/x-hard-graft-case/ocean/ocean-back.png,/cases/x-hard-graft-case/ocean/ocean-side.png,,,,,"Rich Tuscan vegetable tan leather, German wool felt",,,59.49
 41,Neutral,#797876,,/cases/x-hard-graft-case/ocean/neutral-front.png,/cases/x-hard-graft-case/ocean/neutral-back.png,/cases/x-hard-graft-case/ocean/neutral-side.png,,,,,"Rich Tuscan vegetable tan leather, German wool felt",,,59.49
 42,Black,#333333,,/cases/powerbank-silicone/black/black-front.png,,,,,159.7 x 81 x 15.5 mm,49.45g,Silicone,,,4.54
@@ -55,7 +55,7 @@ optionId,optionName,optionImageColor,optionImageIcon,optionImage1,optionImage2,o
 54,US 150cm,,,/chargers/dash-power-adapter/front.png,,,,,33 x 33 x 70mm,71g,PC,100-240V~50/60Hz 0.6A,5V=4A,19.95
 55,100cm,,,/cables/dash-cable/100/side.png,,,,,100cm long,40g,TPE+PC+PBT,,,14.95
 56,150cm,,,/cables/dash-cable/150/side.png,,,,,150cm long,56g,TPE+PC+PBT,,,19.95
-57,,,,/cables/c-otg/side-stretched,/cables/c-otg/side-curled,,,,10cm long,10g,TPE,,,9.95
+57,,,,/cables/c-otg/side-stretched.png,/cables/c-otg/side-curled.png,,,,10cm long,10g,TPE,,,9.95
 58,,,,/chargers/dash-car-charger/side-right.png,/chargers/dash-car-charger/top-down.png,/chargers/dash-car-charger/included-cable.png,,,,,Not Specified,12V/24V=2.5A,Dash Charge: 3.4V~5V=3.5AStandard: 5V=2A,29.95
 59,,,,/cables/micro-usb/150/side.png,,,,,150cm long,,Not Specified,,,5.99
 60,,,,/cables/micro-usb-otg/side-curled.png,,,,,7.5cm long,13g,Not Specified,,,7.99
@@ -64,8 +64,8 @@ optionId,optionName,optionImageColor,optionImageIcon,optionImage1,optionImage2,o
 63,White,#FFFFFF,,/power-banks/oneplus-power-bank/white/front.png,,,,,142.8 × 72.6 × 16.2 mm,220g,Not Specified,"DC 5V/2A, Output 2 USB","5V/2A (One device), 5V/1A (Two devices)",19.00
 64,Black,#333333,,/audio/bullets-v2/black/front.png,,,,,Not Specified,Not Specified,Not Specified,,,19.95
 65,White,#FFFFFF,,/audio/bullets-v2/white/front.png,,,,,Not Specified,Not Specified,Not Specified,,,19.95
-66,Gold,#EFDFB4,,/audio/icons/gold/front.jpg,,,,,Not Specified,Not Specified,Not Specified,,,49.99
-67,Graphite,#B9B9B9,,/audio/icons/graphite/front.jpg,,,,,Not Specified,Not Specified,Not Specified,,,49.99
+66,Gold,#EFDFB4,,/audio/icons/gold/front.png,,,,,Not Specified,Not Specified,Not Specified,,,49.99
+67,Graphite,#B9B9B9,,/audio/icons/graphite/front.png,,,,,Not Specified,Not Specified,Not Specified,,,49.99
 68,,,,/gear/oneplus-travel-backpack/side-left.png,/gear/oneplus-travel-backpack/front.png,/gear/oneplus-travel-backpack/back.png,,,445 x 150 x 450mm,708g,600D Polyester,,,50.00
 69,Black,#333333,,/gear/oneplus-travel-messenger/black/side-left.png,,,,,350 x 130 x 390mm,740g,Canvas,,,50.00
 70,Blue Gray,#3F5263,,/gear/oneplus-travel-messenger/blue-gray/side-left.png,,,,,351 x 130 x 390mm,741g,Canvas,,,50.00
@@ -78,7 +78,7 @@ optionId,optionName,optionImageColor,optionImageIcon,optionImage1,optionImage2,o
 77,XXL,,,/gear/oneplus-ns-tshirt/front.png,,,,,Not Specified,Not Specified,"100% Cotton, 5% Polyurethane",,,20.00
 78,4XL,,,/gear/oneplus-ns-tshirt/front.png,,,,,Not Specified,Not Specified,"101% Cotton, 5% Polyurethane",,,20.00
 79,5XL,,,/gear/oneplus-ns-tshirt/front.png,,,,,Not Specified,Not Specified,"102% Cotton, 5% Polyurethane",,,20.00
-80,XS,,,/gear/oneplus-leather-messenger/side-left.png,,,,,Not Specified,Not Specified,"103% Cotton, 5% Polyurethane",,,20.00
+80,XS,,,/gear/oneplus-dash-tshirt/front.png,,,,,Not Specified,Not Specified,"103% Cotton, 5% Polyurethane",,,20.00
 81,S,,,/gear/oneplus-dash-tshirt/front.png,,,,,Not Specified,Not Specified,"104% Cotton, 5% Polyurethane",,,20.00
 82,M,,,/gear/oneplus-dash-tshirt/front.png,,,,,Not Specified,Not Specified,"105% Cotton, 5% Polyurethane",,,20.00
 83,L,,,/gear/oneplus-dash-tshirt/front.png,,,,,Not Specified,Not Specified,"106% Cotton, 5% Polyurethane",,,20.00

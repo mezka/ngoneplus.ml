@@ -24,7 +24,19 @@ App.config(function($stateProvider, $urlRouterProvider){
     var storeState = {
         name: 'store',
         url: '/store',
-        templateUrl: './views/store/store.html'
+        templateUrl: './views/store/store.html',
+        controller: 'storeController'
+    };
+
+    var productState = {
+        name: 'product',
+        url: '/product/{productname}',
+        params: {
+            productid: null,
+            productname: null
+        },
+        templateUrl: './views/product/product.html',
+        controller: 'productController'
     };
 
     var supportState = {
@@ -49,8 +61,10 @@ App.config(function($stateProvider, $urlRouterProvider){
     $stateProvider.state(onePlus3TState);
     $stateProvider.state(onePlus3State);
     $stateProvider.state(storeState);
+    $stateProvider.state(productState);
     $stateProvider.state(communityState);
     $stateProvider.state(cartState);
+
 
     $urlRouterProvider.otherwise('/');
 
