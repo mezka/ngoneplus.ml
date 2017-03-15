@@ -17,15 +17,17 @@ app.set('db', massiveInstance);
 
 var db = app.get('db');
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
 app.get('/api/products', function(req, res) {
     console.log('Server works ...');
 
-    db.get_all_products(function(err, res) {
-      console.log(res);
-      console.log(err);
+
+    db.get_store_element_data(function(error, result) {
+      res.status(200).send(result);
     });
 
-    res.status(200).send('Worked');
 });
 
 app.listen(port, function() {
