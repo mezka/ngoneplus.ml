@@ -36,6 +36,14 @@ app.get('/api/store', function(req, res) {
     });
 });
 
+app.get('/api/product/:id', function(req, res) {
+    db.get_product_by_id([req.param('id')], function(error, result) {
+      res.status(200).send(result);
+    });
+});
+
+
+
 
 app.listen(port, function(){
     console.log('Listening on port: ', port);

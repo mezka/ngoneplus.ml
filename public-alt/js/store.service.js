@@ -15,13 +15,15 @@ function storeService($http){
 
   };
 
-  this.getProductById= function(productid){
+  this.getProductById = function(productid){
 
     return $http({
       method: 'GET',
-      url: '/api/products/' + productid
+      url: '/api/product/' + productid
     }).then(function(response){
       if(response.status === 200){
+        console.log('/api/product/*');
+        console.log(response.data);
         return response.data;
       }else
         console.log('Get store elements failed, logging response.status: ', response.status);

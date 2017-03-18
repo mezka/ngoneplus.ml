@@ -5,13 +5,14 @@ app.config(function($stateProvider, $urlRouterProvider) {
     var homeState = {
         name: 'home',
         url: '/',
-        component: 'home'
+        templateUrl: './views/home.html'
     };
 
     var storeState = {
         name: 'store',
         url: '/store',
-        component: 'store',
+        templateUrl: './views/store.html',
+        controller: 'storeController as store',
         resolve: {
             storeElements: function(storeService) {
                 return storeService.getStoreElements();
@@ -20,11 +21,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     var productState = {
-      name: 'product',
-      url: '/product/{productid}',
-      component: 'product',
+        name: 'product',
+        url: '/product/{productid}',
+        templateUrl: './views/product.html',
+        controller: 'productController as product',
+        resolve: {
+            productElement: function(storeService, $transition$) {
+                return storeService.getProductById($transition$.params().productid);
+            }
+        }
     };
-
 
 
     $stateProvider.state(homeState);
