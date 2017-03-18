@@ -7,16 +7,8 @@ CREATE TABLE Public.Categories(
   categoryName VARCHAR(100) NOT NULL
 );
 
-CREATE TABLE  Public.Products(
-  productId SERIAL PRIMARY KEY,
-  productName VARCHAR(100) NOT NULL,
-  categoryId INTEGER REFERENCES Public.Categories(categoryId)
-);
-
-
 CREATE TABLE Public.Options(
   optionId SERIAL PRIMARY KEY,
-  productId INTEGER REFERENCES Public.Products(productId),
   optionName VARCHAR(50),
   optionImageColor VARCHAR(7) DEFAULT NULL,
   optionImageIcon VARCHAR(100) DEFAULT NULL,
@@ -33,6 +25,22 @@ CREATE TABLE Public.Images(
   optionId INTEGER REFERENCES Public.Options(optionId),
   imageUrl VARCHAR(100)
 );
+
+
+CREATE TABLE  Public.Products(
+  productId SERIAL PRIMARY KEY,
+  productName VARCHAR(100) NOT NULL,
+  categoryId INTEGER REFERENCES Public.Categories(categoryId),
+  optionId1 INTEGER REFERENCES Public.Options(optionId),
+  optionId2 INTEGER REFERENCES Public.Options(optionId) DEFAULT NULL,
+  optionId3 INTEGER REFERENCES Public.Options(optionId) DEFAULT NULL,
+  optionId4 INTEGER REFERENCES Public.Options(optionId) DEFAULT NULL,
+  optionId5 INTEGER REFERENCES Public.Options(optionId) DEFAULT NULL,
+  optionId6 INTEGER REFERENCES Public.Options(optionId) DEFAULT NULL,
+  optionId7 INTEGER REFERENCES Public.Options(optionId) DEFAULT NULL,
+  optionId8 INTEGER REFERENCES Public.Options(optionId) DEFAULT NULL
+);
+
 
 CREATE TABLE Public.Bundles(
   bundleId SERIAL PRIMARY KEY,

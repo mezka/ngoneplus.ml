@@ -1,3 +1,0 @@
-SELECT Products.productId, Products.productName, optionName, optionImageColor, optionImageIcon, optionImage1, optionImage2, optionImage3, optionImage4, optionImage5, optionDimensions, optionWeight, optionMaterials, optionInput, optionOutput, optionPrice AS productPrice FROM Products
-INNER JOIN Options ON Products.optionId1 = Options.optionId OR Products.optionId2 = Options.optionId OR Products.optionId3 = Options.optionId OR Products.optionId4 = Options.optionId OR Products.optionId5 = Options.optionId OR Products.optionId6 = Options.optionId OR Products.optionId7 = Options.optionId OR Products.optionId8 = Options.optionId
-WHERE productId = $1;

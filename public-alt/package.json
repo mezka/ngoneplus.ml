@@ -1,5 +1,5 @@
 {
-  "name": "nodejs-oneplus",
+  "name": "public-alt",
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
@@ -9,11 +9,9 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.17.1",
-    "connect-pg-simple": "^3.1.2",
-    "cors": "^2.8.1",
-    "express": "^4.15.2",
-    "express-session": "^1.15.1",
-    "massive": "^2.6.0"
+    "angular": "^1.6.3",
+    "angular-ui-router": "^1.0.0-rc.1",
+    "gulp-sass": "^3.1.0",
+    "jquery": "^3.2.0"
   }
 }
