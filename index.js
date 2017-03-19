@@ -42,6 +42,13 @@ app.get('/api/product/:id', function(req, res) {
     });
 });
 
+app.post('/api/cart/add', function(req, res){
+  //todo
+});
+
+app.get('/api/cart', function(req, res){
+  //todo
+});
 
 
 

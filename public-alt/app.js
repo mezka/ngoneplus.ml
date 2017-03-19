@@ -26,9 +26,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: './views/product.html',
         controller: 'productController as product',
         resolve: {
-            productElement: function(storeService, $transition$) {
+            options: function(storeService, $transition$) {
                 return storeService.getProductById($transition$.params().productid);
-            }
+            },
         }
     };
 
