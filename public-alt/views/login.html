@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<h1>Log In</h1>
+<label>E-mail</label>
+<input type="email" ng-model="user.email" required>
+<label>Password</label>
+<input type="password" ng-model="user.password" ng-minlength="6" ng-maxlength="20" ng-pattern="/^.*(?=.*\d)(?=.*[a-zA-Z]).*$/" required>
+
+<button class="btn btn-default">Log In</button>
+
+<a ui-sref="signup">Sign up with email</a>
+
+<!-- <pre ng-bind="user | json"></pre> -->

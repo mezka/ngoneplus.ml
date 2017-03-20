@@ -55,11 +55,20 @@ CREATE TABLE Public.ProductImages(
   imageUrl VARCHAR(100)
 );
 
+CREATE TABLE Public.Users(
+  userId SERIAL PRIMARY KEY,
+  userEmail VARCHAR(60) NOT NULL,
+  userName VARCHAR(50) NOT NULL,
+  userLastName VARCHAR(50) NOT NULL,
+  userAddress1 VARCHAR(80) NOT NULL,
+  userAddress2 VARCHAR(50)
+);
 
 CREATE TABLE Public.Carts(
   cartId SERIAL PRIMARY KEY,
-  checkedOut BOOLEAN DEFAULT FALSE,
-  createdDate timestamptz NOT NULL DEFAULT now()
+  userId INTEGER REFERENCES Public.Users(userId),
+  createdDate timestamptz NOT NULL DEFAULT now(),
+  checkedOut BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE Public.CartItems(
@@ -71,16 +80,7 @@ CREATE TABLE Public.CartItems(
   discount INTEGER DEFAULT 0
 );
 
-CREATE TABLE Public.Sessions(
-  sessionId SERIAL PRIMARY KEY,
-  cartID INTEGER REFERENCES Public.Carts(cartId)
-);
-
-CREATE TABLE Public.Users(
-  userEmail VARCHAR(60) PRIMARY KEY,
-  userName VARCHAR(50) NOT NULL,
-  userLastName VARCHAR(50) NOT NULL,
-  userAddress1 VARCHAR(80) NOT NULL,
-  userAddress2 VARCHAR(50),
-  sessionId INTEGER REFERENCES Public.Sessions
-);
+CREATE TABLE Passwords(
+    userId INTEGER REFERENCES Public.Users(userId) UNIQUE,
+    passwordHash VARCHAR(60) UNIQUE
+)

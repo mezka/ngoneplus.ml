@@ -32,10 +32,24 @@ app.config(function($stateProvider, $urlRouterProvider) {
         }
     };
 
+    var loginState = {
+      name: 'login',
+      url: '/login',
+      templateUrl: './views/login.html'
+    };
+
+    var signupState = {
+      name: 'signup',
+      url: '/signup',
+      templateUrl: './views/signup.html'
+    };
+
 
     $stateProvider.state(homeState);
     $stateProvider.state(storeState);
     $stateProvider.state(productState);
+    $stateProvider.state(loginState);
+    $stateProvider.state(signupState);
 
     $urlRouterProvider.otherwise('/');
 });
