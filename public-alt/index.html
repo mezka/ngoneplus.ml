@@ -25,7 +25,7 @@
             <div class="col-sm-offset-2 col-sm-8 middle-container">
                 <div class="row">
                     <div class="col-sm-2 logo-container">
-                        <div class="logo"></div>
+                        <a ui-sref="home"><div class="logo"></div></a>
                     </div>
 
                     <div class="col-sm-8 main-nav">
@@ -38,7 +38,7 @@
 
                     <nav class="col-sm-2 right-nav">
                         <a ui-sref="login"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
-                        <i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i>
+                        <a ui-sref="cart"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a>
                         <div class="flag"></div>
                     </nav>
                 </div>
@@ -59,6 +59,8 @@
     <script src="./js/store.controller.js"></script>
     <script src="./js/product.controller.js"></script>
     <script src="./js/storeElement.directive.js"></script>
+    <script src="./js/auth.service.js"></script>
+    <script src="./js/login.controller.js"></script>
 
 </body>
 

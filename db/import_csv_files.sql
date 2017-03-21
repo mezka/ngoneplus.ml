@@ -21,3 +21,9 @@ FROM '/home/mezka/ng-oneplus/db/csv/Options.csv' DELIMITER ',' CSV HEADER;
 
 COPY ProductImages(imageId,optionId,imageUrl)
 FROM '/home/mezka/ng-oneplus/db/csv/ProductImages.csv' DELIMITER ',' CSV HEADER;
+
+COPY Users(userId,userEmail,userFirstName,userLastName,userAddress1,userAddress2)
+FROM '/home/mezka/ng-oneplus/db/csv/Users.csv' DELIMITER ',' CSV HEADER;
+
+COPY Passwords(userId,passwordHash)
+FROM '/home/mezka/ng-oneplus/db/csv/Passwords.csv' DELIMITER ',' CSV HEADER;

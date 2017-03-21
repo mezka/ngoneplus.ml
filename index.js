@@ -1,64 +1,95 @@
-var Express = require('express');
-var bodyParser = require('body-parser');
+//REQUIRING MODULES
 var massive = require('massive');
+var express = require('express');
+var bodyParser = require('body-parser');
 var session = require('express-session');
+var cors = require('cors');
 
 
-var app = Express();
+//DECLARING APP, ALSO MAKING IT AVAILABLE FOR PASSPORT SERVICE
+
+var app = module.exports = express();
 var port = 9876;
 
-app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
-
-app.use(Express.static('public-alt'));
-
-app.use(session({
-  saveUninitialized: true,
-  secret: 'old watch'
-}));
+//CONNECT db USING connectionString
 
 var connectionString = "postgres://mezka@localhost:5432/oneplus";
+var massiveInstance = massive.connectSync({
+    connectionString: connectionString
+});
 
-// connect to Massive and get the db instance. You can safely use the
-// convenience sync method here because its on app load
-// you can also use loadSync - it's an alias
-var massiveInstance = massive.connectSync({connectionString : connectionString});
+//SET db PROPERTY FOR BEING ABLE TO USE IT APPLICATION WIDE
 
-// Set a reference to the massive instance on Express' app:
 app.set('db', massiveInstance);
-
 var db = app.get('db');
 
-app.get('/api/store', function(req, res) {
+//REQUIRING CONTROLLERS
 
-    db.get_store_elements(function(error, result) {
-      res.status(200).send(result);
-    });
+var dbController = require('./controllers/dbController.js');
+var cartController = require('./controllers/cartController.js');
+var authController = require('./controllers/authController.js');
+
+//ADD BODY PARSER
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({
+    extended: true
+}));
+
+//GET PRE CONFIGURED PASSPORT INSTANCE
+
+var passport = require('./services/passport.js');
+
+//CONFIGURE AND ADD SESSION, INITIALIZE PASSPORT AND ADD IT, INITIALIZE PASSPORT SESSION AND ADD IT
+
+app.use(session({
+    saveUninitialized: false,
+    resave: false,
+    secret: 'old watch'
+}));
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+app.post('/api/login', passport.authenticate('local', {
+    successRedirect: '/api/login/success',
+    failureRedirect: '/api/login/failure',
+    failureFlash: false
+}));
+
+//ADD STATIC SERVE
+
+app.use(express.static(__dirname + '/public-alt'));
+
+//ADD cors
+
+app.use(cors());
+
+//AUTH METHODS
+
+
+app.get('/api/login/success', authController.sendAuthSuccesful);
+app.get('/api/login/failure', authController.sendAuthFailed);
+app.get('/logout', authController.logout);
+
+//PRODUCT DATA METHODS
+
+app.get('/api/store', dbController.getStoreElements, function(req, res){
+  res.status(200).send(req.result);
 });
 
-app.get('/api/product/:id', function(req, res) {
-    db.get_product_by_id([req.param('id')], function(error, result) {
-      res.status(200).send(result);
-    });
+app.get('/api/product/:id', dbController.getProductById, function(req, res){
+  res.status(200).send(req.result);
 });
 
-app.post('/api/cart/add', function(req, res){
-  //todo
-});
+//CART METHODS
 
-app.get('/api/cart', function(req, res){
-  //todo
-});
+app.post('/api/cart', cartController.addProductToCart);
+app.get('/api/cart', cartController.getProductFromCart);
 
 
+//LISTEN TO PORT 9876
 
-app.listen(port, function(){
+app.listen(port, function() {
     console.log('Listening on port: ', port);
 });
-
-function deleteNullValues(obj){
-  for(var key in obj){
-    if(obj[key] === null)
-      delete obj[key];
-  }
-}

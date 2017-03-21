@@ -58,10 +58,10 @@ CREATE TABLE Public.ProductImages(
 CREATE TABLE Public.Users(
   userId SERIAL PRIMARY KEY,
   userEmail VARCHAR(60) NOT NULL,
-  userName VARCHAR(50) NOT NULL,
+  userFirstName VARCHAR(50) NOT NULL,
   userLastName VARCHAR(50) NOT NULL,
   userAddress1 VARCHAR(80) NOT NULL,
-  userAddress2 VARCHAR(50)
+  userAddress2 VARCHAR(80)
 );
 
 CREATE TABLE Public.Carts(
@@ -80,7 +80,7 @@ CREATE TABLE Public.CartItems(
   discount INTEGER DEFAULT 0
 );
 
-CREATE TABLE Passwords(
+CREATE TABLE Public.Passwords(
     userId INTEGER REFERENCES Public.Users(userId) UNIQUE,
     passwordHash VARCHAR(60) UNIQUE
 )

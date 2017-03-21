@@ -1,5 +1,10 @@
 var app = angular.module('app', ['ui.router']);
 
+app.config(['$qProvider', function ($qProvider) {
+    $qProvider.errorOnUnhandledRejections(false);
+}]);
+
+
 app.config(function($stateProvider, $urlRouterProvider) {
 
     var homeState = {
@@ -23,7 +28,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     var productState = {
         name: 'product',
         url: '/product/{productid}',
-        templateUrl: './views/product.html',
+        templateUrl: '../views/product.html',
         controller: 'productController as product',
         resolve: {
             options: function(storeService, $transition$) {
@@ -35,7 +40,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     var loginState = {
       name: 'login',
       url: '/login',
-      templateUrl: './views/login.html'
+      templateUrl: './views/login.html',
+      controller: 'loginController as login'
     };
 
     var signupState = {
@@ -44,12 +50,20 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: './views/signup.html'
     };
 
+    var cartState = {
+      name: 'cart',
+      url: '/cart',
+      templateUrl: './views/cart.html'
+    };
+
 
     $stateProvider.state(homeState);
     $stateProvider.state(storeState);
     $stateProvider.state(productState);
     $stateProvider.state(loginState);
     $stateProvider.state(signupState);
+    $stateProvider.state(cartState);
+
 
     $urlRouterProvider.otherwise('/');
 });

@@ -47,6 +47,8 @@ html {
     background-size: contain;
     height: 20px;
     width: 20px; }
+  .right-nav a:hover {
+    color: #070000; }
 
 .hero {
   position: relative;
