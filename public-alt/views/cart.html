@@ -1,0 +1,27 @@
+<div class="row cart-element" ng-repeat="item in cart.items">
+  <div class="col-sm-4">
+    <img class="option-img" ng-src="./img/store/{{item.imageurl}}" alt="option">
+  </div>
+  <div class="col-sm-4">
+    <span>{{item.productname + ' ' + item.optionname}}</span>
+  </div>
+  <div class="col-sm-4">
+    <p>Quantity: {{item.quantity}}</p>
+    <p>Unit Price: ${{item.optionprice}}</p>
+    <p>Subtotal: ${{item.optionprice * item.quantity}}</p>
+  </div>
+</div>
+
+
+<div class="row cart-details">
+  <div class="col-sm-offset-9 col-sm-3">
+    <span>Total: ${{cart.calculateTotal()}}</span>
+  </div>
+</div>
+
+<div class="row cart-nav">
+  <div class="col-sm-offset-9 col-sm-3">
+    <button ng-click = "cart.clearCart()">Clear</button>
+    <button ng-click = "cart.checkoutCart()">Checkout</button>
+  </div>
+</div>

@@ -47,13 +47,27 @@ app.config(function($stateProvider, $urlRouterProvider) {
     var signupState = {
       name: 'signup',
       url: '/signup',
-      templateUrl: './views/signup.html'
+      templateUrl: './views/signup.html',
+      controller: 'signupController as signup'
     };
 
     var cartState = {
       name: 'cart',
       url: '/cart',
-      templateUrl: './views/cart.html'
+      templateUrl: './views/cart.html',
+      controller: 'cartController as cart',
+      resolve:{
+        items: function(cartService){
+          return cartService.getCart();
+        }
+      }
+    };
+
+    var checkoutState = {
+      name: 'checkout',
+      url: '/checkout/{orderid}',
+      templateUrl: './views/checkout.html',
+      controller: 'paymentController as payment'
     };
 
 
@@ -63,6 +77,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state(loginState);
     $stateProvider.state(signupState);
     $stateProvider.state(cartState);
+    $stateProvider.state(checkoutState);
 
 
     $urlRouterProvider.otherwise('/');

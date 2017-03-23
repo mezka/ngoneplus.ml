@@ -13,6 +13,14 @@ function loginController(authService, $state){
     });
   };
 
+
+  this.currentUserId = function(){
+    return authService.currentUserId();
+  };
+
+  this.logout = authService.logout;
+
+
 }
 
 angular.module('app').controller('loginController', loginController);

@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<form ng-submit="payment.charge(payment.info)" class="col-xs-4">
+    <h1>Angular-Stripe w/ Custom Form</h1><br><br>
+    <section class="form-group">
+      <label>Price to charge:</label>
+      <input
+      class="form-control"
+      type="text"
+      name=""
+      ng-model="payment.info.amount"
+      placeholder="type in '5.95'"
+      required>
+    </section>
+    <section class="form-group">
+        <label>Name on card:</label>
+        <input
+        type="text"
+        name="name"
+        class="form-control"
+        placeholder="any random name"
+        required>
+    </section>
+    <section class="form-group">
+        <label>Card number:</label>
+        <input
+        class="form-control"
+        ng-model="payment.info.cardnumber"
+        type="text"
+        placeholder="use one of Stripe's test card numbers"
+        required>
+    </section>
+    <section class="form-group">
+        <label>CVC:</label>
+        <input
+        class="form-control"
+        ng-model="payment.info.cvc"
+        placeholder="random CVC number"
+        type="text"
+        required>
+    </section>
+    <section class="form-group">
+        <label>Exp. Mo</label>
+        <input
+        class="form-control"
+        ng-model="payment.info.exp_month"
+        type="text"
+        name="name"
+        placeholder="MM">
+    </section>
+    <section class="form-group">
+        <label>Exp. Yr</label>
+        <input
+        class="form-control"
+        ng-model="payment.info.exp_year"
+        type="text"
+        name="name"
+        placeholder="YY">
+    </section>
+    <button class="btn btn-primary" type="sumbit">Confirm</button>
+</form>

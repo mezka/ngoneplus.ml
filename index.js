@@ -11,6 +11,10 @@ var cors = require('cors');
 var app = module.exports = express();
 var port = 9876;
 
+//REQUIRING GITIGNORED SECRET KEYS
+
+var keys = require('./keys.js');
+
 //CONNECT db USING connectionString
 
 var connectionString = "postgres://mezka@localhost:5432/oneplus";
@@ -28,6 +32,7 @@ var db = app.get('db');
 var dbController = require('./controllers/dbController.js');
 var cartController = require('./controllers/cartController.js');
 var authController = require('./controllers/authController.js');
+var stripeController = require('./controllers/stripeController.js');
 
 //ADD BODY PARSER
 
@@ -45,7 +50,7 @@ var passport = require('./services/passport.js');
 app.use(session({
     saveUninitialized: false,
     resave: false,
-    secret: 'old watch'
+    secret: keys.sessionSecretKey
 }));
 
 app.use(passport.initialize());
@@ -70,7 +75,8 @@ app.use(cors());
 
 app.get('/api/login/success', authController.sendAuthSuccesful);
 app.get('/api/login/failure', authController.sendAuthFailed);
-app.get('/logout', authController.logout);
+app.post('/api/logout', authController.logout);
+app.post('/api/register', dbController.registerUser);
 
 //PRODUCT DATA METHODS
 
@@ -85,8 +91,13 @@ app.get('/api/product/:id', dbController.getProductById, function(req, res){
 //CART METHODS
 
 app.post('/api/cart', cartController.addProductToCart);
-app.get('/api/cart', cartController.getProductFromCart);
+app.get('/api/cart', cartController.getCart);
+app.post('/api/cart/checkout', dbController.checkoutCart);
+app.post('/api/cart/clear', cartController.clearCart);
 
+//TEST METHODS
+
+app.post('/api/test', stripeController.makePayment);
 
 //LISTEN TO PORT 9876
 

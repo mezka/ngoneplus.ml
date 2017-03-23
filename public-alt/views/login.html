@@ -1,15 +1,23 @@
 <!DOCTYPE html>
-<h1>Log In</h1>
+  <div ng-if = "!login.currentUserId()">
+    <h1>Log In</h1>
 
-<form action="">
-    <label>E-mail</label>
-    <input type="email" ng-model="login.user.email" required>
-    <label>Password</label>
+    <form action="">
+        <label>E-mail</label>
+        <input type="email" ng-model="login.user.email" required>
 
-    <input type="password" ng-model="login.user.password" ng-minlength="6" ng-maxlength="20" required>
-    <button class="btn btn-default" ng-click="login.attempt(login.user.email, login.user.password)">Log In</button>
-</form>
+        <label>Password</label>
+        <input type="password" ng-model="login.user.password" ng-minlength="6" ng-maxlength="20" required>
+        <input type="submit" ng-click = "login.attempt(login.user.email, login.user.password)" value="Log In">
+    </form>
 
-<a ui-sref="signup">Sign up with email</a>
+    <a ui-sref="signup">Sign up with email</a>
+  </div>
+  
+  <div ng-if = "login.currentUserId()">
+    <button ng-click = "login.logout()">Log Out</button>
+  </div>
+
+
 
 <!-- <pre ng-bind="user | json"></pre> -->

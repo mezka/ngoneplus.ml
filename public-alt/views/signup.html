@@ -1,19 +1,22 @@
-<h1>Sign Up</h1>
-<label>E-mail</label>
-<input type="email" ng-model="user.email">
-<label>First name</label>
-<input type="text" ng-model="user.firstName" required>
-<label>Last name</label>
-<input type="text" ng-model="user.lastName" required>
+<form action="">
+    <h1>Sign Up</h1>
+    <label>E-mail</label>
+    <input type="email" ng-model="signup.user.email" required>
+    <label>First name</label>
+    <input type="text" ng-model="signup.user.firstName" required>
+    <label>Last name</label>
+    <input type="text" ng-model="signup.user.lastName" required>
 
-<label>Adress 1</label>
-<input type="text" ng-model="user.address1" required>
+    <label>Adress 1</label>
+    <input type="text" ng-model="signup.user.address1" required>
 
-<label>Adress 2</label>
-<input type="text" ng-model="user.address2">
+    <label>Adress 2</label>
+    <input type="text" ng-model="signup.user.address2">
 
-<label>Password</label>
-<input type="password" ng-model="user.password" ng-minlength="6" ng-maxlength="20" ng-pattern="/^.*(?=.*\d)(?=.*[a-zA-Z]).*$/" required>
-<label>Password (repeat)</label>
-<input type="password" ng-model="user.password" ng-minlength="6" ng-maxlength="20" ng-pattern="/^.*(?=.*\d)(?=.*[a-zA-Z]).*$/" required>
-<pre ng-bind="user | json"></pre>
+    <label>Password</label>
+    <input type="password" ng-model="signup.user.password" ng-minlength="6" ng-maxlength="20" required>
+    <label>Password (repeat)</label>
+    <input type="password" ng-model="signup.user.password" ng-minlength="6" ng-maxlength="20" required>
+
+    <input type="button" ng-click = "signup.register(signup.user.email, signup.user.firstName, signup.user.lastName, signup.user.address1, signup.user.address2, signup.user.password)">
+</form>
