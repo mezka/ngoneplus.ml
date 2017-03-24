@@ -3,7 +3,7 @@ function paymentService($http) {
     this.charge = function(info) {
         return $http({
             method: 'POST',
-            url: '/api/test',
+            url: '/api/cart/charge',
             data: {
                 cardnumber: info.cardnumber,
                 cvc: info.cvc,
@@ -15,7 +15,7 @@ function paymentService($http) {
                 return response.data;
             }
         }).catch(function(response) {
-            console.log(response.status);
+            console.log(response.data);
         });
     };
 }

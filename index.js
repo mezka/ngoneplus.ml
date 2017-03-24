@@ -75,7 +75,7 @@ app.use(cors());
 
 app.get('/api/login/success', authController.sendAuthSuccesful);
 app.get('/api/login/failure', authController.sendAuthFailed);
-app.post('/api/logout', authController.authorize, authController.logout);
+app.post('/api/logout', authController.authorize, authController.logout); //REQUIRES LOGIN
 app.post('/api/register', dbController.registerUser);
 
 //PRODUCT DATA METHODS
@@ -93,12 +93,12 @@ app.get('/api/product/:id', dbController.getProductById, function(req, res){
 
 app.post('/api/cart', cartController.addProductToCart);
 app.get('/api/cart', cartController.getCart);
-app.post('/api/cart/checkout', authController.authorize, dbController.checkoutCart);
+app.post('/api/cart/checkout', authController.authorize, dbController.checkoutCart); //REQUIRES LOGIN
 app.post('/api/cart/clear', cartController.clearCart);
 
 //TEST METHODS
 
-app.post('/api/test', authController.authorize, stripeController.makePayment);
+app.post('/api/cart/charge', authController.authorize, stripeController.makePayment); //REQUIRES LOGIN
 
 //LISTEN TO PORT 9876
 

@@ -20,7 +20,7 @@ function cartController(items, cartService, $state) {
             return items[0].optionprice * items[0].quantity;
         } else {
             return items.reduce(function(prevElement, currElement) {
-                return prevElement.quantity * prevElement.optionprice + currElement.quantity * prevElement.optionprice;
+                return prevElement.quantity * prevElement.optionprice + currElement.quantity * curreElement.optionprice;
             });
         }
     };
