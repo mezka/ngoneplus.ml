@@ -5,7 +5,6 @@ function paymentService($http) {
             method: 'POST',
             url: '/api/test',
             data: {
-                amount: Number(info.amount),
                 cardnumber: info.cardnumber,
                 cvc: info.cvc,
                 exp_year: info.exp_year,

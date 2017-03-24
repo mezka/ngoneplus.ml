@@ -35,32 +35,30 @@ var dbController = {
 
         console.log(req.session.passport);
 
+        var result = db.carts.insertSync({userid: req.session.passport.user}, function(error, result){
+          if (error) {
+              res.status(500).send(error);
+          }
+        });
+
+        var cartId = result[0].cart;
+
         db.createCart([req.session.passport.user], function(error, result) {
 
             if (error) {
                 res.status(500).send(error);
             } else {
                 req.session.cart.forEach(function(element){
-
-                  db.checkoutCart([result[0].cartid, element.productid, element.optionid, element.quantity, element.discount], function(error, result) {
+                  db.checkoutCart([cartId, element.productid, element.optionid, element.quantity, element.discount], function(error, result) {
                     if (error) {
                         res.status(500).send(error);
                     }
-
-                    db.getOrder(result[0].cartid, function(error, result){
-                      if (error) {
-                          res.status(500).send(error);
-                      }
-
-                      res.status(200).send(result);
-                    });
-
+                  });
                 });
-              });
-
-
             }
         });
+
+        res.status(200).send(cartId);
     },
 
     registerUser: function(req, res, next){

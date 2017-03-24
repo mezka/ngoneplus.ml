@@ -65,7 +65,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     var checkoutState = {
       name: 'checkout',
-      url: '/checkout/{orderid}',
+      url: '/checkout',
       templateUrl: './views/checkout.html',
       controller: 'paymentController as payment'
     };

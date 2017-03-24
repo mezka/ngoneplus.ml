@@ -7,14 +7,17 @@ var stripeController = {
     makePayment: function(req, res, next) {
 
         var user = db.users.findSync({
-            useremail: "emiliano_mesquita@hotmail.com"
+            userid: req.session.passport.user
         });
 
-        user = user[0];
-
-        var useremail = "emiliano_mesquita@hotmail.com";
+        useremail = user[0].useremail;
 
         console.log(user);
+
+
+        var amount = req.session.cart.reduce(function(prevElement, currElement) {
+            return prevElement.quantity * prevElement.optionprice + currElement.quantity * currElement.optionprice;
+        });
 
         // Create a new customer and then a new charge for that customer:
         stripe.customers.create({
@@ -31,19 +34,16 @@ var stripeController = {
             });
         }).then(function(source) {
             return stripe.charges.create({
-                amount: amountToPennies(req.body.amount),
+                amount: amountToPennies(amount),
                 currency: 'usd',
                 customer: source.customer
             });
         }).then(function(charge) {
-            // New charge created on a new customer
-            console.log(charge);
+            res.status(200).send(charge);
         }).catch(function(err) {
-            // Deal with an error
-            console.log(err);
+            res.status(400).send(err);
         });
 
-        res.status(200).send();
     }
 };
 
