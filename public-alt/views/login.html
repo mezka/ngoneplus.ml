@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-  <div ng-if = "!login.currentUserId()">
+  <div class ="login-flex" ng-if = "!login.isAuthenticated()">
     <h1>Log In</h1>
 
     <form action="">
@@ -13,8 +13,8 @@
 
     <a ui-sref="signup">Sign up with email</a>
   </div>
-  
-  <div ng-if = "login.currentUserId()">
+
+  <div class = "logout-flex" ng-if = "login.isAuthenticated()">
     <button ng-click = "login.logout()">Log Out</button>
   </div>
 

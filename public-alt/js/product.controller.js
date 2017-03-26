@@ -2,6 +2,7 @@ function productController(options, cartService, $stateParams){
   options.forEach(firstImageIsCurrentImage);
   this.options = options;
   this.currentOption = options[0];
+  this.quantity = '1';
 
   this.changeCurrentImage = function(imageUrl){
     this.currentOption.currentimage = imageUrl;

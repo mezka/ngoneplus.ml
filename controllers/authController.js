@@ -21,7 +21,7 @@ var authController = {
     }else {
       next();
     }
-  }
+  },
 };
 
 

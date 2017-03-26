@@ -1,7 +1,6 @@
 DROP SCHEMA IF EXISTS Public CASCADE;
 CREATE SCHEMA Public;
 
-
 CREATE TABLE Public.Categories(
   categoryId SERIAL PRIMARY KEY,
   categoryName VARCHAR(100) NOT NULL
@@ -81,6 +80,7 @@ CREATE TABLE Public.CartItems(
 );
 
 CREATE TABLE Public.Passwords(
-    userId INTEGER REFERENCES Public.Users(userId) UNIQUE,
+    passwordId SERIAL PRIMARY KEY,
+    userId INTEGER REFERENCES Public.Users(userId),
     passwordHash VARCHAR(60) UNIQUE
 )

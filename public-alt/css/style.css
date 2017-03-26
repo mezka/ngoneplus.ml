@@ -199,12 +199,32 @@ html {
     .footer .right-footer i {
       margin-top: 2px; }
 
+.store-main {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; }
+
 .store-element {
-  display: inline-block;
-  width: 25%; }
-  .store-element img {
-    width: 100%;
-    height: auto; }
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 33vw;
+  overflow-x: hidden; }
+  .store-element a {
+    width: 100%; }
+    .store-element a img {
+      width: 100%;
+      height: auto; }
+
+.option-flex-container {
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-around; }
+
+.option-img-container {
+  width: 33%;
+  flex-grow: 1; }
 
 .option-img {
   width: 100%; }
@@ -214,3 +234,45 @@ html {
 
 .background {
   background: none; }
+
+.cart-element {
+  min-height: 300px;
+  box-sizing: border-box; }
+  .cart-element .cart-title-flex {
+    min-height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center; }
+  .cart-element .cart-item-flex {
+    min-height: inherit; }
+
+.login-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; }
+  .login-flex form {
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between; }
+
+.logout-flex {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
+
+.signup-flex {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center; }
+  .signup-flex form {
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center; }
+    .signup-flex form input {
+      width: inherit; }

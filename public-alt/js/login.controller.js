@@ -4,8 +4,7 @@ function loginController(authService, $state){
 
     authService.attemptLogin(userEmail, userPassword).then(function(data){
       if(data){
-        // $state.go('home', {});
-        console.log(data);
+        $state.go('home');
       }else{
         //TODO FLASH MESSAGE
         console.log('flash wrong password');
@@ -14,13 +13,11 @@ function loginController(authService, $state){
   };
 
 
-  this.currentUserId = function(){
-    return authService.currentUserId();
+  this.isAuthenticated = function(){
+    return authService.isAuthenticated();
   };
 
   this.logout = authService.logout;
-
-
 }
 
 angular.module('app').controller('loginController', loginController);

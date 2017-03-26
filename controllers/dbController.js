@@ -1,5 +1,8 @@
+var bcrypt = require('bcryptjs');
 var app = require('../index.js');
 var db = app.get('db');
+
+
 
 
 var dbController = {
@@ -62,13 +65,22 @@ var dbController = {
     },
 
     registerUser: function(req, res, next){
-      db.addUser([req.body.useremail, req.body.username, req.body.userlastname, req.body.useraddress1, req.body.useraddress2], function(error, result){
-        if(error){
-          res.status(500).send(error);
-        }else{
-          res.status(200).send(response);
-        }
-      });
+
+      console.log(req.body);
+
+      var newUser = db.users.insertSync({useremail: req.body.useremail, userfirstname: req.body.userfirstname, userlastname: req.body.userlastname, useraddress1: req.body.useraddress1, useraddress2: req.body.useraddress2});
+
+      var salt = bcrypt.genSaltSync(10);
+      var hash = bcrypt.hashSync(req.body.userpassword);
+
+      console.log(hash);
+
+      console.log(db);
+
+
+      db.passwords.insert({userid: newUser.userid, passwordhash: hash});
+
+      res.status(200).send(req.body.useremail);
     }
 
 };

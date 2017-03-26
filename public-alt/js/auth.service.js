@@ -1,8 +1,15 @@
 function authService($http){
 
-  this.currentUserId = function(){
-    var data = sessionStorage.getItem('userid');
-    return data;
+  this.isAuthenticated = function(){
+    var userId = sessionStorage.getItem('userid');
+
+    console.log(userId);
+
+    if(userId)
+      return true;
+    else {
+      return false;
+    }
   };
 
   this.attemptLogin = function(userEmail, userPassword) {
@@ -44,16 +51,17 @@ function authService($http){
   };
 
 
-  this.register = function(useremail, username, userlastname, useraddress1, useraddress2){
+  this.register = function(useremail, userfirstname, userlastname, useraddress1, useraddress2, userpassword){
     return $http({
         method: 'POST',
         url: '/api/register',
         data:{
           useremail: useremail,
-          username: username,
+          userfirstname: userfirstname,
           userlastname: userlastname,
           useraddress1: useraddress1,
-          useraddress2: useraddress2
+          useraddress2: useraddress2,
+          userpassword: userpassword
         }
     }).then(function(response){
         if (response.status === 200){

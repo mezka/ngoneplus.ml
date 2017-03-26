@@ -23,9 +23,21 @@ var cart = {
 
   updateCartElement: function(req, res){
     var newCartObj = req.body;
-    var cartObj = req.session.cart.find(createCallbackKeyEqualsValue('tempid', newCartObj.cartelementid));
+    var cartObj = req.session.cart.find(createCallbackKeyEqualsValue('tempid', newCartObj.tempid));
 
     cartObj = newCartObj;
+
+    res.status(200).json(rew.session.cart);
+  },
+
+  deleteCartElement: function(req, res){
+
+    var toDeleteIndex = req.session.cart.findIndex(createCallbackKeyEqualsValue('tempid', req.body.tempid));
+
+    if(toDeleteIndex !== -1)
+      req.session.cart.splice(toDeleteIndex, 1);
+
+    res.status(200).json(req.session.cart);
   },
 
   clearCart: function(req, res){

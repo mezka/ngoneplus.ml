@@ -95,6 +95,7 @@ app.post('/api/cart', cartController.addProductToCart);
 app.get('/api/cart', cartController.getCart);
 app.post('/api/cart/checkout', authController.authorize, dbController.checkoutCart); //REQUIRES LOGIN
 app.post('/api/cart/clear', cartController.clearCart);
+app.post('/api/cart/delete', cartController.deleteCartElement);
 
 //TEST METHODS
 

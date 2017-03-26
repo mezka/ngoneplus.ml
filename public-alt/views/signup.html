@@ -1,22 +1,26 @@
-<form action="">
-    <h1>Sign Up</h1>
-    <label>E-mail</label>
-    <input type="email" ng-model="signup.user.email" required>
-    <label>First name</label>
-    <input type="text" ng-model="signup.user.firstName" required>
-    <label>Last name</label>
-    <input type="text" ng-model="signup.user.lastName" required>
+<!DOCTYPE html>
 
-    <label>Adress 1</label>
-    <input type="text" ng-model="signup.user.address1" required>
+<div class="signup-flex">
+    <form class="signup-form" ng-submit="signup.register(signup.user)">
+        <h1>Sign Up</h1>
+        <label>E-mail</label>
+        <input type="email" ng-model="signup.user.useremail" required>
+        <label>First name</label>
+        <input type="text" ng-model="signup.user.userfirstname" required>
+        <label>Last name</label>
+        <input type="text" ng-model="signup.user.userlastname" required>
 
-    <label>Adress 2</label>
-    <input type="text" ng-model="signup.user.address2">
+        <label>Adress 1</label>
+        <input type="text" ng-model="signup.user.useraddress1" required>
 
-    <label>Password</label>
-    <input type="password" ng-model="signup.user.password" ng-minlength="6" ng-maxlength="20" required>
-    <label>Password (repeat)</label>
-    <input type="password" ng-model="signup.user.password" ng-minlength="6" ng-maxlength="20" required>
+        <label>Adress 2</label>
+        <input type="text" ng-model="signup.user.useraddress2">
 
-    <input type="button" ng-click = "signup.register(signup.user.email, signup.user.firstName, signup.user.lastName, signup.user.address1, signup.user.address2, signup.user.password)">
-</form>
+        <label>Password</label>
+        <input type="password" ng-model="signup.user.userpassword" ng-minlength="6" ng-maxlength="20" required>
+        <label>Password (repeat)</label>
+        <input type="password" ng-model="signup.user.userpassword" ng-minlength="6" ng-maxlength="20" required>
+
+        <button type="submit">Sign Up</button>
+    </form>
+</div>

@@ -1,4 +1,4 @@
-function paymentController(paymentService){
+function paymentController(paymentService, cartid){
   this.charge = function(info){
     paymentService.charge(info).then(function(data){
       console.log(data);

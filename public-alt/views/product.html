@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <div class="row graybox">
-    <div class="col-sm-offset-1 col-sm-2">
-
-        <div ng-repeat="imageurl in product.currentOption.imageurls">
+    <div class="col-sm-3 option-flex-container">
+        <div class = "option-img-container" ng-repeat="imageurl in product.currentOption.imageurls">
             <img class="option-img" ng-src="./img/store/{{imageurl}}" alt="option" ng-click="product.changeCurrentImage(imageurl)">
         </div>
 
@@ -15,9 +14,11 @@
         <h2>{{product.currentOption.optionprice}}</h2>
 
         <div ng-repeat="option in product.options" ng-class="option.radioclass">
+          <label>
             <input type="radio" ng-model="product.currentOption" ng-value="option">
+            {{option.optionname}}
+          </label>
         </div>
-
         <label for="singleSelect">Quantity: </label>
         <select name="singleSelect" ng-model="product.quantity">
           <option value="1">1</option>

@@ -10,7 +10,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     var homeState = {
         name: 'home',
         url: '/',
-        templateUrl: './views/home.html'
+        templateUrl: './views/home.html',
+        authenticate: false
     };
 
     var storeState = {
@@ -18,6 +19,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
         url: '/store',
         templateUrl: './views/store.html',
         controller: 'storeController as store',
+        authenticate: false,
         resolve: {
             storeElements: function(storeService) {
                 return storeService.getStoreElements();
@@ -41,21 +43,21 @@ app.config(function($stateProvider, $urlRouterProvider) {
       name: 'login',
       url: '/login',
       templateUrl: './views/login.html',
-      controller: 'loginController as login'
+      controller: 'loginController as login',
     };
 
     var signupState = {
       name: 'signup',
       url: '/signup',
       templateUrl: './views/signup.html',
-      controller: 'signupController as signup'
+      controller: 'signupController as signup',
     };
 
     var cartState = {
       name: 'cart',
       url: '/cart',
       templateUrl: './views/cart.html',
-      controller: 'cartController as cart',
+      controller: 'cartController',
       resolve:{
         items: function(cartService){
           return cartService.getCart();
@@ -67,7 +69,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
       name: 'checkout',
       url: '/checkout',
       templateUrl: './views/checkout.html',
-      controller: 'paymentController as payment'
+      controller: 'paymentController as payment',
+      resolve:{
+        cartid: function(cartService){
+          cartService.checkoutCart();
+        }
+      }
     };
 
 

@@ -301,19 +301,40 @@ html {
 }
 
 //***********************************STORE*************************************
-
-.store-element{
-
-  display: inline-block;
-
-  width: 25%;
-  img{
-    width: 100%;
-    height: auto;
-  }
+.store-main {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
 }
 
+.store-element {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 33vw;
+    overflow-x: hidden;
+
+    a {
+      width: 100%;
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
 //**********************************PRODUCT************************************
+
+.option-flex-container{
+  display: inline-flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.option-img-container{
+  width: 33%;
+  flex-grow: 1;
+}
 
 .option-img{
   width: 100%;
@@ -325,4 +346,70 @@ html {
 
 .background{
   background: none;
+}
+
+//*******************************CART******************************************
+
+
+.cart-element{
+  min-height: 300px;
+  box-sizing: border-box;
+  .cart-title-flex{
+    min-height: inherit;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cart-item-flex{
+    min-height: inherit;
+  }
+}
+
+
+//*******************************LOGIN*****************************************
+
+
+.login-flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  form{
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+}
+
+.logout-flex{
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+//*******************************SIGNUP*****************************************
+
+.signup-flex{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+  form{
+    width: 35vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    input{
+      width: inherit;
+    }
+  }
+
 }
