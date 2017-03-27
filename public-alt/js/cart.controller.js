@@ -13,11 +13,11 @@ function cartController(items, $scope , cartService, $state) {
         if (!arr || arr.length === 0)
             return 0;
         else if (arr.length === 1) {
-            return arr[0].optionprice * arr[0].quantity;
+            return (arr[0].optionprice * arr[0].quantity).toFixed(2);
         } else {
-            return arr.reduce(function(prevSum, currElement) {
+            return (arr.reduce(function(prevSum, currElement) {
                 return prevSum + currElement.quantity * currElement.optionprice;
-            }, 0);
+            }, 0)).toFixed(2);
         }
 
         // $scope.apply();

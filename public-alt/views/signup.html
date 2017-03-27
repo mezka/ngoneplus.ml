@@ -3,23 +3,41 @@
 <div class="signup-flex">
     <form class="signup-form" ng-submit="signup.register(signup.user)">
         <h1>Sign Up</h1>
-        <label>E-mail</label>
-        <input type="email" ng-model="signup.user.useremail" required>
-        <label>First name</label>
-        <input type="text" ng-model="signup.user.userfirstname" required>
-        <label>Last name</label>
-        <input type="text" ng-model="signup.user.userlastname" required>
 
-        <label>Adress 1</label>
-        <input type="text" ng-model="signup.user.useraddress1" required>
+        <div class="input-flex">
+            <label>E-mail</label>
+            <input type="email" ng-model="signup.user.useremail" required>
+        </div>
 
-        <label>Adress 2</label>
-        <input type="text" ng-model="signup.user.useraddress2">
+        <div class="input-flex">
+            <label>First name</label>
+            <input type="text" ng-model="signup.user.userfirstname" required>
+        </div>
 
-        <label>Password</label>
-        <input type="password" ng-model="signup.user.userpassword" ng-minlength="6" ng-maxlength="20" required>
-        <label>Password (repeat)</label>
-        <input type="password" ng-model="signup.user.userpassword" ng-minlength="6" ng-maxlength="20" required>
+        <div class="input-flex">
+            <label>Last name</label>
+            <input type="text" ng-model="signup.user.userlastname" required>
+        </div>
+
+        <div class="input-flex">
+            <label>Adress 1</label>
+            <input type="text" ng-model="signup.user.useraddress1" required>
+        </div>
+
+        <div class="input-flex">
+            <label>Adress 2</label>
+            <input type="text" ng-model="signup.user.useraddress2">
+        </div>
+
+        <div class="input-flex">
+            <label>Password</label>
+            <input type="password" ng-model="signup.user.userpassword" ng-minlength="6" ng-maxlength="20" required>
+        </div>
+
+        <div class="input-flex">
+            <label>Password (repeat)</label>
+            <input type="password" ng-model="signup.user.userpassword" ng-minlength="6" ng-maxlength="20" required>
+        </div>
 
         <button type="submit">Sign Up</button>
     </form>

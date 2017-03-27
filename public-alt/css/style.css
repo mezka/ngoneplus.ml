@@ -131,8 +131,8 @@ html {
       position: absolute;
       left: 20px;
       bottom: 5px; }
-      .images .image .cornerbox p,
-      .images .image .cornerbox h3 {
+      .images .image .cornerbox h3,
+      .images .image .cornerbox p {
         font-family: 'Lato', sans-serif;
         color: white;
         font-weight: 100; }
@@ -244,7 +244,24 @@ html {
     justify-content: center;
     align-items: center; }
   .cart-element .cart-item-flex {
-    min-height: inherit; }
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+  .cart-element .cart-nav-flex {
+    min-height: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; }
+    .cart-element .cart-nav-flex .icon {
+      display: block; }
+    .cart-element .cart-nav-flex .quantity label {
+      margin: 10px 0;
+      display: inline-block; }
+    .cart-element .cart-nav-flex .quantity select {
+      display: inline-block; }
 
 .login-flex {
   display: flex;
@@ -274,5 +291,18 @@ html {
     flex-direction: column;
     justify-content: space-between;
     align-items: center; }
-    .signup-flex form input {
-      width: inherit; }
+    .signup-flex form .input-flex {
+      width: inherit;
+      display: flex;
+      flex-direction: column;
+      justify-content: center; }
+      .signup-flex form .input-flex input {
+        width: inherit; }
+
+.credit-card-form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center; }
+  .credit-card-form input {
+    width: 40vw; }

@@ -15,9 +15,9 @@ var stripeController = {
         console.log(user);
 
 
-        var amount = req.session.cart.reduce(function(prevElement, currElement) {
-            return prevElement.quantity * prevElement.optionprice + currElement.quantity * currElement.optionprice;
-        });
+        var amount = req.session.cart.reduce(function(sumTotal, currElement) {
+            return sumTotal + currElement.quantity * currElement.optionprice;
+        }, 0);
 
         // Create a new customer and then a new charge for that customer:
         stripe.customers.create({

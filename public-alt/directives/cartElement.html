@@ -9,13 +9,13 @@
   </div>
   <div class="col-sm-offset-1 col-sm-2 cart-item-flex">
     <p>Unit Price: ${{item.optionprice}}</p>
-    <p>Subtotal: ${{item.optionprice * item.quantity}}</p>
+    <p>Subtotal: ${{(item.optionprice * item.quantity).toFixed(2)}}</p>
   </div>
-  <div class="col-sm-2 cart-item-flex">
-    <i class="fa fa-times" aria-hidden="true" ng-click = "deleteCartElement(item.tempid)"></i>
-    <p>Quantity: {{item.quantity}}</p>
-    <label for="quantitySelect">Quantity: </label><br>
-    <select ng-options = "number for number in quantity" name="quantitySelect" ng-model="item.quantity">
-    </select>
+  <div class="col-sm-2 cart-nav-flex">
+      <i class="fa fa-times icon" aria-hidden="true" ng-click = "deleteCartElement(item.tempid)"></i>
 
+      <div class="quantity">
+        <label for="quantitySelect">Quantity: </label>
+        <select ng-options = "number for number in quantity" name="quantitySelect" ng-model="item.quantity"></select>
+      </div>
   </div>

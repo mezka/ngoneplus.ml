@@ -77,6 +77,16 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     };
 
+    var summaryState = {
+      name: 'summary',
+      url: '/summary',
+      templateUrl: './views/summary.html',
+      controller: 'summaryController as summary',
+      params: {
+        stripeObj: null
+      }
+    };
+
 
     $stateProvider.state(homeState);
     $stateProvider.state(storeState);
@@ -85,6 +95,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state(signupState);
     $stateProvider.state(cartState);
     $stateProvider.state(checkoutState);
+    $stateProvider.state(summaryState);
 
 
     $urlRouterProvider.otherwise('/');

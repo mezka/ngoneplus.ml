@@ -22,9 +22,7 @@ html {
         color: #999;
     }
 }
-
 //***********************************INDEX*************************************
-
 .header,
 .middle-container,
 .middle-container > .row,
@@ -70,14 +68,11 @@ html {
         width: 20px;
     }
 
-    a:hover{
-      color: #070000;
+    a:hover {
+        color: #070000;
     }
 }
-
-
 //******************************HOME*******************************************
-
 .hero {
     position: relative;
     font-family: 'Lato', sans-serif;
@@ -113,9 +108,9 @@ html {
             justify-content: space-between;
             height: 30%;
 
-            p{
-              font-size: 24px;
-              font-weight: 100;
+            p {
+                font-size: 24px;
+                font-weight: 100;
             }
 
             .btn-transparent {
@@ -152,52 +147,46 @@ html {
     font-weight: 100;
 
     .review-element {
+        height: inherit;
+        display: inline-flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+        text-align: center;
+        padding: 0;
 
-      height: inherit;
-
-      display: inline-flex;
-      flex-direction: column;
-      justify-content: space-around;
-      align-items: center;
-      text-align: center;
-
-      padding: 0;
-
-        img{
-          width: 250px;
-          height: auto;
-
+        img {
+            width: 250px;
+            height: auto;
         }
 
-        a{
-          color: #00A4DB;
+        a {
+            color: #00A4DB;
         }
     }
 }
 
 .images {
-
     height: 635px;
     margin: 0;
 
     .image {
         position: relative;
-
         height: inherit;
         background-size: cover;
         padding: 0;
 
-        .cornerbox{
-          position: absolute;
-          left: 20px;
-          bottom: 5px;
+        .cornerbox {
+            position: absolute;
+            left: 20px;
+            bottom: 5px;
 
-          p,
-          h3{
-            font-family: 'Lato', sans-serif;
-            color: white;
-            font-weight: 100;
-          }
+            h3,
+            p {
+                font-family: 'Lato', sans-serif;
+                color: white;
+                font-weight: 100;
+            }
         }
     }
 
@@ -241,16 +230,16 @@ html {
             }
 
             .input-container {
-              input {
-                width: 320px;
-                height: 45px;
-              }
+                input {
+                    width: 320px;
+                    height: 45px;
+                }
 
-              button {
-                margin-top: -4px;
-                width: 180px;
-                height: 45px;
-              }
+                button {
+                    margin-top: -4px;
+                    width: 180px;
+                    height: 45px;
+                }
             }
         }
     }
@@ -299,7 +288,6 @@ html {
         }
     }
 }
-
 //***********************************STORE*************************************
 .store-main {
     display: flex;
@@ -316,7 +304,8 @@ html {
     overflow-x: hidden;
 
     a {
-      width: 100%;
+        width: 100%;
+
         img {
             width: 100%;
             height: auto;
@@ -325,91 +314,132 @@ html {
 }
 //**********************************PRODUCT************************************
 
-.option-flex-container{
-  display: inline-flex;
-  flex-wrap: wrap;
-  justify-content: space-around;
+.option-flex-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
 }
 
-.option-img-container{
-  width: 33%;
-  flex-grow: 1;
+.option-img-container {
+    width: 33%;
+    flex-grow: 1;
 }
 
-.option-img{
-  width: 100%;
+.option-img {
+    width: 100%;
 }
 
-.main-img{
-  width: 100%;
+.main-img {
+    width: 100%;
 }
 
-.background{
-  background: none;
+.background {
+    background: none;
 }
-
 //*******************************CART******************************************
+.cart-element {
+    min-height: 300px;
+    box-sizing: border-box;
 
+    .cart-title-flex {
+        min-height: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
 
-.cart-element{
-  min-height: 300px;
-  box-sizing: border-box;
-  .cart-title-flex{
-    min-height: inherit;
+    .cart-item-flex {
+        min-height: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+    }
+
+    .cart-nav-flex {
+        min-height: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+
+        .icon {
+            display: block;
+        }
+
+        .quantity {
+            label {
+                margin: 10px 0;
+                display: inline-block;
+            }
+
+            select {
+                display: inline-block;
+            }
+        }
+    }
+}
+//*******************************LOGIN*****************************************
+.login-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+    form {
+        width: 35vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+    }
+}
+
+.logout-flex {
+    height: 10vh;
     display: flex;
     justify-content: center;
     align-items: center;
-  }
-
-  .cart-item-flex{
-    min-height: inherit;
-  }
 }
-
-
-//*******************************LOGIN*****************************************
-
-
-.login-flex{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-
-  form{
-    width: 35vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-  }
-}
-
-.logout-flex{
-  height: 10vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-
 //*******************************SIGNUP*****************************************
-
-.signup-flex{
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-
-  form{
-    width: 35vw;
+.signup-flex {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
 
-    input{
-      width: inherit;
-    }
-  }
+    form {
+        width: 35vw;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
 
+
+        .input-flex{
+          width: inherit;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+
+          input {
+              width: inherit;
+          }
+        }
+
+
+    }
+}
+
+//*******************************CHECKOUT***************************************
+
+.credit-card-form{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  input{
+    width: 40vw;
+  }
 }
