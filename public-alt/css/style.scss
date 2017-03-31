@@ -6,8 +6,14 @@ html {
         margin: 0;
     }
 
-    .main {
-        padding: 0;
+    body {
+        position: relative;
+    }
+
+    footer {
+        position: absolute;
+        bottom: 0;
+        left: 0;
     }
 
     a {
@@ -23,6 +29,7 @@ html {
     }
 }
 //***********************************INDEX*************************************
+
 .header,
 .middle-container,
 .middle-container > .row,
@@ -73,6 +80,7 @@ html {
     }
 }
 //******************************HOME*******************************************
+
 .hero {
     position: relative;
     font-family: 'Lato', sans-serif;
@@ -205,40 +213,51 @@ html {
 
 .mail {
     height: 440px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: #A1A4A9;
     text-align: center;
     margin: 0;
     font-family: 'Lato', sans-serif;
     color: white;
 
-    .subscribe-container {
-        height: inherit;
+    .title-container {
+        height: 180px;
         display: flex;
         flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
+        justify-content: space-between;
 
-        .title-container {
-            .title {
-                font-size: 3rem;
-                font-weight: 100;
+        .title {
+            color: white;
+            font-size: 3rem;
+            font-weight: 100;
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            font-weight: 100;
+        }
+
+        .input-container {
+            input {
+                width: 320px;
+                height: 45px;
+                border-radius: 4px;
+                margin-right: 5px;
             }
 
-            .subtitle {
-                font-size: 2rem;
-                font-weight: 100;
-            }
+            button {
+                background-color: #707276;
+                margin-top: -4px;
+                width: 180px;
+                height: 45px;
+                border-radius: 4px;
+                box-shadow: none;
+                border: 0;
 
-            .input-container {
-                input {
-                    width: 320px;
-                    height: 45px;
-                }
-
-                button {
-                    margin-top: -4px;
-                    width: 180px;
-                    height: 45px;
+                &:hover {
+                    background-color: #666;
                 }
             }
         }
@@ -246,6 +265,7 @@ html {
 }
 
 .footer {
+    width: 100%;
     margin: 0;
     height: 110px;
     background-color: #EFEFEF;
@@ -289,6 +309,7 @@ html {
     }
 }
 //***********************************STORE*************************************
+
 .store-main {
     display: flex;
     justify-content: space-between;
@@ -300,19 +321,34 @@ html {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    width: 33vw;
+    width: 33%;
     overflow-x: hidden;
+    margin-bottom: 9px;
 
     a {
         width: 100%;
+        display: flex;
+        justify-content: center;
 
-        img {
-            width: 100%;
-            height: auto;
+        .img-container {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            height: 32vh;
+            width: 32vw;
+
+            img {
+                height: 100%;
+                width: auto;
+            }
         }
     }
 }
 //**********************************PRODUCT************************************
+
+.product-wrapper {
+    height: calc(100vh - 60px);
+}
 
 .option-flex-container {
     display: inline-flex;
@@ -325,11 +361,21 @@ html {
     flex-grow: 1;
 }
 
-.option-img {
-    width: 100%;
+.img-wrapper {
+    display: flex;
+    justify-content: center;
+
+    .img-container {
+        width: 600px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
 }
 
-.main-img {
+.option-img {
     width: 100%;
 }
 
@@ -337,50 +383,63 @@ html {
     background: none;
 }
 //*******************************CART******************************************
-.cart-element {
-    min-height: 300px;
-    box-sizing: border-box;
 
-    .cart-title-flex {
-        min-height: inherit;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-    }
+.cart-wrapper {
+    min-height: calc(100vh - 60px);
 
-    .cart-item-flex {
-        min-height: inherit;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+    .cart-container {
+        margin-bottom: 150px;
 
-    }
+        .cart-element {
+            min-height: 300px;
+            box-sizing: border-box;
 
-    .cart-nav-flex {
-        min-height: inherit;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-
-        .icon {
-            display: block;
-        }
-
-        .quantity {
-            label {
-                margin: 10px 0;
-                display: inline-block;
+            .cart-title-flex {
+                min-height: inherit;
+                display: flex;
+                justify-content: center;
+                align-items: center;
             }
 
-            select {
-                display: inline-block;
+            .cart-item-flex {
+                min-height: inherit;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .cart-nav-flex {
+                min-height: inherit;
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                justify-content: center;
+
+                .icon {
+                    display: block;
+                }
+
+                .quantity {
+                    label {
+                        margin: 10px 0;
+                        display: inline-block;
+                    }
+
+                    select {
+                        display: inline-block;
+                    }
+                }
             }
         }
     }
 }
 //*******************************LOGIN*****************************************
+
+.login-wrapper {
+    height: calc(100vh - 60px);
+}
+
 .login-flex {
     display: flex;
     flex-direction: column;
@@ -402,44 +461,60 @@ html {
     align-items: center;
 }
 //*******************************SIGNUP*****************************************
-.signup-flex {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    align-items: center;
 
-    form {
-        width: 35vw;
+.signup-wrapper {
+    height: calc(100vh - 60px);
+
+    .signup-flex {
         display: flex;
         flex-direction: column;
         justify-content: space-between;
         align-items: center;
 
+        form {
+            width: 35vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
 
-        .input-flex{
-          width: inherit;
-          display: flex;
-          flex-direction: column;
-          justify-content: center;
+            .input-flex {
+                width: inherit;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
 
-          input {
-              width: inherit;
-          }
+                input {
+                    width: inherit;
+                }
+            }
         }
-
-
     }
 }
-
 //*******************************CHECKOUT***************************************
 
-.credit-card-form{
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
+.checkout-wrapper {
+    height: calc(100vh - 60px);
 
-  input{
-    width: 40vw;
-  }
+    .credit-card-form {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        input {
+            width: 40vw;
+        }
+    }
+}
+//********************************SUMMARY**************************************
+.summary-wrapper {
+    height: calc(100vh - 60px);
+
+    .summary-flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
 }

@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 
 
-  <div class="col-sm-3">
-    <img class="option-img" ng-src="./img/store/{{item.imageurl}}" alt="option">
+  <div class="col-sm-offset-1 col-sm-3">
+    <div class="img-container">
+      <img class="option-img" ng-src="./img/store/{{item.imageurl}}" alt="option">
+    </div>
   </div>
-  <div class="col-sm-3 cart-title-flex">
+  <div class="col-sm-2 cart-title-flex">
     <p>{{item.productname + ' ' + item.optionname}}</p>
   </div>
-  <div class="col-sm-offset-1 col-sm-2 cart-item-flex">
+  <div class="col-sm-2 cart-item-flex">
     <p>Unit Price: ${{item.optionprice}}</p>
     <p>Subtotal: ${{(item.optionprice * item.quantity).toFixed(2)}}</p>
   </div>
-  <div class="col-sm-2 cart-nav-flex">
+  <div class="col-sm-offset-1 col-sm-1 cart-nav-flex">
       <i class="fa fa-times icon" aria-hidden="true" ng-click = "deleteCartElement(item.tempid)"></i>
 
       <div class="quantity">

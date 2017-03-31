@@ -3,8 +3,12 @@ html {
   color: #959595; }
   html .header {
     margin: 0; }
-  html .main {
-    padding: 0; }
+  html body {
+    position: relative; }
+  html footer {
+    position: absolute;
+    bottom: 0;
+    left: 0; }
   html a {
     color: #999; }
   html a:hover {
@@ -145,32 +149,44 @@ html {
 
 .mail {
   height: 440px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   background-color: #A1A4A9;
   text-align: center;
   margin: 0;
   font-family: 'Lato', sans-serif;
   color: white; }
-  .mail .subscribe-container {
-    height: inherit;
+  .mail .title-container {
+    height: 180px;
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
-    align-items: center; }
-    .mail .subscribe-container .title-container .title {
+    justify-content: space-between; }
+    .mail .title-container .title {
+      color: white;
       font-size: 3rem;
       font-weight: 100; }
-    .mail .subscribe-container .title-container .subtitle {
-      font-size: 2rem;
+    .mail .title-container .subtitle {
+      font-size: 1.8rem;
       font-weight: 100; }
-    .mail .subscribe-container .title-container .input-container input {
+    .mail .title-container .input-container input {
       width: 320px;
-      height: 45px; }
-    .mail .subscribe-container .title-container .input-container button {
+      height: 45px;
+      border-radius: 4px;
+      margin-right: 5px; }
+    .mail .title-container .input-container button {
+      background-color: #707276;
       margin-top: -4px;
       width: 180px;
-      height: 45px; }
+      height: 45px;
+      border-radius: 4px;
+      box-shadow: none;
+      border: 0; }
+      .mail .title-container .input-container button:hover {
+        background-color: #666; }
 
 .footer {
+  width: 100%;
   margin: 0;
   height: 110px;
   background-color: #EFEFEF;
@@ -209,13 +225,25 @@ html {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
-  width: 33vw;
-  overflow-x: hidden; }
+  width: 33%;
+  overflow-x: hidden;
+  margin-bottom: 9px; }
   .store-element a {
-    width: 100%; }
-    .store-element a img {
-      width: 100%;
-      height: auto; }
+    width: 100%;
+    display: flex;
+    justify-content: center; }
+    .store-element a .img-container {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      height: 32vh;
+      width: 32vw; }
+      .store-element a .img-container img {
+        height: 100%;
+        width: auto; }
+
+.product-wrapper {
+  height: calc(100vh - 60px); }
 
 .option-flex-container {
   display: inline-flex;
@@ -226,42 +254,55 @@ html {
   width: 33%;
   flex-grow: 1; }
 
-.option-img {
-  width: 100%; }
+.img-wrapper {
+  display: flex;
+  justify-content: center; }
+  .img-wrapper .img-container {
+    width: 600px; }
+    .img-wrapper .img-container img {
+      width: 100%;
+      height: auto; }
 
-.main-img {
+.option-img {
   width: 100%; }
 
 .background {
   background: none; }
 
-.cart-element {
-  min-height: 300px;
-  box-sizing: border-box; }
-  .cart-element .cart-title-flex {
-    min-height: inherit;
-    display: flex;
-    justify-content: center;
-    align-items: center; }
-  .cart-element .cart-item-flex {
-    min-height: inherit;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; }
-  .cart-element .cart-nav-flex {
-    min-height: inherit;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center; }
-    .cart-element .cart-nav-flex .icon {
-      display: block; }
-    .cart-element .cart-nav-flex .quantity label {
-      margin: 10px 0;
-      display: inline-block; }
-    .cart-element .cart-nav-flex .quantity select {
-      display: inline-block; }
+.cart-wrapper {
+  min-height: calc(100vh - 60px); }
+  .cart-wrapper .cart-container {
+    margin-bottom: 150px; }
+    .cart-wrapper .cart-container .cart-element {
+      min-height: 300px;
+      box-sizing: border-box; }
+      .cart-wrapper .cart-container .cart-element .cart-title-flex {
+        min-height: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+      .cart-wrapper .cart-container .cart-element .cart-item-flex {
+        min-height: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; }
+      .cart-wrapper .cart-container .cart-element .cart-nav-flex {
+        min-height: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center; }
+        .cart-wrapper .cart-container .cart-element .cart-nav-flex .icon {
+          display: block; }
+        .cart-wrapper .cart-container .cart-element .cart-nav-flex .quantity label {
+          margin: 10px 0;
+          display: inline-block; }
+        .cart-wrapper .cart-container .cart-element .cart-nav-flex .quantity select {
+          display: inline-block; }
+
+.login-wrapper {
+  height: calc(100vh - 60px); }
 
 .login-flex {
   display: flex;
@@ -280,29 +321,41 @@ html {
   justify-content: center;
   align-items: center; }
 
-.signup-flex {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center; }
-  .signup-flex form {
-    width: 35vw;
+.signup-wrapper {
+  height: calc(100vh - 60px); }
+  .signup-wrapper .signup-flex {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
     align-items: center; }
-    .signup-flex form .input-flex {
-      width: inherit;
+    .signup-wrapper .signup-flex form {
+      width: 35vw;
       display: flex;
       flex-direction: column;
-      justify-content: center; }
-      .signup-flex form .input-flex input {
-        width: inherit; }
+      justify-content: space-between;
+      align-items: center; }
+      .signup-wrapper .signup-flex form .input-flex {
+        width: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: center; }
+        .signup-wrapper .signup-flex form .input-flex input {
+          width: inherit; }
 
-.credit-card-form {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center; }
-  .credit-card-form input {
-    width: 40vw; }
+.checkout-wrapper {
+  height: calc(100vh - 60px); }
+  .checkout-wrapper .credit-card-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .checkout-wrapper .credit-card-form input {
+      width: 40vw; }
+
+.summary-wrapper {
+  height: calc(100vh - 60px); }
+  .summary-wrapper .summary-flex {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }

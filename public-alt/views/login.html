@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<div class="login-wrapper">
   <div class ="login-flex" ng-if = "!login.isAuthenticated()">
     <h1>Log In</h1>
 
@@ -17,7 +18,7 @@
   <div class = "logout-flex" ng-if = "login.isAuthenticated()">
     <button ng-click = "login.logout()">Log Out</button>
   </div>
-
+</div>
 
 
 <!-- <pre ng-bind="user | json"></pre> -->

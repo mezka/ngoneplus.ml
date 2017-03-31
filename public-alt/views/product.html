@@ -1,32 +1,36 @@
 <!DOCTYPE html>
-<div class="row graybox">
-    <div class="col-sm-3 option-flex-container">
-        <div class = "option-img-container" ng-repeat="imageurl in product.currentOption.imageurls">
-            <img class="option-img" ng-src="./img/store/{{imageurl}}" alt="option" ng-click="product.changeCurrentImage(imageurl)">
-        </div>
+<div class="product-wrapper container-fluid">
+  <div class="row graybox">
+      <div class="col-sm-3 option-flex-container">
+          <div class = "option-img-container" ng-repeat="imageurl in product.currentOption.imageurls">
+              <img class="option-img" ng-src="./img/store/{{imageurl}}" alt="option" ng-click="product.changeCurrentImage(imageurl)">
+          </div>
 
-    </div>
-    <div class="col-sm-4">
-        <img class="main-img" ng-src="./img/store/{{product.currentOption.currentimage}}" alt="">
-    </div>
-    <div class="col-sm-5">
-        <h1>{{product.currentOption.productname + ' ' + product.currentOption.optionname}}</h1>
-        <h2>{{product.currentOption.optionprice}}</h2>
+      </div>
+      <div class="col-sm-4 img-wrapper">
+          <div class="img-container">
+            <img class="main-img" ng-src="./img/store/{{product.currentOption.currentimage}}" alt="">
+          </div>
+      </div>
+      <div class="col-sm-5">
+          <h1>{{product.currentOption.productname + ' ' + product.currentOption.optionname}}</h1>
+          <h2>{{product.currentOption.optionprice}}</h2>
 
-        <div ng-repeat="option in product.options" ng-class="option.radioclass">
-          <label>
-            <input type="radio" ng-model="product.currentOption" ng-value="option">
-            {{option.optionname}}
-          </label>
-        </div>
-        <label for="singleSelect">Quantity: </label>
-        <select name="singleSelect" ng-model="product.quantity">
-          <option value="1">1</option>
-          <option value="2">2</option>
-          <option value="3">3</option>
-          <option value="4">4</option>
-          <option value="5">5</option>
-        </select>
-        <button class="btn btn-default" ng-click="product.addProductToCart(product.currentOption.optionid, product.currentOption.productname, product.currentOption.optionname, product.currentOption.imageurls[0], product.currentOption.optionprice, product.quantity, 0)">Add to cart</button>
-    </div>
+          <div ng-repeat="option in product.options" ng-class="option.radioclass">
+            <label>
+              <input type="radio" ng-model="product.currentOption" ng-value="option">
+              {{option.optionname}}
+            </label>
+          </div>
+          <label for="singleSelect">Quantity: </label>
+          <select name="singleSelect" ng-model="product.quantity">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+            <option value="4">4</option>
+            <option value="5">5</option>
+          </select>
+          <button class="btn btn-default" ng-click="product.addProductToCart(product.currentOption.optionid, product.currentOption.productname, product.currentOption.optionname, product.currentOption.imageurls[0], product.currentOption.optionprice, product.quantity, 0)">Add to cart</button>
+      </div>
+  </div>
 </div>
