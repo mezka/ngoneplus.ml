@@ -64,7 +64,7 @@ app.post('/api/login', passport.authenticate('local', {
 
 //ADD STATIC SERVE
 
-app.use(express.static(__dirname + '/public-alt'));
+app.use(express.static(__dirname + '/public'));
 
 //ADD cors
 
