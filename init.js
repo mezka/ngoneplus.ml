@@ -35,14 +35,15 @@ module.exports = {
     },
 
     importCsvFiles: function importCsvFiles() {
-        db.importCsvFiles(function (error, result) {
+        return db.importCsvFiles(function (error, result) {
             if (result) {
                 console.log('Imported CSV files into database ...\n');
+                console.log(result);
                 return result;
             } else {
                 console.log('Error importing CSV files into database: ', error, '\n');
                 return error;
             }
-        })
+        });
     }
 }
