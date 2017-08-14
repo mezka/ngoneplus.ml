@@ -45,7 +45,7 @@ CREATE TABLE Public.Options(
   optionMaterials VARCHAR(60),
   optionInput VARCHAR(60),
   optionOutput VARCHAR(60),
-  optionPrice FLOAT
+  optionPrice DOUBLE PRECISION
 );
 
 CREATE TABLE Public.ProductImages(

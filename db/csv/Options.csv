@@ -1,6 +1,6 @@
 optionId,productId,optionName,optionImageColor,optionImageIcon,optionDimensions,optionWeight,optionMaterials,optionInput,optionOutput,optionPrice
-1,1,64GB Gunmetal,#5A5050,,152.7 x 74.7 x 7.35 mm,158g,Anodized aluminum,,,439.00
-2,1,64GB SoftGold,#B1A897,,152.7 x 74.7 x 7.35 mm,158g,Anodized aluminum,,,439.00
+1,1,64GB Gunmetal,#5A5050,,152.7 x 74.7 x 7.35 mm,158g,Anodized aluminum,,,439
+2,1,64GB SoftGold,#B1A897,,152.7 x 74.7 x 7.35 mm,158g,Anodized aluminum,,,439
 3,2,Sandstone,#333333,,152.5 x 76.8 x 9.2mm,18g,PC,,,19.95
 4,2,Bamboo,,/cases/3t-protective-case/bamboo/iconbg.jpg,152.5 x 76.8 x 9mm,12g,Bamboo+Kevlar,,,24.95
 5,2,Ebony Wood,,/cases/3t-protective-case/ebony-wood/iconbg.jpg,153.5 x 76.8 x 9mm,12g,Ebony+Kevlar,,,24.95
@@ -60,31 +60,31 @@ optionId,productId,optionName,optionImageColor,optionImageIcon,optionDimensions,
 59,24,,,,150cm long,,Not Specified,,,5.99
 60,25,,,,7.5cm long,13g,Not Specified,,,7.99
 61,26,,,,Not Specified,,Not Specified,,,6.99
-62,27,Black,#333333,,142.8 × 72.6 × 16.2 mm,220g,Not Specified,"DC 5V/2A, Output 2 USB","5V/2A (One device), 5V/1A (Two devices)",19.00
-63,27,White,#FFFFFF,,142.8 × 72.6 × 16.2 mm,220g,Not Specified,"DC 5V/2A, Output 2 USB","5V/2A (One device), 5V/1A (Two devices)",19.00
+62,27,Black,#333333,,142.8 × 72.6 × 16.2 mm,220g,Not Specified,"DC 5V/2A, Output 2 USB","5V/2A (One device), 5V/1A (Two devices)",19
+63,27,White,#FFFFFF,,142.8 × 72.6 × 16.2 mm,220g,Not Specified,"DC 5V/2A, Output 2 USB","5V/2A (One device), 5V/1A (Two devices)",19
 64,28,Black,#333333,,Not Specified,Not Specified,Not Specified,,,19.95
 65,28,White,#FFFFFF,,Not Specified,Not Specified,Not Specified,,,19.95
 66,29,Gold,#EFDFB4,,Not Specified,Not Specified,Not Specified,,,49.99
 67,29,Graphite,#B9B9B9,,Not Specified,Not Specified,Not Specified,,,49.99
-68,30,,,,445 x 150 x 450mm,708g,600D Polyester,,,50.00
-69,31,Black,#333333,,350 x 130 x 390mm,740g,Canvas,,,50.00
-70,31,Blue Gray,#3F5263,,351 x 130 x 390mm,741g,Canvas,,,50.00
-71,32,,,,380 x 290 x 130mm,930g,Canvas + Leather,,,99.00
-72,33,XS,,,Not Specified,Not Specified,"95% Cotton, 5% Polyurethane",,,20.00
-73,33,S,,,Not Specified,Not Specified,"96% Cotton, 5% Polyurethane",,,20.00
-74,33,M,,,Not Specified,Not Specified,"97% Cotton, 5% Polyurethane",,,20.00
-75,33,L,,,Not Specified,Not Specified,"98% Cotton, 5% Polyurethane",,,20.00
-76,33,XL,,,Not Specified,Not Specified,"99% Cotton, 5% Polyurethane",,,20.00
-77,33,XXL,,,Not Specified,Not Specified,"100% Cotton, 5% Polyurethane",,,20.00
-78,33,4XL,,,Not Specified,Not Specified,"101% Cotton, 5% Polyurethane",,,20.00
-79,33,5XL,,,Not Specified,Not Specified,"102% Cotton, 5% Polyurethane",,,20.00
-80,34,XS,,,Not Specified,Not Specified,"103% Cotton, 5% Polyurethane",,,20.00
-81,34,S,,,Not Specified,Not Specified,"104% Cotton, 5% Polyurethane",,,20.00
-82,34,M,,,Not Specified,Not Specified,"105% Cotton, 5% Polyurethane",,,20.00
-83,34,L,,,Not Specified,Not Specified,"106% Cotton, 5% Polyurethane",,,20.00
-84,34,XL,,,Not Specified,Not Specified,"107% Cotton, 5% Polyurethane",,,20.00
-85,34,XXL,,,Not Specified,Not Specified,"108% Cotton, 5% Polyurethane",,,20.00
-86,34,4XL,,,Not Specified,Not Specified,"109% Cotton, 5% Polyurethane",,,20.00
-87,34,5XL,,,Not Specified,Not Specified,"110% Cotton, 5% Polyurethane",,,20.00
-88,1,128GB Gunmetal,#5A5050,,152.7 x 74.7 x 7.35 mm,158g,Anodized aluminum,,,479.00
-89,1,128GB SoftGold,#B1A897,,152.7 x 74.7 x 7.35 mm,158g,Anodized aluminum,,,479.00
+68,30,,,,445 x 150 x 450mm,708g,600D Polyester,,,50
+69,31,Black,#333333,,350 x 130 x 390mm,740g,Canvas,,,50
+70,31,Blue Gray,#3F5263,,351 x 130 x 390mm,741g,Canvas,,,50
+71,32,,,,380 x 290 x 130mm,930g,Canvas + Leather,,,99
+72,33,XS,,,Not Specified,Not Specified,"95% Cotton, 5% Polyurethane",,,20
+73,33,S,,,Not Specified,Not Specified,"96% Cotton, 5% Polyurethane",,,20
+74,33,M,,,Not Specified,Not Specified,"97% Cotton, 5% Polyurethane",,,20
+75,33,L,,,Not Specified,Not Specified,"98% Cotton, 5% Polyurethane",,,20
+76,33,XL,,,Not Specified,Not Specified,"99% Cotton, 5% Polyurethane",,,20
+77,33,XXL,,,Not Specified,Not Specified,"100% Cotton, 5% Polyurethane",,,20
+78,33,4XL,,,Not Specified,Not Specified,"101% Cotton, 5% Polyurethane",,,20
+79,33,5XL,,,Not Specified,Not Specified,"102% Cotton, 5% Polyurethane",,,20
+80,34,XS,,,Not Specified,Not Specified,"103% Cotton, 5% Polyurethane",,,20
+81,34,S,,,Not Specified,Not Specified,"104% Cotton, 5% Polyurethane",,,20
+82,34,M,,,Not Specified,Not Specified,"105% Cotton, 5% Polyurethane",,,20
+83,34,L,,,Not Specified,Not Specified,"106% Cotton, 5% Polyurethane",,,20
+84,34,XL,,,Not Specified,Not Specified,"107% Cotton, 5% Polyurethane",,,20
+85,34,XXL,,,Not Specified,Not Specified,"108% Cotton, 5% Polyurethane",,,20
+86,34,4XL,,,Not Specified,Not Specified,"109% Cotton, 5% Polyurethane",,,20
+87,34,5XL,,,Not Specified,Not Specified,"110% Cotton, 5% Polyurethane",,,20
+88,1,128GB Gunmetal,#5A5050,,152.7 x 74.7 x 7.35 mm,158g,Anodized aluminum,,,479
+89,1,128GB SoftGold,#B1A897,,152.7 x 74.7 x 7.35 mm,158g,Anodized aluminum,,,479

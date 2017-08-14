@@ -104,5 +104,14 @@ app.post('/api/cart/charge', authController.authorize, stripeController.makePaym
 //LISTEN TO PORT 9876
 
 app.listen(port, function() {
-    console.log('Listening on port: ', port);
+    console.log('Listening on port: ', port, '\n');
 });
+
+//REQUIRING INIT MODULE TO CREATE TABLES
+
+var init = require('./init.js');
+
+init.createTables();
+init.generateCsvFromOds();
+init.importCsvFiles();
+
