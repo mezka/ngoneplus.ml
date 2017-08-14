@@ -4,7 +4,7 @@ var gutil = require('gulp-util');
 var sourcemaps = require('gulp-sourcemaps');
 var concat = require('gulp-concat');
 var uglify = require('gulp-uglify');
-var minifyCss = require('gulp-minify-css');
+var minifyCss = require('gulp-clean-css');
 
 gulp.task('scss:compile', function(){
     return gulp.src(['./css/style.scss'])
