@@ -9,7 +9,7 @@ var cors = require('cors');
 //DECLARING APP, ALSO MAKING IT AVAILABLE FOR PASSPORT SERVICE
 
 var app = module.exports = express();
-var port = 9876;
+var port = 199876;
 
 //REQUIRING GITIGNORED SECRET KEYS
 
