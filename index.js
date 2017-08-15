@@ -106,12 +106,3 @@ app.post('/api/cart/charge', authController.authorize, stripeController.makePaym
 app.listen(port, function() {
     console.log('Listening on port: ', port, '\n');
 });
-
-//REQUIRING INIT MODULE TO CREATE TABLES
-
-var init = require('./init.js');
-
-init.createTables();
-init.generateCsvFromOds();
-init.importCsvFiles();
-
