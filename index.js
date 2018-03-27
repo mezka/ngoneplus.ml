@@ -17,7 +17,7 @@ var keys = require('./keys.js');
 
 //CONNECT db USING connectionString
 
-var connectionString = "postgres://mezka:123456@localhost:5432/oneplus";
+var connectionString = "postgres://oneplus:oneplus@localhost:5432/oneplus";
 var massiveInstance = massive.connectSync({
     connectionString: connectionString
 });

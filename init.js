@@ -1,12 +1,24 @@
-var app = require('./index.js');
-var db = app.get('db');
+var massive = require('massive');
+var fs = require('fs');
+var XLSX = require('xlsx');
+var express = require('express');
 
 var dest = '/db/csv/';
 var odsPath = './schema.ods';
 
 
-fs = require('fs');
-XLSX = require('xlsx');
+var connectionString = "postgres://oneplus:oneplus@localhost:5432/oneplus";
+var massiveInstance = massive.connectSync({
+    connectionString: connectionString
+});
+
+//SET db PROPERTY FOR BEING ABLE TO USE IT APPLICATION WIDE
+var app = express();
+
+app.set('db', massiveInstance);
+
+var db = app.get('db');
+
 
 //INITIALIZATION ROUTINES
 
@@ -15,6 +27,7 @@ function createTables() {
     return db.createTables(function (error, result) {
         if (result) {
             console.log('Created tables ...\n');
+            generateCsvFromOds();
             return result;
         } else {
             return error;
@@ -30,7 +43,7 @@ function generateCsvFromOds() {
 
         var currentFileName = __dirname + dest + workbook.SheetNames[i] + '.csv'
 
-        fs.writeFile(currentFileName, XLSX.utils.sheet_to_csv(workbook.Sheets[workbook.SheetNames[i]]));
+        fs.writeFile(currentFileName, XLSX.utils.sheet_to_csv(workbook.Sheets[workbook.SheetNames[i]]), importCsvFiles);
     }
 };
 
@@ -46,7 +59,6 @@ function importCsvFiles() {
     });
 };
 
-
 createTables();
-generateCsvFromOds();
-importCsvFiles();
+
+
