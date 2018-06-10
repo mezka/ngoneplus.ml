@@ -11,9 +11,6 @@ var cors = require('cors');
 var app = module.exports = express();
 var port = 59876;
 
-//REQUIRING GITIGNORED SECRET KEYS
-
-var keys = require('./keys.js');
 
 //CONNECT db USING connectionString
 
@@ -50,7 +47,7 @@ var passport = require('./services/passport.js');
 app.use(session({
     saveUninitialized: false,
     resave: false,
-    secret: keys.sessionSecretKey
+    secret: process.env.SESSION_SECRET_KEY
 }));
 
 app.use(passport.initialize());

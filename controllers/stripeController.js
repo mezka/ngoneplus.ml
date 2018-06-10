@@ -1,4 +1,4 @@
-var stripe = require('stripe')('sk_test_kZzzOMg8ZgcslrfKWyXyZk1x');
+var stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 var app = require('../index.js');
 
 var db = app.get('db');
