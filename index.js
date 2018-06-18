@@ -4,7 +4,13 @@ var express = require('express');
 var bodyParser = require('body-parser');
 var session = require('express-session');
 var cors = require('cors');
+var dotenvResult = require('dotenv').config();
 
+//CHECK IF LOADING ENVIRONMENT VARIABLES FROM DOTENV FILE WORKED
+
+if (dotenvResult.error) {
+    throw result.error;
+}
 
 //DECLARING APP, ALSO MAKING IT AVAILABLE FOR PASSPORT SERVICE
 
