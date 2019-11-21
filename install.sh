@@ -5,7 +5,5 @@ echo "CREATE ROLE oneplus WITH SUPERUSER LOGIN PASSWORD 'oneplus';CREATE DATABAS
 echo "GRANT ALL PRIVILEGES ON DATABASE oneplus TO oneplus;" | sudo -u postgres psql postgres
 echo "GRANT ALL PRIVILEGES ON ALL TABLES IN SCHEMA public TO oneplus;" | sudo psql -U oneplus
 npm install
-./node_modules/gulp/bin/gulp.js fonts
+./node_modules/gulp/bin/gulp.js build
 node init.js
-cd public
-../node_modules/gulp/bin/gulp.js build
