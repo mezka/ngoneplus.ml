@@ -4,17 +4,14 @@ var app = require('../index.js');
 var db = app.get('db');
 
 var stripeController = {
-    makePayment: function(req, res, next) {
+    makePayment: async function(req, res, next) {
 
-        var user = db.users.findSync({
-            userid: req.session.passport.user
-        });
+        const user = await db.users.findOne({ userid: req.session.passport.user });
 
-        useremail = user[0].useremail;
+        useremail = user.useremail;
 
         console.log(user);
-
-
+        
         var amount = req.session.cart.reduce(function(sumTotal, currElement) {
             return sumTotal + currElement.quantity * currElement.optionprice;
         }, 0);

@@ -20,7 +20,7 @@ CREATE TABLE Public.Bundles(
 
 CREATE TABLE Public.BundleImages(
   bundleImageId SERIAL PRIMARY KEY,
-  bundleId INTEGER REFERENCES Public.Bundles(bundleId),
+  bundleId INTEGER REFERENCES Public.Bundles(bundleId) ON DELETE CASCADE,
   imageUrl VARCHAR(100)
 );
 
@@ -36,7 +36,7 @@ CREATE TABLE Public.BundleCategories(
 
 CREATE TABLE Public.Options(
   optionId SERIAL PRIMARY KEY,
-  productId INTEGER REFERENCES Public.Products(productId),
+  productId INTEGER REFERENCES Public.Products(productId) ON DELETE CASCADE,
   optionName VARCHAR(50),
   optionImageColor VARCHAR(7) DEFAULT NULL,
   optionImageIcon VARCHAR(100) DEFAULT NULL,
@@ -50,7 +50,7 @@ CREATE TABLE Public.Options(
 
 CREATE TABLE Public.ProductImages(
   imageId SERIAL PRIMARY KEY,
-  optionId INTEGER REFERENCES Public.Options(optionId),
+  optionId INTEGER REFERENCES Public.Options(optionId) ON DELETE CASCADE,
   imageUrl VARCHAR(100)
 );
 
@@ -65,22 +65,22 @@ CREATE TABLE Public.Users(
 
 CREATE TABLE Public.Carts(
   cartId SERIAL PRIMARY KEY,
-  userId INTEGER REFERENCES Public.Users(userId),
+  userId INTEGER REFERENCES Public.Users(userId) ON DELETE CASCADE,
   createdDate timestamptz NOT NULL DEFAULT now(),
   checkedOut BOOLEAN DEFAULT FALSE
 );
 
 CREATE TABLE Public.CartItems(
   cartElementId SERIAL PRIMARY KEY,
-  cartId INTEGER REFERENCES Public.Carts(cartId) NOT NULL,
-  productId INTEGER REFERENCES Public.Products(productId) NOT NULL,
-  optionId INTEGER REFERENCES Public.Options(optionId) NOT NULL,
+  cartId INTEGER REFERENCES Public.Carts(cartId) ON DELETE CASCADE NOT NULL,
+  productId INTEGER REFERENCES Public.Products(productId) ON DELETE CASCADE NOT NULL,
+  optionId INTEGER REFERENCES Public.Options(optionId) ON DELETE CASCADE NOT NULL,
   quantity INTEGER NOT NULL,
   discount INTEGER DEFAULT 0
 );
 
 CREATE TABLE Public.Passwords(
     passwordId SERIAL PRIMARY KEY,
-    userId INTEGER REFERENCES Public.Users(userId),
+    userId INTEGER REFERENCES Public.Users(userId) ON DELETE CASCADE,
     passwordHash VARCHAR(60) UNIQUE
 )

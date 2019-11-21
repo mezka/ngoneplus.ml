@@ -14,24 +14,22 @@ passport.use(new LocalStrategy({
     usernameField: 'email',
     passwordField: 'password'
   }, function(email, password, done){
-      db.getUserAuthData([email], function(err, user){
-
-        if(err){
-          return done(err);
-        }
-
-        if(!user){
+      db.getUserAuthData([email])
+      .then(result => {
+        if(!result){
           return done(null, false, { message: 'Incorrect username.' });
         }
-
-        user = user[0];
+        user = result[0];
 
         if(hashPasswordAndCompareToStoredHash(password, user.storedpasswordhash)){
           return done(null, user);
         }else{
           return done(null, false, { message: 'Incorrect password.' });
         }
-      });
+      })
+      .catch(error => {
+        return done(error);
+      })
   }
 ));
 
@@ -41,10 +39,13 @@ passport.serializeUser(function(user, done){
 });
 
 passport.deserializeUser(function(userId, done){
-  db.getUserId([userId], function(err, result){
-    var user = result[0];
-    done(err, user);
-  });
+  db.getUserId([userId])
+  .then(result => {
+    done(null, result[0]);
+  })
+  .catch(error => {
+    done(error, null);
+  })
 });
 
 module.exports = passport;

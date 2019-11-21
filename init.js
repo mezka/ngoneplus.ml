@@ -1,64 +1,82 @@
-var massive = require('massive');
-var fs = require('fs');
-var XLSX = require('xlsx');
-var express = require('express');
+const massive = require('massive');
+const fs = require('fs');
+const XLSX = require('xlsx');
+const path = require('path');
 
 var dest = '/db/csv/';
 var odsPath = './schema.ods';
 
+var db = null;
 
-var connectionString = "postgres://oneplus:oneplus@localhost:5432/oneplus";
-var massiveInstance = massive.connectSync({
-    connectionString: connectionString
-});
-
-//SET db PROPERTY FOR BEING ABLE TO USE IT APPLICATION WIDE
-var app = express();
-
-app.set('db', massiveInstance);
-
-var db = app.get('db');
+const connectDb = async () => {
+    db = await massive({ host: 'localhost', port: 5432, database: 'oneplus', user: 'oneplus', password: 'oneplus'});
+};
 
 
-//INITIALIZATION ROUTINES
+async function init(){
+
+    await connectDb();
+
+    createTables()
+        .then(generateCsvFromOds)
+        .then(importCsvFiles)
+        .catch(error => {
+            console.log(`Unexpected error: ${error}`);
+    });
+}
 
 
 function createTables() {
-    return db.createTables(function (error, result) {
-        if (result) {
-            console.log('Created tables ...\n');
-            generateCsvFromOds();
-            return result;
-        } else {
-            return error;
-        }
-    });
+    return db.createTables()
+        .then(result => {
+            console.log('Created tables ...');
+        })
+        .catch(error => {
+            console.log(`Error while attempting to create tables: ${error}`);
+            process.exit(1);
+        });
 };
 
 function generateCsvFromOds() {
-    var workbook = XLSX.readFile(odsPath);
+    return new Promise(function (resolve, reject) {
 
-    for (var i = 1; i < workbook.SheetNames.length; i++) {
-        console.log('Generated ' + workbook.SheetNames[i] + '.csv from' + odsPath + '\n');
+        let workbook;
 
-        var currentFileName = __dirname + dest + workbook.SheetNames[i] + '.csv'
+        try {
+            workbook = XLSX.readFile(odsPath);
+        } catch (error) {
+            console.log(`Error while attempting to read file: ${error}`);
+            reject(error);
+        }
 
-        fs.writeFile(currentFileName, XLSX.utils.sheet_to_csv(workbook.Sheets[workbook.SheetNames[i]]), importCsvFiles);
-    }
+        for (let i = 1; i < workbook.SheetNames.length; i++) {
+            console.log(`Generated ${workbook.SheetNames[i]}.csv from ${odsPath}`);
+
+            try {
+                fs.writeFile(path.join(__dirname, dest, `${workbook.SheetNames[i]}.csv`), XLSX.utils.sheet_to_csv(workbook.Sheets[workbook.SheetNames[i]]), importCsvFiles);
+            } catch (error) {
+                console.log(`Error while attempting to create file: ${error}`);
+                reject(error)
+            }
+        }
+
+        resolve({ success: true });
+    })
 };
 
 function importCsvFiles() {
-    return db.importCsvFiles(function (error, result) {
-        if (result) {
-            console.log('Imported CSV files into database ...\n');
+    return db.importCsvFiles()
+        .then(result => {
+            console.log('Imported CSV files into database ...');
             process.exit(0);
-        } else {
-            console.log('Error importing CSV files into database: ', error, '\n');
-            process.exit(0);
-        }
-    });
+        })
+        .catch(error => {
+            console.log(`Error importing CSV files into database: ${error}`);
+            process.exit(1);
+        })
 };
 
-createTables();
+
+init();
 
 
