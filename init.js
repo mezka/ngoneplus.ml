@@ -6,12 +6,19 @@ const path = require('path');
 var dest = '/db/csv/';
 var odsPath = './schema.ods';
 
+//LOAD DOTENV CONFIG
+
+try{
+    require('dotenv').config();
+} catch(error) {
+    throw error;
+}
+
 var db = null;
 
 const connectDb = async () => {
-    db = await massive({ host: 'localhost', port: 5432, database: 'oneplus', user: 'oneplus', password: 'oneplus'});
+    db = await massive({ host: process.env.DB_HOST, port: process.env.DB_PORT, database: process.env.DB_NAME, user: process.env.DB_USER, password: process.env.PASSWORD });
 };
-
 
 async function init(){
 
@@ -24,7 +31,6 @@ async function init(){
             console.log(`Unexpected error: ${error}`);
     });
 }
-
 
 function createTables() {
     return db.createTables()

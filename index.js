@@ -5,10 +5,17 @@ const bodyParser = require('body-parser');
 const session = require('express-session');
 const cors = require('cors');
 
+//LOAD DOTENV CONFIG
+
+try{
+    require('dotenv').config();
+} catch(error) {
+    throw error;
+}
+
 //DECLARING APP, ALSO MAKING IT AVAILABLE FOR PASSPORT SERVICE
 
 const app = module.exports = express();
-const port = 59876;
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
@@ -20,17 +27,17 @@ app.use(cors());
 app.use(session({
     saveUninitialized: false,
     resave: false,
-    secret: 'some_secret_981$%'
+    secret: process.env.SESSION_SECRET_KEY
 }));
 
 app.use(express.static(__dirname + '/public'));
 
 massive({
-    host: 'localhost',
-    port: 5432,
-    database: 'oneplus',
-    user: 'oneplus',
-    password: 'oneplus'
+    host: process.env.DB_HOST,
+    port: process.env.DB_PORT,
+    database: process.env.DB_NAME,
+    user: process.env.DB_USER,
+    password: process.env.DB_PASSWORD
 }).then(instance => {
 
     app.set('db', instance);
@@ -83,8 +90,8 @@ massive({
     app.post('/api/cart/charge', authController.authorize, stripeController.makePayment); //REQUIRES LOGIN
 
 
-    app.listen(port, function () {
-        console.log('Listening on port: ', port, '\n');
+    app.listen(process.env.APPLICATION_PORT, function () {
+        console.log(`Listening on port ${process.env.APPLICATION_PORT} ...`);
     });
 });
 
