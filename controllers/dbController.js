@@ -31,7 +31,6 @@ const dbController = {
                 userid: req.session.passport.user,
                 cartitems: req.session.cart.map((element) => {
                     const {productname, optionname, imageurl, optionprice, tempid, ...cart} = element;
-
                     cart.cartid = undefined; //needed for deepInsert, read massiveJs docs for reference
                     return cart;
                 })
