@@ -7,10 +7,10 @@ const minifyCss = require('gulp-clean-css');
 const mode = require('gulp-mode')();
 
 function compileSass(){
-    return gulp
-      .src('./public/css/style.scss')
-      .pipe(sass().on('error', sass.logError))
-      .pipe(gulp.dest('./public/css'));
+  return gulp
+    .src('./public/css/style.scss')
+    .pipe(sass().on('error', sass.logError))
+    .pipe(gulp.dest('./public/css'));
 };
 
 function bundleCss(){
