@@ -37,7 +37,7 @@ function moveFonts(){
 }
 
 function watchFiles() {
-  gulp.watch('./public/css/style.scss', compileSass);
+  gulp.watch('./public/css/style.scss', gulp.series(compileSass, bundleCss));
   gulp.watch(['./public/app.js', './public/js/**/*.js'], bundleJs);
 }
 
