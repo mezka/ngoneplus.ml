@@ -36,7 +36,13 @@ function moveFonts(){
   .pipe(gulp.dest('./public/fonts'));
 }
 
+function watchFiles() {
+  gulp.watch('./public/css/style.scss', compileSass);
+  gulp.watch(['./public/app.js', './public/js/**/*.js'], bundleJs);
+}
+
 exports.build = gulp.parallel(moveFonts, gulp.series(compileSass, bundleCss), bundleJs);
+exports.watch = watchFiles;
 exports.default = exports.build;
 
 

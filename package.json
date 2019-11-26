@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/gulp/bin/gulp.js --production build",
-    "build-dev": "./node_modules/gulp/bin/gulp.js --development build"
+    "build-dev": "./node_modules/gulp/bin/gulp.js --development build",
+    "watch": "./node_modules/gulp/bin/gulp.js watch"
   },
   "author": "",
   "license": "ISC",
