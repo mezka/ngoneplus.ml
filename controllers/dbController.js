@@ -62,7 +62,7 @@ const dbController = {
                 useraddress2: req.body.useraddress2,
                 passwords: [
                     {
-                        userid: undefined,
+                        userid: undefined, //needed for deepInsert, read massiveJs docs for reference
                         passwordhash: hash
                     }
                 ]
