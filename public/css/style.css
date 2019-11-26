@@ -54,6 +54,69 @@ html {
   .right-nav a:hover {
     color: #070000; }
 
+.store-element {
+  display: inline-flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  width: 33%;
+  margin-bottom: 9px; }
+  .store-element a {
+    width: 100%;
+    display: flex;
+    justify-content: center; }
+    .store-element a .img-container {
+      display: flex;
+      justify-content: center;
+      margin: 0;
+      height: 32vh;
+      width: 32vw; }
+      .store-element a .img-container img {
+        height: 100%;
+        width: auto; }
+
+.cart-wrapper {
+  min-height: calc(100vh - 60px); }
+  .cart-wrapper .cart-container {
+    margin-bottom: 150px; }
+    .cart-wrapper .cart-container .cart-element {
+      min-height: 300px;
+      box-sizing: border-box; }
+      .cart-wrapper .cart-container .cart-element .cart-title-flex {
+        min-height: inherit;
+        display: flex;
+        justify-content: center;
+        align-items: center; }
+      .cart-wrapper .cart-container .cart-element .cart-item-flex {
+        min-height: inherit;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center; }
+      .cart-wrapper .cart-container .cart-element .cart-nav-flex {
+        min-height: inherit;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: center; }
+        .cart-wrapper .cart-container .cart-element .cart-nav-flex .icon {
+          display: block; }
+        .cart-wrapper .cart-container .cart-element .cart-nav-flex .quantity label {
+          margin: 10px 0;
+          display: inline-block; }
+        .cart-wrapper .cart-container .cart-element .cart-nav-flex .quantity select {
+          display: inline-block; }
+
+.checkout-wrapper {
+  height: calc(100vh - 60px); }
+  .checkout-wrapper .credit-card-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center; }
+    .checkout-wrapper .credit-card-form input {
+      width: 40vw; }
+
 .hero {
   position: relative;
   font-family: 'Lato', sans-serif;
@@ -215,32 +278,25 @@ html {
     .footer .right-footer i {
       margin-top: 2px; }
 
-.store-main {
-  display: flex;
-  justify-content: space-between;
-  flex-wrap: wrap; }
+.login-wrapper {
+  height: calc(100vh - 60px); }
 
-.store-element {
-  display: inline-flex;
+.login-flex {
+  display: flex;
   flex-direction: column;
   justify-content: space-between;
-  align-items: center;
-  width: 33%;
-  overflow-x: hidden;
-  margin-bottom: 9px; }
-  .store-element a {
-    width: 100%;
+  align-items: center; }
+  .login-flex form {
+    width: 35vw;
     display: flex;
-    justify-content: center; }
-    .store-element a .img-container {
-      display: flex;
-      justify-content: center;
-      margin: 0;
-      height: 32vh;
-      width: 32vw; }
-      .store-element a .img-container img {
-        height: 100%;
-        width: auto; }
+    flex-direction: column;
+    justify-content: space-between; }
+
+.logout-flex {
+  height: 10vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; }
 
 .product-wrapper {
   height: calc(100vh - 60px); }
@@ -269,58 +325,6 @@ html {
 .background {
   background: none; }
 
-.cart-wrapper {
-  min-height: calc(100vh - 60px); }
-  .cart-wrapper .cart-container {
-    margin-bottom: 150px; }
-    .cart-wrapper .cart-container .cart-element {
-      min-height: 300px;
-      box-sizing: border-box; }
-      .cart-wrapper .cart-container .cart-element .cart-title-flex {
-        min-height: inherit;
-        display: flex;
-        justify-content: center;
-        align-items: center; }
-      .cart-wrapper .cart-container .cart-element .cart-item-flex {
-        min-height: inherit;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center; }
-      .cart-wrapper .cart-container .cart-element .cart-nav-flex {
-        min-height: inherit;
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end;
-        justify-content: center; }
-        .cart-wrapper .cart-container .cart-element .cart-nav-flex .icon {
-          display: block; }
-        .cart-wrapper .cart-container .cart-element .cart-nav-flex .quantity label {
-          margin: 10px 0;
-          display: inline-block; }
-        .cart-wrapper .cart-container .cart-element .cart-nav-flex .quantity select {
-          display: inline-block; }
-
-.login-wrapper {
-  height: calc(100vh - 60px); }
-
-.login-flex {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center; }
-  .login-flex form {
-    width: 35vw;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between; }
-
-.logout-flex {
-  height: 10vh;
-  display: flex;
-  justify-content: center;
-  align-items: center; }
-
 .signup-wrapper {
   height: calc(100vh - 60px); }
   .signup-wrapper .signup-flex {
@@ -342,15 +346,10 @@ html {
         .signup-wrapper .signup-flex form .input-flex input {
           width: inherit; }
 
-.checkout-wrapper {
-  height: calc(100vh - 60px); }
-  .checkout-wrapper .credit-card-form {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center; }
-    .checkout-wrapper .credit-card-form input {
-      width: 40vw; }
+.store-main {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap; }
 
 .summary-wrapper {
   height: calc(100vh - 60px); }

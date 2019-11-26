@@ -1,0 +1,29 @@
+.signup-wrapper {
+    height: calc(100vh - 60px);
+
+    .signup-flex {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        align-items: center;
+
+        form {
+            width: 35vw;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            align-items: center;
+
+            .input-flex {
+                width: inherit;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+
+                input {
+                    width: inherit;
+                }
+            }
+        }
+    }
+}

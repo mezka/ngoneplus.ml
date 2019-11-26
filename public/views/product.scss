@@ -1,0 +1,36 @@
+.product-wrapper {
+    height: calc(100vh - 60px);
+}
+
+.option-flex-container {
+    display: inline-flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.option-img-container {
+    width: 33%;
+    flex-grow: 1;
+}
+
+.img-wrapper {
+    display: flex;
+    justify-content: center;
+
+    .img-container {
+        width: 600px;
+
+        img {
+            width: 100%;
+            height: auto;
+        }
+    }
+}
+
+.option-img {
+    width: 100%;
+}
+
+.background {
+    background: none;
+}

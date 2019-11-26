@@ -1,0 +1,27 @@
+.store-element {
+    display: inline-flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 33%;
+    margin-bottom: 9px;
+
+    a {
+        width: 100%;
+        display: flex;
+        justify-content: center;
+
+        .img-container {
+            display: flex;
+            justify-content: center;
+            margin: 0;
+            height: 32vh;
+            width: 32vw;
+            
+            img {
+                height: 100%;
+                width: auto;
+            }
+        }
+    }
+}

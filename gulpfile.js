@@ -8,7 +8,8 @@ const mode = require('gulp-mode')();
 
 function compileSass(){
   return gulp
-    .src('./public/css/style.scss')
+    .src('./public/**/*.scss')
+    .pipe(concat('style.scss'))
     .pipe(sass().on('error', sass.logError))
     .pipe(gulp.dest('./public/css'));
 };
@@ -37,7 +38,7 @@ function moveFonts(){
 }
 
 function watchFiles() {
-  gulp.watch('./public/css/style.scss', gulp.series(compileSass, bundleCss));
+  gulp.watch('./public/**/*.scss', gulp.series(compileSass, bundleCss));
   gulp.watch(['./public/app.js', './public/js/**/*.js'], bundleJs);
 }
 
