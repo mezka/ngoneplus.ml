@@ -1,58 +1,25 @@
-html {
-  font-size: 13px;
-  color: #959595; }
-  html .header {
-    margin: 0; }
-  html body {
-    position: relative; }
-  html footer {
-    position: absolute;
-    bottom: 0;
-    left: 0; }
-  html a {
-    color: #999; }
-  html a:hover {
-    color: #070000; }
-  html a:visited {
-    color: #999; }
+html a {
+  color: #999; }
 
-.header,
-.middle-container,
-.middle-container > .row,
-.middle-container > .row > * {
-  height: 60px; }
+html a:hover {
+  color: #070000; }
 
-.logo-container {
-  display: inline-flex;
-  justify-content: center;
-  align-items: center; }
-  .logo-container .logo {
-    display: inline-block;
-    height: 32px;
-    width: 32px;
-    background-image: url("../img/index/logo_small.png"); }
+html a:visited {
+  color: #999; }
 
-.main-nav {
-  display: inline-flex;
-  justify-content: space-around;
-  align-items: center; }
-  .main-nav .nav-button {
-    color: #959595;
-    list-style: none; }
+body {
+  font-family: 'Lato', sans-serif;
+  font-size: 12px;
+  color: fontgray; }
 
-.right-nav {
-  display: inline-flex;
-  justify-content: space-around;
-  align-items: center;
-  color: #959595; }
-  .right-nav .flag {
-    display: inline-block;
-    background: url("../img/index/usa.png") no-repeat center center;
-    background-size: contain;
-    height: 20px;
-    width: 20px; }
-  .right-nav a:hover {
-    color: #070000; }
+.social-media-nav {
+  width: 65px; }
+
+.ng-scope {
+  margin: auto 0px; }
+
+.red {
+  color: #EB0029; }
 
 .store-element {
   display: inline-flex;
@@ -117,12 +84,29 @@ html {
     .checkout-wrapper .credit-card-form input {
       width: 40vw; }
 
+.glyphicon {
+  background: url("../img/index/link-icon.png") top left/0.7rem 0.7rem no-repeat;
+  display: inline-block;
+  width: 0.65rem;
+  height: 0.65rem; }
+
+.btn-transparent {
+  text-decoration: none;
+  height: 54px;
+  width: 207px;
+  border: 1px solid white;
+  border-radius: 5px;
+  background-color: transparent;
+  font-size: 1.5rem;
+  font-weight: 100;
+  color: white; }
+  .btn-transparent:hover {
+    background-color: #E6E6E6;
+    color: black; }
+
 .hero {
-  position: relative;
-  font-family: 'Lato', sans-serif;
-  background: url("../img/index/hero.jpg") no-repeat center center;
+  background: url("../img/index/hero.jpg") center center/contain no-repeat;
   background-size: cover;
-  width: 100%;
   height: 1080px;
   color: white; }
   .hero .hero-middle {
@@ -148,14 +132,6 @@ html {
       .hero .hero-middle .flexcol-container p {
         font-size: 24px;
         font-weight: 100; }
-      .hero .hero-middle .flexcol-container .btn-transparent {
-        height: 54px;
-        width: 207px;
-        border: 1px solid white;
-        border-radius: 5px;
-        background-color: transparent;
-        font-size: 1.5rem;
-        font-weight: 100; }
       .hero .hero-middle .flexcol-container .dash {
         width: 100px;
         height: auto; }
@@ -164,51 +140,24 @@ html {
       height: 110px;
       width: 239px; }
 
-.review-bar {
-  width: 100%;
-  height: 35vh;
-  background-color: #EFEFEF;
-  margin: 0;
-  font-family: 'Lato', sans-serif;
-  font-size: 16px;
-  font-weight: 100; }
-  .review-bar .review-element {
-    height: inherit;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    text-align: center;
-    padding: 0; }
-    .review-bar .review-element img {
-      width: 250px;
-      height: auto; }
-    .review-bar .review-element a {
-      color: #00A4DB; }
+.reviews, .img-container {
+  background-color: #E6E6E6; }
 
 .images {
-  height: 635px;
-  margin: 0; }
-  .images .image {
-    position: relative;
-    height: inherit;
-    background-size: cover;
-    padding: 0; }
-    .images .image .cornerbox {
-      position: absolute;
-      left: 20px;
-      bottom: 5px; }
-      .images .image .cornerbox h3,
-      .images .image .cornerbox p {
-        font-family: 'Lato', sans-serif;
-        color: white;
-        font-weight: 100; }
+  height: 380px; }
+  .images a {
+    display: block;
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+    text-decoration: none; }
+    .images a:hover {
+      opacity: 0.9; }
   .images .one {
-    background: url("../img/index/dash.jpg") no-repeat center center; }
+    background: url("../img/index/lick_of_love.png") center center/cover no-repeat; }
   .images .two {
-    background: url("../img/index/awards.jpg") no-repeat center center; }
+    background: url("../img/index/awards.jpg") center center/cover no-repeat; }
   .images .three {
-    background: url("../img/index/pidgeons.jpg") no-repeat center center; }
+    background: url("../img/index/pidgeons.jpg") center center/cover no-repeat; }
 
 .mail {
   height: 440px;
@@ -218,7 +167,6 @@ html {
   background-color: #A1A4A9;
   text-align: center;
   margin: 0;
-  font-family: 'Lato', sans-serif;
   color: white; }
   .mail .title-container {
     height: 180px;
@@ -247,36 +195,6 @@ html {
       border: 0; }
       .mail .title-container .input-container button:hover {
         background-color: #666; }
-
-.footer {
-  width: 100%;
-  margin: 0;
-  height: 110px;
-  background-color: #EFEFEF;
-  font-family: 'Lato', sans-serif; }
-  .footer .left-footer {
-    margin-top: 20px; }
-    .footer .left-footer nav {
-      width: 380px;
-      display: inline-flex;
-      justify-content: space-between; }
-    .footer .left-footer p {
-      margin-top: 10px;
-      color: #999; }
-  .footer .right-footer {
-    display: flex;
-    margin-top: 20px;
-    justify-content: center; }
-    .footer .right-footer p {
-      display: inline-block;
-      color: #EB0029;
-      margin-right: 25px; }
-    .footer .right-footer nav {
-      display: inline-flex;
-      justify-content: space-between;
-      width: 80px; }
-    .footer .right-footer i {
-      margin-top: 2px; }
 
 .login-wrapper {
   height: calc(100vh - 60px); }

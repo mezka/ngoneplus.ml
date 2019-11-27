@@ -1,9 +1,31 @@
+.glyphicon{
+    background: url('../img/index/link-icon.png') top left / 0.7rem 0.7rem no-repeat;
+    display: inline-block;
+    width: 0.65rem;
+    height: 0.65rem;
+}
+
+.btn-transparent {
+    text-decoration: none;
+
+    height: 54px;
+    width: 207px;
+    border: 1px solid white;
+    border-radius: 5px;
+    background-color: transparent;
+    font-size: 1.5rem;
+    font-weight: 100;
+    color: white;
+
+    &:hover {
+        background-color: $lightgray;
+        color: black;
+    }
+}
+
 .hero {
-    position: relative;
-    font-family: 'Lato', sans-serif;
-    background: url('../img/index/hero.jpg') no-repeat center center;
+    background: url('../img/index/hero.jpg') center center / contain no-repeat;
     background-size: cover;
-    width: 100%;
     height: 1080px;
     color: white;
 
@@ -38,15 +60,7 @@
                 font-weight: 100;
             }
 
-            .btn-transparent {
-                height: 54px;
-                width: 207px;
-                border: 1px solid white;
-                border-radius: 5px;
-                background-color: transparent;
-                font-size: 1.5rem;
-                font-weight: 100;
-            }
+
 
             .dash {
                 width: 100px;
@@ -62,69 +76,33 @@
     }
 }
 
-.review-bar {
-    width: 100%;
-    height: 35vh;
-    background-color: #EFEFEF;
-    margin: 0;
-    font-family: 'Lato', sans-serif;
-    font-size: 16px;
-    font-weight: 100;
-
-    .review-element {
-        height: inherit;
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
-        text-align: center;
-        padding: 0;
-
-        img {
-            width: 250px;
-            height: auto;
-        }
-
-        a {
-            color: #00A4DB;
-        }
-    }
+.reviews, .img-container{
+    background-color: $lightgray;
 }
 
 .images {
-    height: 635px;
-    margin: 0;
+    height: 380px;
+    
+    a {
+        display: block;
+        opacity: 1;
+        transition: opacity .25s ease-in-out;
+        text-decoration: none;
 
-    .image {
-        position: relative;
-        height: inherit;
-        background-size: cover;
-        padding: 0;
-
-        .cornerbox {
-            position: absolute;
-            left: 20px;
-            bottom: 5px;
-
-            h3,
-            p {
-                font-family: 'Lato', sans-serif;
-                color: white;
-                font-weight: 100;
-            }
-        }
+        &:hover {
+            opacity: 0.9;
+        }  
     }
 
     .one {
-        background: url('../img/index/dash.jpg') no-repeat center center;
+        background: url('../img/index/lick_of_love.png') center center / cover no-repeat;
     }
-
     .two {
-        background: url('../img/index/awards.jpg') no-repeat center center;
+        background: url('../img/index/awards.jpg') center center / cover no-repeat;
     }
 
     .three {
-        background: url('../img/index/pidgeons.jpg') no-repeat center center;
+        background: url('../img/index/pidgeons.jpg') center center / cover no-repeat;
     }
 }
 
@@ -136,7 +114,6 @@
     background-color: #A1A4A9;
     text-align: center;
     margin: 0;
-    font-family: 'Lato', sans-serif;
     color: white;
 
     .title-container {
@@ -177,51 +154,6 @@
                     background-color: #666;
                 }
             }
-        }
-    }
-}
-
-.footer {
-    width: 100%;
-    margin: 0;
-    height: 110px;
-    background-color: #EFEFEF;
-    font-family: 'Lato', sans-serif;
-
-    .left-footer {
-        margin-top: 20px;
-
-        nav {
-            width: 380px;
-            display: inline-flex;
-            justify-content: space-between;
-        }
-
-        p {
-            margin-top: 10px;
-            color: #999;
-        }
-    }
-
-    .right-footer {
-        display: flex;
-        margin-top: 20px;
-        justify-content: center;
-
-        p {
-            display: inline-block;
-            color: #EB0029;
-            margin-right: 25px;
-        }
-
-        nav {
-            display: inline-flex;
-            justify-content: space-between;
-            width: 80px;
-        }
-
-        i {
-            margin-top: 2px;
         }
     }
 }

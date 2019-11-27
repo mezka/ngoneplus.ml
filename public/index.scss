@@ -1,21 +1,6 @@
+@import "public/variables";
+
 html {
-    font-size: 13px;
-    color: #959595;
-
-    .header {
-        margin: 0;
-    }
-
-    body {
-        position: relative;
-    }
-
-    footer {
-        position: absolute;
-        bottom: 0;
-        left: 0;
-    }
-
     a {
         color: #999;
     }
@@ -29,52 +14,116 @@ html {
     }
 }
 
-.header,
-.middle-container,
-.middle-container > .row,
-.middle-container > .row > * {
-    height: 60px;
+body {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+    color: fontgray;
 }
 
-.logo-container {
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-
-    .logo {
-        display: inline-block;
-        height: 32px;
-        width: 32px;
-        background-image: url('../img/index/logo_small.png');
-    }
+.social-media-nav{
+    width: 65px;
 }
 
-.main-nav {
-    display: inline-flex;
-    justify-content: space-around;
-    align-items: center;
-
-    .nav-button {
-        color: #959595;
-        list-style: none;
-    }
+.ng-scope{
+    margin: auto 0px;
 }
 
-.right-nav {
-    display: inline-flex;
-    justify-content: space-around;
-    align-items: center;
-    color: #959595;
-
-    .flag {
-        display: inline-block;
-        background: url('../img/index/usa.png') no-repeat center center;
-        background-size: contain;
-        height: 20px;
-        width: 20px;
-    }
-
-    a:hover {
-        color: #070000;
-    }
+.red{
+    color: $oneplusred;
 }
+
+// .header,
+// .middle-container,
+// .middle-container > .row,
+// .middle-container > .row > * {
+//     height: 60px;
+// }
+
+// .logo-container {
+//     display: inline-flex;
+//     justify-content: center;
+//     align-items: center;
+
+//     .logo {
+//         display: inline-block;
+//         height: 32px;
+//         width: 32px;
+//         background-image: url('../img/index/logo_small.png');
+//     }
+// }
+
+// .main-nav {
+//     display: inline-flex;
+//     justify-content: space-around;
+//     align-items: center;
+
+//     .nav-button {
+//         color: #959595;
+//         list-style: none;
+//     }
+// }
+
+// .right-nav {
+//     display: inline-flex;
+//     justify-content: space-around;
+//     align-items: center;
+//     color: #959595;
+
+//     .flag {
+//         display: inline-block;
+//         background: url('../img/index/usa.png') no-repeat center center;
+//         background-size: contain;
+//         height: 20px;
+//         width: 20px;
+//     }
+
+//     a:hover {
+//         color: #070000;
+//     }
+// }
+
+
+// .footer {
+//     width: 100%;
+//     margin: 0;
+//     height: 110px;
+//     background-color: #EFEFEF;
+//     font-family: 'Lato', sans-serif;
+
+//     .left-footer {
+//         margin-top: 20px;
+
+//         nav {
+//             width: 380px;
+//             display: inline-flex;
+//             justify-content: space-between;
+//         }
+
+//         p {
+//             margin-top: 10px;
+//             color: #999;
+//         }
+//     }
+
+//     .right-footer {
+//         display: flex;
+//         margin-top: 20px;
+//         justify-content: center;
+
+//         p {
+//             display: inline-block;
+//             color: #EB0029;
+//             margin-right: 25px;
+//         }
+
+//         nav {
+//             display: inline-flex;
+//             justify-content: space-between;
+//             width: 80px;
+//         }
+
+//         i {
+//             margin-top: 2px;
+//         }
+//     }
+// }

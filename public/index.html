@@ -10,68 +10,89 @@
     <link href="https://fonts.googleapis.com/css?family=Lato:300,400,600" rel="stylesheet">
     <link rel="stylesheet" href="./dist/bundle.css">
 
-
     <title>One Plus</title>
 </head>
 
-<body>
+<body class="container-fluid px-0">
 
-    <div class="main">
-      <div class="container-fluid">
-          <header class="row header">
-              <div class="col-sm-offset-2 col-sm-8 middle-container">
-                  <div class="row">
-                      <div class="col-sm-2 logo-container">
-                          <a ui-sref="home">
-                              <div class="logo"></div>
-                          </a>
-                      </div>
+    <header class="header row">
+        <div class="col-offset-2 col-8 middle-container">
+            <div class="row">
+                <div class="col-2 logo-container">
+                    <a ui-sref="home">
+                        <div class="logo"></div>
+                    </a>
+                </div>
 
-                      <div class="col-sm-8 main-nav">
-                          <a ui-sref="3t" class="nav-button">One Plus 3T</a>
-                          <a ui-sref="3" class="nav-button">One Plus 3</a>
-                          <a ui-sref="store" class="nav-button">Store</a>
-                          <a ui-sref="support" class="nav-button">Support</a>
-                          <a ui-sref="community" class="nav-button">Community</a>
-                      </div>
+                <div class="col-8 main-nav">
 
-                      <nav class="col-sm-2 right-nav">
-                          <a ui-sref="login"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
-                          <a ui-sref="cart"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a>
-                          <div class="flag"></div>
-                      </nav>
-                  </div>
-              </div>
-              <div class="col-sm-2"></div>
-          </header>
-      </div>
-    </div>
+                    <nav class="nav">
+                        <li class="nav-item">
+                            <a ui-sref="3t">One Plus 3T</a>
+                        </li>
+                        <li class="nav-item">
+                            <a ui-sref="3">One Plus 3</a>
+                        </li>
+                        <li class="nav-item">
+                            <a ui-sref="store">Store</a>
+                        </li>
+                        <li class="nav-item">
+                            <a ui-sref="support">Support</a>
+                        </li>
+                        <li class="nav-item">
+                            <a ui-sref="community">Community</a>
+                        </li>
+                    </nav>
+                </div>
+
+                <nav class="col-2 right-nav">
+                    <a ui-sref="login"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
+                    <a ui-sref="cart"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a>
+                    <div class="flag"></div>
+                </nav>
+            </div>
+        </div>
+        <div class="col-2"></div>
+    </header>
 
     <ui-view></ui-view>
 
-    <footer class="footer">
-        <div class="left-footer col-sm-3">
-            <nav class="">
-                <a ui-sref="home">About OnePlus</a>
-                <a ui-sref="home">Carrers</a>
-                <a ui-sref="home">Press</a>
-                <a ui-sref="home">Privacy and Legal</a>
+    <footer class="row justify-content-sm-around">
+        <nav class="nav col-12 col-sm-auto justify-content-around">
+            <li class="nav-item">
+                <a class="nav-link active" ui-sref="home">About OnePlus</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" ui-sref="home">Carrers</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" ui-sref="home">Press</a>
+            </li>
+            <li class="nav-item">
+                <a class="nav-link active" ui-sref="home">Privacy and Legal</a>
+            </li>
+        </nav>
+        <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex justify-content-around align-items-center">
+            <p class="mb-0 red"><i class="fa fa-phone" aria-hidden="true"></i> Support: +1 (858) 609-6590</p>
+            <nav class="nav justify-content-between social-media-nav">
+                <li class="nav-item">
+                    <a href="#"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
+                </li>
+                <li class="nav-item">
+                    <a href="#"><i class="fa fa-instagram fa-lg" aria-hidden="true"></i></a></i>
+                </li>
+                <li class="nav-item">
+                    <a href="#"><i class="fa fa-twitter fa-lg" aria-hidden="true"></i></a>
+                </li>
             </nav>
-            <p>© 2013 - 2017 OnePlus</p>
         </div>
-
-        <div class="col-sm-offset-6 col-sm-3 right-footer">
-            <p><i class="fa fa-phone" aria-hidden="true"></i> Support: +1 (858) 609-6590</p>
-            <nav class="social-media">
-                <i class="fa fa-facebook fa-lg" aria-hidden="true"></i>
-                <i class="fa fa-instagram fa-lg" aria-hidden="true"></i>
-                <i class="fa fa-twitter fa-lg" aria-hidden="true"></i>
-            </nav>
+        <div class="col-12 d-flex justify-content-center">
+            <p class="copyright mb-0">© 2013 - 2017 OnePlus</p>
         </div>
     </footer>
 
-    <script src="./dist/bundle.js"></script>
 
+    <script src="./dist/bundle.js"></script>
 </body>
 
 </html>

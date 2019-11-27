@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "./node_modules/gulp/bin/gulp.js --production build",
-    "build-dev": "./node_modules/gulp/bin/gulp.js --development build",
+    "build-dev": "./node_modules/gulp/bin/gulp.js build",
     "watch": "./node_modules/gulp/bin/gulp.js watch"
   },
   "author": "",
@@ -15,7 +15,7 @@
     "angular-ui-router": "^1.0.23",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.19.0",
-    "bootstrap": "^3.3.7",
+    "bootstrap": "^4.4.0",
     "cookie-parser": "^1.4.4",
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
@@ -27,8 +27,7 @@
     "natives": "^1.1.6",
     "passport": "^0.4.0",
     "passport-local": "^1.0.0",
-    "stripe": "^7.13.0",
-    "stripe.js": "0.0.1"
+    "stripe": "^7.13.0"
   },
   "devDependencies": {
     "gulp": "^4.0.2",

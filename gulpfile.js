@@ -16,14 +16,14 @@ function compileSass(){
 
 function bundleCss(){
   return gulp
-    .src(['./node_modules/bootstrap/dist/css/bootstrap.css','./node_modules/bootstrap/dist/css/bootstrap-theme.css','./node_modules/font-awesome/css/font-awesome.css', './public/css/style.css'])
+    .src(['./node_modules/bootstrap/dist/css/bootstrap.css','./node_modules/font-awesome/css/font-awesome.css', './public/css/style.css'])
     .pipe(concat('bundle.css'))
     .pipe(mode.production(minifyCss()))
     .pipe(gulp.dest('./public/dist'));
 }
 
 function bundleJs(){
-  return gulp.src(['./node_modules/jquery/dist/jquery.js', './node_modules/bootstrap/dist/js/bootstrap.js', './node_modules/angular/angular.js', './node_modules/angular-ui-router/release/angular-ui-router.js', './public/app.js', './public/js/**/*.js'])
+  return gulp.src(['./node_modules/jquery/dist/jquery.js', './node_modules/bootstrap/dist/js/bootstrap.bundle.js', './node_modules/angular/angular.js', './node_modules/angular-ui-router/release/angular-ui-router.js', './public/app.js', './public/js/**/*.js'])
   .pipe(mode.development(sourcemaps.write()))
   .pipe(concat('bundle.js'))
   .pipe(mode.production(uglify({ mangle: false })))
