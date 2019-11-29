@@ -13,67 +13,63 @@
     <title>One Plus</title>
 </head>
 
-<body class="container-fluid px-0">
-
-    <header class="header row">
-        <div class="col-offset-2 col-8 middle-container">
-            <div class="row">
-                <div class="col-2 logo-container">
-                    <a ui-sref="home">
-                        <div class="logo"></div>
-                    </a>
-                </div>
-
-                <div class="col-8 main-nav">
-
-                    <nav class="nav">
-                        <li class="nav-item">
-                            <a ui-sref="3t">One Plus 3T</a>
-                        </li>
-                        <li class="nav-item">
-                            <a ui-sref="3">One Plus 3</a>
-                        </li>
-                        <li class="nav-item">
-                            <a ui-sref="store">Store</a>
-                        </li>
-                        <li class="nav-item">
-                            <a ui-sref="support">Support</a>
-                        </li>
-                        <li class="nav-item">
-                            <a ui-sref="community">Community</a>
-                        </li>
-                    </nav>
-                </div>
-
-                <nav class="col-2 right-nav">
-                    <a ui-sref="login"><i class="fa fa-user fa-lg" aria-hidden="true"></i></a>
-                    <a ui-sref="cart"><i class="fa fa-shopping-cart fa-lg" aria-hidden="true"></i></a>
-                    <div class="flag"></div>
-                </nav>
+<body class="container-fluid px-0" ng-controller="IndexController">
+    <header class="header">
+        <div class="row no-gutters">
+            <div class="col-2 d-flex align-items-baseline">
+                <button class="btn-oneplus" ng-click="dropdownHandler()" type="button" id="dropdownMenuButton"
+                    aria-haspopup="true" aria-expanded="false">
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                    <div class="bar"></div>
+                </button>
+                <img class="oneplus-logo" src="./img/index/logo_small.png" alt="oneplus-logo">
             </div>
+            <nav class="col-sm-6">
+                <nav class="row oneplus-nav-desktop">
+                    <a class="col oneplus-nav-item" href="#">Oneplus 3T</a>
+                    <a class="col oneplus-nav-item" href="#">Store</a>
+                    <a class="col oneplus-nav-item" href="#">Support</a>
+                    <a class="col oneplus-nav-item" href="#">Community</a>
+                </nav>
+            </nav>
+            <nav class="offset-9 col-1 col-md-3">
+                <i class="fa fa-user" aria-hidden="true"></i>
+                <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                <img src="./img/index/usa.png" alt="usa-flag">
+            </nav>
         </div>
-        <div class="col-2"></div>
+
+        <nav id="mobile-dropdown-menu" class="dropdown-menu" ng-class="{show: show}">
+            <a href="#" class="dropdown-item">Oneplus 3T</a>
+            <a href="#" class="dropdown-item oneplus-dropdown-item">Store</a>
+            <a href="#" class="dropdown-item oneplus-dropdown-item">Support</a>
+            <a href="#" class="dropdown-item oneplus-dropdown-item">Community</a>
+        </nav>
     </header>
+
 
     <ui-view></ui-view>
 
-    <footer class="row justify-content-sm-around">
-        <nav class="nav col-12 col-sm-auto justify-content-around">
-            <li class="nav-item">
-                <a class="nav-link active" ui-sref="home">About OnePlus</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" ui-sref="home">Carrers</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" ui-sref="home">Press</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link active" ui-sref="home">Privacy and Legal</a>
-            </li>
-        </nav>
+    <div class="row no-gutters justify-content-sm-around">
+        <div class="col-12 col-sm-auto ">
+            <nav class="nav justify-content-around">
+                <li class="nav-item">
+                    <a class="nav-link px-1 active" ui-sref="home">About OnePlus</a>
+                </li>
+                <li class="nav-item ">
+                    <a class="nav-link px-1 active" ui-sref="home">Carrers</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-1 active" ui-sref="home">Press</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link px-1 active" ui-sref="home">Privacy and Legal</a>
+                </li>
+            </nav>
+        </div>
         <div class="col-12 col-sm-6 col-lg-4 col-xl-3 d-flex justify-content-around align-items-center">
-            <p class="mb-0 red"><i class="fa fa-phone" aria-hidden="true"></i> Support: +1 (858) 609-6590</p>
+            <p class="phone-text"><i class="fa fa-phone" aria-hidden="true"></i> Support: +1 (858) 609-6590</p>
             <nav class="nav justify-content-between social-media-nav">
                 <li class="nav-item">
                     <a href="#"><i class="fa fa-facebook fa-lg" aria-hidden="true"></i></a>
@@ -87,9 +83,9 @@
             </nav>
         </div>
         <div class="col-12 d-flex justify-content-center">
-            <p class="copyright mb-0">© 2013 - 2017 OnePlus</p>
+            <p class="copyright">© 2013 - 2017 OnePlus</p>
         </div>
-    </footer>
+    </div>
 
 
     <script src="./dist/bundle.js"></script>
