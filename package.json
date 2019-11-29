@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "./node_modules/gulp/bin/gulp.js --production build",
-    "build-dev": "./node_modules/gulp/bin/gulp.js build",
-    "watch": "./node_modules/gulp/bin/gulp.js watch"
+    "build": "npx gulp --production build",
+    "build-dev": "npx gulp build",
+    "dev": "npx nodemon index.js && npx gulp watch"
   },
   "author": "",
   "license": "ISC",
@@ -38,6 +38,7 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify": "^3.0.2",
     "gulp-util": "^3.0.8",
+    "nodemon": "^2.0.1",
     "xlsx": "^0.15.2"
   }
 }
