@@ -1,25 +1,17 @@
-html a {
-  color: #999; }
+a {
+  color: #666666; }
 
-html a:hover {
-  color: #070000; }
-
-html a:visited {
-  color: #999; }
+h1, h2, h3, h4 {
+  font-weight: 100; }
 
 body {
   font-family: 'Lato', sans-serif;
-  font-size: 13px;
+  font-size: 14px;
+  font-weight: 100;
   color: #666666; }
-
-.social-media-nav {
-  width: 65px; }
 
 .ng-scope {
   margin: auto 0px; }
-
-.red {
-  color: #EB0029; }
 
 .btn-oneplus {
   width: 50px;
@@ -38,10 +30,10 @@ body {
       transition: .25s;
       background-color: white; }
 
-.oneplus-logo {
-  height: 25px;
-  width: 25px;
-  border-left: 1px solid #E6E6E6; }
+.login-link, .cart-link, .nav-link, .social-media-link {
+  cursor: pointer; }
+  .login-link:hover, .cart-link:hover, .nav-link:hover, .social-media-link:hover {
+    color: black; }
 
 .header {
   height: 50px;
@@ -51,14 +43,14 @@ body {
     .header .row > * {
       height: inherit; }
 
-.oneplus-nav-desktop .oneplus-nav-item {
-  height: inherit;
+.oneplus-nav-item {
   display: inline-flex;
   justify-content: center;
   align-items: center; }
-  .oneplus-nav-desktop .oneplus-nav-item:link, .oneplus-nav-desktop .oneplus-nav-item:visited, .oneplus-nav-desktop .oneplus-nav-item:active {
+  .oneplus-nav-item:link, .oneplus-nav-item:visited {
+    color: #666666;
     text-decoration: none; }
-  .oneplus-nav-desktop .oneplus-nav-item:hover {
+  .oneplus-nav-item:hover {
     text-decoration: none;
     background-color: #EB0029;
     transition: 0.25s;
@@ -72,13 +64,16 @@ body {
   border-width: 1px 0 0 0;
   border-radius: 0px;
   box-sizing: border-box;
-  padding: 0 5px; }
-  .dropdown-menu .oneplus-dropdown-item:focus {
-    background-color: #EB0029; }
+  padding: 0; }
+  .dropdown-menu > .oneplus-nav-item {
+    display: inherit; }
 
 .phone-text {
   color: #EB0029;
   margin: 0; }
+
+.social-media-nav {
+  width: 65px; }
 
 .copyright {
   margin: 5px 0; }
@@ -153,112 +148,148 @@ body {
   height: 0.65rem; }
 
 .btn-transparent {
-  text-decoration: none;
   text-align: center;
   padding: 5px;
-  height: 54px;
-  width: 207px;
+  height: 40px;
+  width: 160px;
   border: 1px solid white;
-  border-radius: 5px;
+  border-radius: 2px;
   background-color: transparent;
-  font-size: 1.5rem;
-  font-weight: 100; }
-  .btn-transparent:active {
-    color: white; }
-  .btn-transparent:visited {
+  font-size: 16px; }
+  .btn-transparent:link, .btn-transparent:visited {
+    text-decoration: none;
     color: white; }
   .btn-transparent:hover {
+    text-decoration: none;
     background-color: #E6E6E6;
     transition: all 0.2s ease-in;
     color: black; }
 
+.dash-logo {
+  display: block;
+  width: 60px; }
+
+.awards-logo {
+  width: 20%; }
+
+.awards-logo-xs {
+  width: 15%; }
+
+.btn-subscribe {
+  color: white;
+  background-color: #707276;
+  box-shadow: none;
+  border: 0;
+  border-radius: 3px;
+  height: 45px; }
+  .btn-subscribe:hover {
+    background-color: #666; }
+
+.oneplus-input {
+  display: block;
+  height: 45px;
+  border: none;
+  border-radius: 3px;
+  box-shadow: none;
+  box-sizing: border-box;
+  text-indent: 20px; }
+
 .hero {
-  background: url("../img/index/hero-small.jpg") center center/contain no-repeat;
-  background-size: cover;
-  height: 1080px;
-  color: white; }
-  .hero .hero-middle {
-    position: absolute;
-    top: 25%;
-    left: 20%;
-    height: 50%;
-    display: inline-flex;
-    flex-direction: column;
-    justify-content: space-between; }
-    .hero .hero-middle h2 {
-      margin: 20px 0;
-      font-size: 2.5rem;
-      font-weight: 300; }
-    .hero .hero-middle .oneplus3t {
-      height: auto; }
-    .hero .hero-middle .flexcol-container {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      height: 30%; }
-      .hero .hero-middle .flexcol-container p {
-        font-size: 24px;
-        font-weight: 100; }
-      .hero .hero-middle .flexcol-container .dash {
-        height: auto; }
-    .hero .hero-middle .encourages {
-      display: inline-block;
-      height: 110px; }
-
-.reviews, .img-container {
-  background-color: #E6E6E6; }
-
-.images {
-  height: 380px; }
-  .images a {
-    display: block;
-    opacity: 1;
-    transition: opacity .25s ease-in-out;
-    text-decoration: none; }
-    .images a:hover {
-      opacity: 0.9; }
-  .images .one {
-    background: url("../img/index/lick_of_love.png") center center/cover no-repeat; }
-  .images .two {
-    background: url("../img/index/awards.jpg") center center/cover no-repeat; }
-  .images .three {
-    background: url("../img/index/pidgeons.jpg") center center/cover no-repeat; }
-
-.mail {
-  height: 440px;
+  background: url("../img/index/hero-small.jpg") center center/cover no-repeat;
+  width: 100%;
+  height: 152vw;
   display: flex;
-  justify-content: center;
-  align-items: center;
-  background-color: #A1A4A9;
-  text-align: center;
-  margin: 0;
+  flex-direction: column;
   color: white; }
-  .mail .title-container {
-    height: 180px;
+  .hero .oneplus3t-svg {
+    width: 200px; }
+  .hero .title, .hero .subtitle, .hero .price-title {
+    text-align: center; }
+  .hero .title {
+    margin: 10% 0 0 0; }
+  .hero .subtitle {
+    margin: 10px 0 40px 0;
+    font-size: 2em; }
+  .hero .price-title {
+    margin-bottom: 10px;
+    font-size: 1.5em; }
+  .hero .btn-transparent {
+    margin: 0 auto; }
+  .hero .logo-container {
+    flex-grow: 1;
     display: flex;
     flex-direction: column;
-    justify-content: space-between; }
-    .mail .title-container .title {
-      color: white;
-      font-size: 3rem;
-      font-weight: 100; }
-    .mail .title-container .subtitle {
-      font-size: 1.8rem;
-      font-weight: 100; }
-    .mail .title-container .input-container input {
-      height: 45px;
-      border-radius: 4px;
-      margin-right: 5px; }
-    .mail .title-container .input-container button {
-      background-color: #707276;
-      margin-top: -4px;
-      width: 180px;
-      height: 45px;
-      border-radius: 4px;
-      box-shadow: none;
-      border: 0; }
-      .mail .title-container .input-container button:hover {
-        background-color: #666; }
+    align-items: flex-end;
+    justify-content: space-around;
+    box-sizing: border-box;
+    padding: 0 5%; }
+
+.media {
+  background-color: #E6E6E6; }
+  .media .media-link {
+    color: #009ACE; }
+
+.image-link {
+  box-sizing: border-box;
+  display: flex;
+  opacity: 1;
+  transition: opacity .25s ease-in-out;
+  flex-direction: column;
+  justify-content: flex-end; }
+  .image-link:link, .image-link:visited {
+    text-decoration: none;
+    color: white; }
+  .image-link:hover {
+    opacity: 0.9; }
+  .image-link .image-text {
+    margin: 0 0 5% 5%; }
+
+.bg-face {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.3) 100%), url("../img/index/lick_of_love.png") center center/cover no-repeat; }
+
+.bg-awards {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.3) 100%), url("../img/index/awards.jpg") center center/cover no-repeat; }
+
+.bg-pidgeons {
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0, rgba(0, 0, 0, 0.3) 100%), url("../img/index/pidgeons.jpg") center center/cover no-repeat; }
+
+.mail {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 440px;
+  background-color: #A1A4A9;
+  text-align: center;
+  color: white; }
+  .mail .btn-subscribe, .mail .oneplus-input {
+    display: block;
+    width: 80%;
+    margin: 5px auto; }
+
+@media (max-width: 768px) {
+  .media .col-12 {
+    height: 60vw; }
+  .images .col-12 {
+    height: 100vw; } }
+
+@media (min-width: 768px) {
+  .hero {
+    box-sizing: border-box;
+    padding: 0 5%;
+    background: url("../img/index/hero.jpg") center center/cover no-repeat;
+    height: 56vw;
+    align-items: flex-start; }
+    .hero .btn-transparent {
+      margin: 0; }
+    .hero .logo-container {
+      align-items: flex-start;
+      padding: 0; }
+  .dash-logo {
+    order: -1;
+    display: block;
+    width: 100px; }
+  .col-md-4 {
+    height: 33.33333333vw; } }
 
 .login-wrapper {
   height: calc(100vh - 60px); }

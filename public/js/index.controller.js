@@ -1,8 +1,7 @@
 function IndexController($scope, $state) {
-    $scope.show = true;
+    $scope.show = false;
 
     $scope.dropdownHandler = function(){
-        console.log('handle');
         $scope.show = !$scope.show;
     }
 }

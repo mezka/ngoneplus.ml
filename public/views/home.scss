@@ -6,165 +6,230 @@
 }
 
 .btn-transparent {
-    text-decoration: none;
+
     text-align: center;
-
     padding: 5px;
-
-    height: 54px;
-    width: 207px;
-    border: 1px solid white;
-    border-radius: 5px;
-    background-color: transparent;
-    font-size: 1.5rem;
-    font-weight: 100;
     
-    &:active{
-        color: white;
-    }
-
-    &:visited{
+    height: 40px;
+    width: 160px;
+    border: 1px solid white;
+    border-radius: 2px;
+    background-color: transparent;
+    font-size: 16px;
+    
+    &:link, &:visited{
+        text-decoration: none;
         color: white;
     }
 
     &:hover {
+        text-decoration: none;
         background-color: $lightgray;
         transition: all 0.2s ease-in;
         color: black;
     }
 }
 
-.hero {
-    background: url('../img/index/hero-small.jpg') center center / contain no-repeat;
-    background-size: cover;
-    height: 1080px;
+.dash-logo{
+    display: block;
+    width: 60px;
+}
+
+
+.awards-logo{
+    width: 20%;
+}
+
+.awards-logo-xs{
+    width: 15%;
+}
+
+.btn-subscribe{
+
     color: white;
 
-    .hero-middle {
-        position: absolute;
-        top: 25%;
-        left: 20%;
-        height: 50%;
-        display: inline-flex;
-        flex-direction: column;
-        justify-content: space-between;
+    background-color: #707276;
+    box-shadow: none;
+    border: 0;
+    border-radius: 3px;
+    height: 45px;
 
-        h2 {
-            margin: 20px 0;
-            font-size: 2.5rem;
-            font-weight: 300;
-        }
-
-        .oneplus3t {
-            // width: 320px;
-            height: auto;
-        }
-
-        .flexcol-container {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            height: 30%;
-
-            p {
-                font-size: 24px;
-                font-weight: 100;
-            }
-
-
-
-            .dash {
-                // width: 100px;
-                height: auto;
-            }
-        }
-
-        .encourages {
-            display: inline-block;
-            height: 110px;
-            // width: 239px;
-        }
+    &:hover {
+        background-color: #666;
     }
 }
 
-.reviews, .img-container{
-    background-color: $lightgray;
+.oneplus-input{
+    display: block;
+    height: 45px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: none;
+    box-sizing: border-box;
+    text-indent: 20px;
 }
 
-.images {
-    height: 380px;
+.hero {
     
-    a {
-        display: block;
-        opacity: 1;
-        transition: opacity .25s ease-in-out;
+    background: url('../img/index/hero-small.jpg') center center / cover no-repeat;
+
+    width: 100%;
+    height: 152vw;
+
+    display: flex;
+    flex-direction: column;
+
+
+    color: white;
+
+    .oneplus3t-svg{
+        width: 200px;
+    }
+
+    .title, .subtitle, .price-title{
+        text-align: center;   
+    }
+
+    .title {
+        margin: 10% 0 0 0;
+    }
+
+    .subtitle{
+        margin: 10px 0 40px 0;
+        font-size: 2em;
+    }
+
+    .price-title{
+        margin-bottom: 10px;
+        font-size: 1.5em;
+    }
+
+    .btn-transparent{
+        margin: 0 auto;
+    }
+
+    .logo-container{
+        flex-grow: 1;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-around;
+
+        box-sizing: border-box;
+        padding: 0 5%;
+    }
+}
+
+.media {
+    background-color: $lightgray;
+    .media-link{
+        color: #009ACE;
+    }
+}
+
+    
+.image-link {
+
+    box-sizing: border-box;
+
+    display: flex;
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+
+    flex-direction: column;
+    justify-content: flex-end;
+    
+    
+    &:link, &:visited{
         text-decoration: none;
-
-        &:hover {
-            opacity: 0.9;
-        }  
+        color: white;
     }
 
-    .one {
-        background: url('../img/index/lick_of_love.png') center center / cover no-repeat;
-    }
-    .two {
-        background: url('../img/index/awards.jpg') center center / cover no-repeat;
+    &:hover {
+        opacity: 0.9;
     }
 
-    .three {
-        background: url('../img/index/pidgeons.jpg') center center / cover no-repeat;
+    .image-text{
+        margin: 0 0 5% 5%;
     }
+}
+
+.bg-face {
+    background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 100%), url('../img/index/lick_of_love.png') center center / cover no-repeat;
+}
+.bg-awards {
+    background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 100%), url('../img/index/awards.jpg') center center / cover no-repeat;
+}
+
+.bg-pidgeons {
+    background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 100%), url('../img/index/pidgeons.jpg') center center / cover no-repeat;
 }
 
 .mail {
-    height: 440px;
+
     display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+
+    height: 440px;
     background-color: #A1A4A9;
     text-align: center;
-    margin: 0;
+
     color: white;
 
-    .title-container {
-        height: 180px;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-between;
+    .btn-subscribe, .oneplus-input{
+        display: block;
+        width: 80%;
+        margin: 5px auto;
+    }
+}
 
-        .title {
-            color: white;
-            font-size: 3rem;
-            font-weight: 100;
+@media(max-width:768px){
+
+    .media{
+        .col-12{
+            height: 60vw;
+        }
+    }
+    
+    .images{
+        .col-12{
+            height: 100vw;
+        }
+    }
+}
+
+@media(min-width:768px){
+
+    .hero {
+
+        box-sizing: border-box;
+        padding: 0 5%;
+
+        background: url('../img/index/hero.jpg') center center / cover no-repeat;
+        height: 56vw;
+
+        align-items: flex-start;
+
+        .btn-transparent{
+            margin: 0;
         }
 
-        .subtitle {
-            font-size: 1.8rem;
-            font-weight: 100;
+        .logo-container{
+            align-items: flex-start;
+            padding: 0;
         }
 
-        .input-container {
-            input {
-                // width: 320px;
-                height: 45px;
-                border-radius: 4px;
-                margin-right: 5px;
-            }
+    }
 
-            button {
-                background-color: #707276;
-                margin-top: -4px;
-                width: 180px;
-                height: 45px;
-                border-radius: 4px;
-                box-shadow: none;
-                border: 0;
+    .dash-logo{
+        order: -1;
+        display: block;
+        width: 100px;
+    }
 
-                &:hover {
-                    background-color: #666;
-                }
-            }
-        }
+    .col-md-4{
+        height: 33.33333333vw;
     }
 }
