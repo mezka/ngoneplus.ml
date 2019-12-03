@@ -1,6 +1,6 @@
 function storeService($http) {
 
-    this.getStoreElements = function() {
+    this.getStoreItems = function() {
 
         return $http({
             method: 'GET',
@@ -8,9 +8,12 @@ function storeService($http) {
         }).then(function(response) {
             if (response.status === 200) {
                 console.log('/api/store');
+
+                console.log(response.data);
+
                 return response.data;
             } else
-                console.log('Get store elements failed, logging response.status: ', response.status);
+                console.log('Get store items failed, logging response.status: ', response.status);
         });
 
     };

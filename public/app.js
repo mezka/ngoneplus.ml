@@ -21,8 +21,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
         controller: 'storeController as store',
         authenticate: false,
         resolve: {
-            storeElements: function(storeService) {
-                return storeService.getStoreElements();
+          storeItems: function(storeService) {
+                return storeService.getStoreItems();
             }
         }
     };

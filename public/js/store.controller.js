@@ -1,5 +1,5 @@
-function storeController(storeElements){
-  this.storeElements = storeElements;
+function storeController(storeItems, $scope){
+  this.items = storeItems;
 }
 
 

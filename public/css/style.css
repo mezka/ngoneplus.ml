@@ -78,27 +78,6 @@ body {
 .copyright {
   margin: 5px 0; }
 
-.store-element {
-  display: inline-flex;
-  flex-direction: column;
-  justify-content: space-between;
-  align-items: center;
-  width: 33%;
-  margin-bottom: 9px; }
-  .store-element a {
-    width: 100%;
-    display: flex;
-    justify-content: center; }
-    .store-element a .img-container {
-      display: flex;
-      justify-content: center;
-      margin: 0;
-      height: 32vh;
-      width: 32vw; }
-      .store-element a .img-container img {
-        height: 100%;
-        width: auto; }
-
 .cart-wrapper {
   min-height: calc(100vh - 60px); }
   .cart-wrapper .cart-container {
@@ -359,10 +338,77 @@ body {
         .signup-wrapper .signup-flex form .input-flex input {
           width: inherit; }
 
+.store-hero {
+  background: url("../img/index/hero-store-small.jpg") center center/cover no-repeat;
+  width: 100%;
+  height: 103vw; }
+
 .store-main {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap; }
+  .store-main > :nth-child(even) {
+    background-color: #F3F3F3; }
+
+.store-item {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 130vw;
+  justify-content: center;
+  align-items: space-around;
+  text-align: center; }
+
+.store-item-image-link {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 10%; }
+  .store-item-image-link:hover .store-item-image {
+    transform: scale(0.95);
+    transition: 0.2s; }
+
+.store-item-image {
+  width: 40%;
+  max-height: inherit; }
+
+@media (min-width: 576px) {
+  .store-item {
+    width: 50%;
+    height: 65vw; }
+  .store-main > :nth-child(even) {
+    background-color: white; }
+  .store-main > :nth-child(4n-2) {
+    background-color: #F3F3F3; }
+  .store-main > :nth-child(4n-1) {
+    background-color: #F3F3F3; } }
+
+@media (min-width: 768px) {
+  .store-hero {
+    background: url("../img/index/hero-store.jpg") center center/cover no-repeat;
+    height: 50vw; }
+  .store-main > :nth-child(4n-2) {
+    background-color: white; }
+  .store-main > :nth-child(4n-1) {
+    background-color: white; }
+  .store-main > :nth-child(even) {
+    background-color: #F3F3F3; }
+  .store-item {
+    width: 33%;
+    height: 43vw; } }
+
+@media (min-width: 992px) {
+  .store-main > :nth-child(even) {
+    background-color: white; }
+  .store-main > :nth-child(4n-2) {
+    background-color: #F3F3F3; }
+  .store-main > :nth-child(4n) {
+    background-color: #F3F3F3; }
+  .store-hero {
+    background: url("../img/index/hero-store-large.jpg") center center/cover no-repeat;
+    height: 50vw; }
+  .store-item {
+    width: 20%;
+    height: 26vw; } }
 
 .summary-wrapper {
   height: calc(100vh - 60px); }
