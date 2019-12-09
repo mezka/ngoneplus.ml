@@ -23,7 +23,7 @@ function bundleCss(){
 }
 
 function bundleJs(){
-  return gulp.src(['./node_modules/jquery/dist/jquery.js', './node_modules/bootstrap/dist/js/bootstrap.bundle.js', './node_modules/angular/angular.js', './node_modules/angular-ui-router/release/angular-ui-router.js', './public/app.js', './public/js/**/*.js'])
+  return gulp.src(['./node_modules/jquery/dist/jquery.js', './node_modules/bootstrap/dist/js/bootstrap.bundle.js', './node_modules/angular/angular.js', './node_modules/angular-animate/angular-animate.js', './node_modules/angular-ui-router/release/angular-ui-router.js', './public/app.js', './public/js/**/*.js'])
   .pipe(mode.development(sourcemaps.write()))
   .pipe(concat('bundle.js'))
   .pipe(mode.production(uglify({ mangle: false })))

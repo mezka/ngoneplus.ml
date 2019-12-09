@@ -1,30 +1,25 @@
 function productController(options, cartService, $stateParams){
-  options.forEach(firstImageIsCurrentImage);
+
   this.options = options;
-  this.currentOption = options[0];
-  this.quantity = '1';
+  this.current = options[0];
+
+  this.current.currentimage = this.current.imageurls[0];
 
   this.changeCurrentImage = function(imageUrl){
-    this.currentOption.currentimage = imageUrl;
+    this.current.currentimage = imageUrl;
   };
 
-  productid = $stateParams.productid;
+  this.changeCurrentOption = function(option){
+    this.current = option;
+  }
 
-
-
-  this.addProductToCart = function(optionid, productname, optionname, imageurl, optionprice, quantity, discount){
-    console.log(productid, optionid, productname, optionname, imageurl, optionprice, quantity, discount);
-    cartService.addProductToCart(Number(productid), Number(optionid), productname, optionname, imageurl, Number(optionprice), Number(quantity), Number(discount)).then(function(data){
+  this.addCurrentOptionToCart = function(){
+    cartService.addProductToCart(Number($stateParams.productid), Number(this.current.optionid), this.current.productname, this.current.optionname, this.current.imageurls[0], Number(this.current.optionprice), 1, Number(this.current.discount))
+    .then(function(data){
       console.log(data);
     });
   };
-
 }
 
-function firstImageIsCurrentImage(obj){
-  obj.currentimage = obj.imageurls[0];
-  obj.radioclass = "{background: url(" + obj.optionimageicon + ") " + obj.optionimagecolor + '}';
-  console.log(obj.radioclass);
-}
 
 angular.module('app').controller('productController', productController);
