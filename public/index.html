@@ -13,20 +13,26 @@
     <title>One Plus</title>
 </head>
 
-<body class="container-fluid px-0" ng-controller="IndexController">
+<body class="container-fluid px-0">
     <header class="header">
         <div class="row no-gutters justify-content-between">
-            <div class="col-auto col-sm-1 d-flex justify-content-between justify-content-sm-center align-items-center">
-                <button class=" d-block d-sm-none btn-oneplus" ng-click="dropdownHandler()" type="button" id="dropdownMenuButton"
-                    aria-haspopup="true" aria-expanded="false">
+            <div class="col-auto d-flex d-sm-none justify-content-between justify-content-sm-center align-items-center">
+                <button id="dropdownMenuOffset" type="button" class="btn-oneplus" data-toggle="dropdown" data-display="static" aria-haspopup="true" aria-expanded="false">
                     <div class="bar"></div>
                     <div class="bar"></div>
                     <div class="bar"></div>
                 </button>
-                <a ui-sref="home">
-                    <img class="oneplus-logo" src="./img/index/logo_small.png" alt="oneplus-logo">
-                </a>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
+                    <a href="#" class="dropdown-item oneplus-nav-item">Oneplus 3T</a>
+                    <a ui-sref="store" class="dropdown-item oneplus-nav-item">Store</a>
+                    <a href="#" class="dropdown-item oneplus-nav-item">Support</a>
+                    <a href="#" class="dropdown-item oneplus-nav-item">Community</a>
+                </div>
             </div>
+
+            <a class="col col-sm-1 d-flex align-items-center justify-content-center" ui-sref="home" class="oneplus-logo">
+                <img src="./img/index/logo_small.png" alt="oneplus-logo">
+            </a>
             <nav class="col-sm-8 col-md-7 col-lg-6 col-xl-5 d-none d-sm-block">
                 <nav class="row oneplus-nav-desktop">
                     <a ui-sref="home" class="col oneplus-desktop-nav-item oneplus-nav-item">Oneplus 3T</a>
@@ -44,12 +50,7 @@
             </nav>
         </div>
 
-        <nav class="dropdown-menu" id="mobile-dropdown-menu" ng-class="{show: show}">
-            <a href="#" class="dropdown-item oneplus-nav-item">Oneplus 3T</a>
-            <a ui-sref="store" class="dropdown-item oneplus-nav-item">Store</a>
-            <a href="#" class="dropdown-item oneplus-nav-item">Support</a>
-            <a href="#" class="dropdown-item oneplus-nav-item">Community</a>
-        </nav>
+
     </header>
 
     <ui-view></ui-view>
