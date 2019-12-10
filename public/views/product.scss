@@ -8,13 +8,15 @@
     background-color: #F6F6F6;
     font-family: 'Helvetica Neue Lt', sans-serif;
     box-sizing: border-box;
-    padding: 0 15px;
+    padding: 15px;
 }
 
 .displayed-image{
     display: block;
     margin: 0 auto;
     width: 50%;
+
+    max-width: 30vh;
 }
 
 .gallery-container{
@@ -23,6 +25,7 @@
 
     width: 100%;
     margin: 0 auto;
+    padding: 20px 0;
 
     > * {
         margin: 0;
@@ -37,8 +40,14 @@
 
     justify-content: center;
 
+    margin: 0 20px 0 0;
+
     > img {
         width: 50%;
+    }
+
+    &:hover {
+        cursor: pointer;
     }
 }
 
@@ -50,6 +59,7 @@
     line-height: 1.2;
     font-weight: 400;
     letter-spacing: 0.3px;
+    margin: 10px auto 10px auto;
 }
 
 .btn-option{
@@ -86,11 +96,16 @@
 }
 
 .border-red{
-    border: 1px solid red;
+    border: 1px solid $oneplusred;
+}
+
+.background-white{
+    background-color: white;
+    transition: 0.2s ease-in;
 }
 
 .btn-cart{
-    background-color: red;
+    background-color: $oneplusred;
     width: 180px;
     height: 50px;
     border: none;
@@ -102,48 +117,27 @@
 
 .swap-animation.ng-enter {
     transition:0.2s linear all;
-  }
-  .swap-animation.ng-enter {
-    opacity:0;
-  }
-  .swap-animation.ng-enter.ng-enter-active {
-    opacity:1;
-  }
+}
+.swap-animation.ng-enter {
+opacity:0;
+}
+.swap-animation.ng-enter.ng-enter-active {
+opacity:1;
+}
 
+.regular-price{
+    font-size: 19px;
+    color: black;
+}
 
-// .product-wrapper {
-//     height: calc(100vh - 60px);
-// }
+@media(min-width:768px){
 
-// .option-flex-container {
-//     display: inline-flex;
-//     flex-wrap: wrap;
-//     justify-content: space-around;
-// }
+    .product-wrapper{
+        display: flex;
+    }
 
-// .option-img-container {
-//     width: 33%;
-//     flex-grow: 1;
-// }
+    .option-wrapper, .gallery-wrapper {
+        width: 50%;
+    }
 
-// .img-wrapper {
-//     display: flex;
-//     justify-content: center;
-
-//     .img-container {
-//         width: 600px;
-
-//         img {
-//             width: 100%;
-//             height: auto;
-//         }
-//     }
-// }
-
-// .option-img {
-//     width: 100%;
-// }
-
-// .background {
-//     background: none;
-// }
+}

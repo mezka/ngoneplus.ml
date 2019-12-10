@@ -11,6 +11,7 @@ function productController(options, cartService, $stateParams){
 
   this.changeCurrentOption = function(option){
     this.current = option;
+    this.current.currentimage = option.imageurls[0];
   }
 
   this.addCurrentOptionToCart = function(){
