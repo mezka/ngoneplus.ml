@@ -30,7 +30,7 @@ app.use(session({
     secret: process.env.SESSION_SECRET_KEY
 }));
 
-app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/public/dist'));
 
 massive({
     host: process.env.DB_HOST,

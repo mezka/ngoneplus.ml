@@ -4,9 +4,9 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npx gulp --production build",
-    "build-dev": "npx gulp build",
-    "dev": "npx nodemon index.js && npx gulp watch"
+    "build": "./node_modules/gulp/bin/gulp.js --production build",
+    "build-dev": "./node_modules/gulp/bin/gulp.js build",
+    "dev": "./node_modules/nodemon/bin/nodemon.js index.js && ./node_modules/gulp/bin/gulp.js watch"
   },
   "author": "",
   "license": "ISC",
@@ -32,6 +32,7 @@
   },
   "devDependencies": {
     "gulp": "^4.0.2",
+    "gulp-angular-templatecache": "^3.0.0",
     "gulp-clean-css": "^4.2.0",
     "gulp-concat": "^2.6.1",
     "gulp-mode": "^1.0.2",

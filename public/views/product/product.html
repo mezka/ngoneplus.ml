@@ -29,11 +29,11 @@
       </p>
     </button>
 
-    <div class="prices">
-      <p class="regular-price" ng-class="{'text-decoration': product.current.discount? strikethrough : none}">
+    <div class="product-prices">
+      <p class="product-regular-price" ng-class="{'text-decoration': product.current.discount? strikethrough : none}">
         ${{product.current.optionprice}}
       </p>
-      <p ng-if="product.current.discount" class="discounted-price">
+      <p class="product-discounted-price" ng-if="product.current.discount" >
         {{ product.current.price * (100 - product.current.discount) / 100 }}</p>
     </div>
 

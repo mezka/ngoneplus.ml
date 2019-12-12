@@ -6,6 +6,10 @@ function cartController(items, $scope , cartService, $state) {
 
     $scope.quantity = [1,2,3,4,5];
 
+    console.log('here');
+    console.log(items);
+
+
     function calculateTotal(arr) {
 
         console.log('Logging array: ', arr);
