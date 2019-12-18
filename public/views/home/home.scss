@@ -1,0 +1,235 @@
+.glyphicon{
+    background: url('../img/index/link-icon.png') top left / 0.7rem 0.7rem no-repeat;
+    display: inline-block;
+    width: 0.65rem;
+    height: 0.65rem;
+}
+
+.btn-transparent {
+
+    text-align: center;
+    padding: 5px;
+    
+    height: 40px;
+    width: 160px;
+    border: 1px solid white;
+    border-radius: 2px;
+    background-color: transparent;
+    font-size: 1.5rem;
+    
+    &:link, &:visited{
+        text-decoration: none;
+        color: white;
+    }
+
+    &:hover {
+        text-decoration: none;
+        background-color: $lightgray;
+        transition: all 0.2s ease-in;
+        color: black;
+    }
+}
+
+.dash-logo{
+    display: block;
+    width: 60px;
+}
+
+
+.awards-logo{
+    width: 20%;
+}
+
+.awards-logo-xs{
+    width: 15%;
+}
+
+.btn-subscribe{
+
+    color: white;
+
+    background-color: #707276;
+    box-shadow: none;
+    border: 0;
+    border-radius: 3px;
+    height: 45px;
+
+    &:hover {
+        background-color: #666;
+    }
+}
+
+.input-subscribe{
+    display: block;
+    height: 45px;
+    border: none;
+    border-radius: 3px;
+    box-shadow: none;
+    box-sizing: border-box;
+    text-indent: 20px;
+}
+
+.hero {
+    
+    background: url('../img/index/hero-small.jpg') center center / cover no-repeat;
+
+    width: 100%;
+    height: 152vw;
+
+    display: flex;
+    flex-direction: column;
+
+
+    color: white;
+
+    .oneplus3t-svg{
+        width: 200px;
+    }
+
+    .title, .subtitle, .price-title{
+        text-align: center;   
+    }
+
+    .title {
+        margin: 10% 0 0 0;
+    }
+
+    .subtitle{
+        margin: 10px 0 40px 0;
+        font-size: 2rem;
+    }
+
+    .price-title{
+        margin-bottom: 10px;
+        font-size: 1.5rem;
+    }
+
+    .btn-transparent{
+        margin: 0 auto;
+    }
+
+    .logo-container{
+        flex-grow: 1;
+
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        justify-content: space-around;
+
+        box-sizing: border-box;
+        padding: 0 5%;
+    }
+}
+
+.media {
+    background-color: $lightgray;
+    .media-link{
+        color: #009ACE;
+    }
+}
+
+    
+.image-link {
+
+    box-sizing: border-box;
+
+    display: flex;
+    opacity: 1;
+    transition: opacity .25s ease-in-out;
+
+    flex-direction: column;
+    justify-content: flex-end;
+    
+    
+    &:link, &:visited{
+        text-decoration: none;
+        color: white;
+    }
+
+    &:hover {
+        opacity: 0.9;
+    }
+
+    .image-text{
+        margin: 0 0 5% 5%;
+    }
+}
+
+.bg-face {
+    background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 100%), url('../img/index/lick_of_love.png') center center / cover no-repeat;
+}
+.bg-awards {
+    background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 100%), url('../img/index/awards.jpg') center center / cover no-repeat;
+}
+
+.bg-pidgeons {
+    background: linear-gradient(to bottom,rgba(0,0,0,0) 0,rgba(0,0,0,0.3) 100%), url('../img/index/pidgeons.jpg') center center / cover no-repeat;
+}
+
+.mail {
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    height: 440px;
+    background-color: #A1A4A9;
+    text-align: center;
+
+    color: white;
+
+    .btn-subscribe, .input-subscribe{
+        display: block;
+        width: 80%;
+        margin: 5px auto;
+    }
+}
+
+@media(max-width:768px){
+
+    .media{
+        .col-12{
+            height: 60vw;
+        }
+    }
+    
+    .images{
+        .col-12{
+            height: 100vw;
+        }
+    }
+}
+
+@media(min-width:768px){
+
+    .hero {
+
+        box-sizing: border-box;
+        padding: 0 5%;
+
+        background: url('../img/index/hero.jpg') center center / cover no-repeat;
+        height: 56vw;
+
+        align-items: flex-start;
+
+        .btn-transparent{
+            margin: 0;
+        }
+
+        .logo-container{
+            align-items: flex-start;
+            padding: 0;
+        }
+
+    }
+
+    .dash-logo{
+        order: -1;
+        display: block;
+        width: 100px;
+    }
+
+    .col-md-4{
+        height: 33.33333333vw;
+    }
+}

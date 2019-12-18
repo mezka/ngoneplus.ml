@@ -1,2 +1,6 @@
 node_modules
-keys.js
+.env
+public/dist/*
+public/bundle.js
+public/angularTemplateCache.js
+public/*.css

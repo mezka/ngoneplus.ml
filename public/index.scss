@@ -1,0 +1,159 @@
+$oneplusred: #EB0029;
+$fontgray: #666666;
+$lightgray: #E6E6E6;
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('./fonts/HelveticaNeueMd.ttf') format('truetype');
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('./fonts/HelveticaNeueTh.ttf') format('truetype');
+    font-weight: 100;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('./fonts/HelveticaNeueLight.ttf') format('truetype');
+    font-weight: 300;
+    font-style: normal;
+}
+@font-face {
+    font-family: 'Helvetica Neue';
+    src: url('./fonts/HelveticaNeueBd.ttf') format('truetype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+
+html{
+    font-size: 12px;
+}
+
+a{
+    color: $fontgray;
+}
+
+body {
+    font-family: 'Lato', sans-serif;
+    color: $fontgray;
+}
+
+.ng-scope{
+    margin: auto 0px;
+}
+
+.btn-oneplus{
+    width: 50px;
+    height: 50px;
+    
+    box-sizing: border-box;
+    border: none;
+    background-color: white;    
+
+    &:before, &:after, & > .bar{
+        content: "";
+        
+        display: block;
+        height: 4px;
+        width: 23px;
+        background-color: $fontgray;
+        margin: 4px auto;
+    }
+
+    &:hover{
+
+        transition: .25s;
+        background-color: $oneplusred;
+        
+        :nth-child(odd){
+            transition: .25s;
+            background-color: white;
+        }
+    }
+}
+
+.login-link, .cart-link, .nav-link, .social-media-link {
+
+    cursor: pointer;
+
+    &:hover{
+        color: black;
+    }
+}
+
+
+.header{
+    height: 50px;
+    position: relative;
+    
+    .row{
+        height: inherit;
+        
+        > * {
+            height: inherit;
+        }
+    }
+    
+}
+
+.oneplus-nav-item{
+    
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+
+    &:link, &:visited{
+        color: $fontgray;
+        text-decoration: none;
+    }
+    
+    &:hover{
+        text-decoration: none;
+        background-color: $oneplusred;
+        transition: 0.25s;
+        color: white;
+    }
+}
+
+.dropdown-menu{
+    display: block;
+    width: 100vw;
+    margin-top: 0px;
+    border-style: solid;
+    border-color: $lightgray;
+    border-width: 1px 0 0 0;
+    border-radius: 0px;
+    box-sizing: border-box;
+
+    transform: scaleY(0);
+    transform-origin: top;
+
+    padding: 0;
+
+    font-size: 1.25rem;
+
+    &.show{
+        transform: scaleY(1);
+        transition: 0.5s;
+    }
+    
+    > .oneplus-nav-item {
+        display: inherit;
+    }
+}
+
+.phone-text{
+    color: $oneplusred;
+    margin: 0;
+}
+
+.social-media-nav{
+    width: 65px;
+}
+
+.copyright{
+    margin: 5px 0;
+}

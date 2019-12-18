@@ -1,0 +1,40 @@
+cart-item-qty-selector{
+    height: 24px;
+    display: flex;
+    border: 1px solid #DFDFDF;
+    border-radius: 2px;
+    
+    .btn-square{
+        width: 24px;
+        box-shadow: none;
+        border: none;
+        background: white;
+        border-radius: 2px;
+        color: #CCCCCC;
+
+        padding: 0;
+
+        &:hover{
+            background: #E3E3E3;
+            color: #999999;
+        }
+
+        &:focus{
+            outline: none;
+        }
+    }
+
+    input{
+        &[type='number']{
+            width: 32px;
+            text-align: center;
+            border: none;
+            -moz-appearance: textfield;
+            color: #828282;
+        }
+        &::-webkit-outer-spin-button,
+        &::-webkit-inner-spin-button {
+            -webkit-appearance: none;
+        }
+    }
+}

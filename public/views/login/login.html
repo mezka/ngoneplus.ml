@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<div class="login-wrapper container-fluid">
+
+    <div class="need-login" ng-if="!login.isAuthenticated()">
+      <h2 class="mb-5">Welcome back!</h2>
+  
+      <div class="row justify-content-center">
+        <form class="login-form col-11 col-sm-9 col-md-7 col-lg-5 col-xl-3" ng-submit="login.attempt()">
+          <input class="oneplus-input" placeholder="Email" type="email" ng-model="login.user.useremail" required>
+          <input class="oneplus-input" type="password" placeholder="Password" ng-model="login.user.userpassword"
+            pattern=".{6,20}" minlength="6" maxlength="20" required>
+          <button type="submit" class="btn-oneplus-red btn-login">Sign In</button>
+        </form>
+      </div>
+      <a class="signup-link" ui-sref="signup">Sign up with email</a>
+    </div>
+
+    <div class="row justify-content-center" ng-if="login.isAuthenticated()">
+      <div class="col-11 col-sm-9 col-md-7 col-lg-5 col-xl-3">
+        <h2 class="mb-5">Already Logged In!</h2>
+        <button class="btn-oneplus-red btn-logout" ng-click="login.logout()">Log Out</button>
+      </div>
+    </div>
+</div>
+
+<!-- 
+
+<div class="login-flex" ng-if="!login.isAuthenticated()">
+  <h1>Log In</h1>
+
+  <form action="">
+    <label>E-mail</label>
+    <input type="email" ng-model="login.user.email" required>
+
+    <label>Password</label>
+    <input type="password" ng-model="login.user.password" ng-minlength="6" ng-maxlength="20" required>
+    <input type="submit" ng-click="login.attempt(login.user.email, login.user.password)" value="Log In">
+  </form>
+
+  <a ui-sref="signup">Sign up with email</a>
+</div>
+
+<div class="logout-flex" ng-if="login.isAuthenticated()">
+  <button ng-click="login.logout()">Log Out</button>
+</div>
+</div>
+
+
+<pre ng-bind="user | json"></pre> -->

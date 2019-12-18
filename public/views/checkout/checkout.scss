@@ -1,0 +1,27 @@
+.checkout-wrapper {
+    height: calc(100vh - 60px);
+
+    h1{
+        text-align: center;
+    }
+}
+
+.form-group{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    input {
+        width: 100%;
+    }
+}
+
+.form-group-small{
+    width: 30%;
+}
+
+.btn-checkout{
+    display: block;
+    margin: 0 auto;
+    width: 50%;
+    padding: 10px 0;
+}

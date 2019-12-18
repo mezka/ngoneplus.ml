@@ -1,4 +1,4 @@
-var app = angular.module('app', ['ui.router']);
+var app = angular.module('app', ['ui.router', 'ngAnimate', 'templates']);
 
 app.config(['$qProvider', function ($qProvider) {
     $qProvider.errorOnUnhandledRejections(false);
@@ -10,19 +10,19 @@ app.config(function($stateProvider, $urlRouterProvider) {
     var homeState = {
         name: 'home',
         url: '/',
-        templateUrl: './views/home.html',
+        templateUrl: '/views/home/home.html',
         authenticate: false
     };
 
     var storeState = {
         name: 'store',
         url: '/store',
-        templateUrl: './views/store.html',
+        templateUrl: '/views/store/store.html',
         controller: 'storeController as store',
         authenticate: false,
         resolve: {
-            storeElements: function(storeService) {
-                return storeService.getStoreElements();
+          storeItems: function(storeService) {
+                return storeService.getStoreItems();
             }
         }
     };
@@ -30,7 +30,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     var productState = {
         name: 'product',
         url: '/product/{productid}',
-        templateUrl: '../views/product.html',
+        templateUrl: '/views/product/product.html',
         controller: 'productController as product',
         resolve: {
             options: function(storeService, $transition$) {
@@ -42,22 +42,22 @@ app.config(function($stateProvider, $urlRouterProvider) {
     var loginState = {
       name: 'login',
       url: '/login',
-      templateUrl: './views/login.html',
+      templateUrl: '/views/login/login.html',
       controller: 'loginController as login',
     };
 
     var signupState = {
       name: 'signup',
       url: '/signup',
-      templateUrl: './views/signup.html',
+      templateUrl: '/views/signup/signup.html',
       controller: 'signupController as signup',
     };
 
     var cartState = {
       name: 'cart',
       url: '/cart',
-      templateUrl: './views/cart.html',
-      controller: 'cartController',
+      templateUrl: '/views/cart/cart.html',
+      controller: 'cartController as cart',
       resolve:{
         items: function(cartService){
           return cartService.getCart();
@@ -68,8 +68,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     var checkoutState = {
       name: 'checkout',
       url: '/checkout',
-      templateUrl: './views/checkout.html',
-      controller: 'paymentController as payment',
+      templateUrl: '/views/checkout/checkout.html',
+      controller: 'checkoutController as checkout',
       resolve:{
         cartid: function(cartService){
           cartService.checkoutCart();
@@ -77,11 +77,11 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     };
 
-    var summaryState = {
-      name: 'summary',
-      url: '/summary',
-      templateUrl: './views/summary.html',
-      controller: 'summaryController as summary',
+    var orderState = {
+      name: 'order',
+      url: '/order',
+      templateUrl: '/views/order/order.html',
+      controller: 'orderController as order',
       params: {
         stripeObj: null
       }
@@ -95,7 +95,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state(signupState);
     $stateProvider.state(cartState);
     $stateProvider.state(checkoutState);
-    $stateProvider.state(summaryState);
+    $stateProvider.state(orderState);
 
 
     $urlRouterProvider.otherwise('/');
