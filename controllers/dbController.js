@@ -40,16 +40,14 @@ const dbController = {
             }
         )
         .then(result => {
-            console.log(result);
             res.status(200).send(result);
         })
         .catch(error => {
-            console.log(error);
             res.status(500).send(error);
         })
     },
 
-    registerUser: async function (req, res, next) {
+    registerUser: async function (req, res) {
 
         const hash = await bcrypt.hash(req.body.userpassword, 10);
 

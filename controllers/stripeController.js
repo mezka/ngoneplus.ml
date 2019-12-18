@@ -6,11 +6,15 @@ var db = app.get('db');
 var stripeController = {
     makePayment: async function(req, res, next) {
 
-        const user = await db.users.findOne({ userid: req.session.passport.user });
+        let user;
+
+        try{
+            user = await db.users.findOne({ userid: req.session.passport.user });
+        } catch(err) {
+            res.status(500).send(err);
+        }
 
         useremail = user.useremail;
-
-        console.log(user);
         
         var amount = req.session.cart.reduce(function(sumTotal, currElement) {
             return sumTotal + currElement.quantity * currElement.optionprice;
@@ -43,7 +47,6 @@ var stripeController = {
 
     }
 };
-
 
 var amountToPennies = function(amount) {
     return Math.floor(amount * 100);

@@ -1,12 +1,6 @@
-
-@font-face {
-    font-family: 'Helvetica Neue Lt';
-    src: url(./fonts/HelveticaNeueLt.ttf) format('truetype');
-}
-
 .product-wrapper{
     background-color: #F6F6F6;
-    font-family: 'Helvetica Neue Lt', sans-serif;
+    font-family: 'Helvetica Neue', sans-serif;
     box-sizing: border-box;
     padding: 15px;
 }
@@ -55,9 +49,8 @@
     color: black;
     text-align: center;
 
-    font-size: 19px;
+    font-size: 1.666rem;
     line-height: 1.2;
-    font-weight: 400;
     letter-spacing: 0.3px;
     margin: 10px auto 10px auto;
 }
@@ -105,14 +98,8 @@
 }
 
 .btn-cart{
-    background-color: $oneplusred;
     width: 180px;
     height: 50px;
-    border: none;
-    box-shadow: none;
-    color: white;
-    border-radius: 2px;
-    font-size: 17px;
 }
 
 .swap-animation.ng-enter {
@@ -126,7 +113,7 @@ opacity:1;
 }
 
 .product-regular-price{
-    font-size: 19px;
+    font-size: 1.666rem;
     color: black;
 }
 

@@ -1,11 +1,22 @@
 function signupController(authService, $state){
-  this.register = function(user){
+  
+  var signup = this;
 
-    console.log(user);
+  signup.currentPage = 0;
 
-    authService.register(user.useremail, user.userfirstname, user.userlastname, user.useraddress1, user.useraddress2, user.userpassword).then(function(data){
-      $state.go('home');
-    });
+  signup.back = function(){
+    signup.currentPage--;
+  }
+
+  signup.submit = function(){
+
+    if(signup.currentPage >= 1){
+      authService.register(signup.user.useremail, signup.user.userfirstname, signup.user.userlastname, signup.user.useraddress1, signup.user.useraddress2, signup.user.userpassword).then(function(data){
+        $state.go('home');
+      });
+    } else {
+      signup.currentPage++;
+    }
   };
 }
 

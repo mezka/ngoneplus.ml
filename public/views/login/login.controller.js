@@ -1,8 +1,13 @@
 function loginController(authService, $state){
 
-  this.attempt = function(userEmail, userPassword){
+  var login = this;
 
-    authService.attemptLogin(userEmail, userPassword).then(function(data){
+  login.user = { useremail: '', userpassword: ''};
+
+
+  login.attempt = function(){
+
+    authService.attemptLogin(login.user.useremail, login.user.userpassword).then(function(data){
       if(data){
         $state.go('home');
       }else{

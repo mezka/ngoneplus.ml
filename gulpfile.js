@@ -115,8 +115,10 @@ function copyFiles() {
 }
 
 function watchFiles() {
-  gulp.watch('./public/**/*.scss', gulp.series(compileSass, bundleCss));
-  gulp.watch(['./public/app.js', './public/js/**/*.js'], bundleJs);
+  gulp.watch(configuration.paths.src.scss, gulp.series(compileSass, bundleCss, copyFiles));
+  gulp.watch(configuration.paths.src.htmlTemplates, gulp.series(createAngularTemplateCache, bundleJs, copyFiles))
+  gulp.watch(configuration.paths.src.js, gulp.series(bundleJs, copyFiles));
+  gulp.watch([...configuration.paths.src.images, ...configuration.paths.src.fonts], copyFolders);
 }
 
 exports.build = gulp.series(

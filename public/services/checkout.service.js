@@ -1,4 +1,4 @@
-function paymentService($http) {
+function checkoutService($http) {
 
     this.charge = function(info) {
         return $http({
@@ -15,9 +15,9 @@ function paymentService($http) {
                 return response.data;
             }
         }).catch(function(response) {
-            console.log(response.data);
+            console.log(response);
         });
     };
 }
 
-angular.module('app').service('paymentService', paymentService);
+angular.module('app').service('checkoutService', checkoutService);

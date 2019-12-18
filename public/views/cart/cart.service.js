@@ -37,16 +37,20 @@ function cartService($http, authService) {
         });
     };
 
-    this.checkoutCart = function() {
+    this.checkoutCart = function(callbackSuccess, callbackUnauthorized) {
         return $http({
             method: 'POST',
             url: '/api/cart/checkout'
         }).then(function(response) {
             if (response.status === 200) {
+                callbackSuccess();
                 return response.data;
             }
-        }).catch(function(response) {
-            console.log(response.status);
+        }).catch(function(error) {
+            if(error.status === 401){
+                callbackUnauthorized();
+            }
+            return error;
         });
     };
 
@@ -65,7 +69,7 @@ function cartService($http, authService) {
     };
 
 
-    this.deleteCartElement = function(tempid) {
+    this.deleteCartItem = function(tempid) {
 
         return $http({
             method: 'POST',

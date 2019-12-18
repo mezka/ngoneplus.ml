@@ -57,7 +57,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       name: 'cart',
       url: '/cart',
       templateUrl: '/views/cart/cart.html',
-      controller: 'cartController',
+      controller: 'cartController as cart',
       resolve:{
         items: function(cartService){
           return cartService.getCart();
@@ -69,7 +69,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       name: 'checkout',
       url: '/checkout',
       templateUrl: '/views/checkout/checkout.html',
-      controller: 'paymentController as payment',
+      controller: 'checkoutController as checkout',
       resolve:{
         cartid: function(cartService){
           cartService.checkoutCart();

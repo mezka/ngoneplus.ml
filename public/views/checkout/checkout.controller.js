@@ -1,13 +1,16 @@
-function paymentController(paymentService, cartid, $state){
-  this.charge = function(info){
-    paymentService.charge(info).then(function(data){
+function checkoutController(checkoutService, cartid, $state){
+
+  var checkout = this;
+  checkout.info.cartid = cartid;
+
+  checkout.charge = function(){
+
+    checkoutService.charge(checkout.info).then(function(data){
       console.log(data);
-      $state.go('summary', {stripeObj: data});
+      $state.go('order', {stripeObj: data});
     });
-
-
   };
 }
 
 
-angular.module('app').controller('paymentController', paymentController);
+angular.module('app').controller('checkoutController', checkoutController);

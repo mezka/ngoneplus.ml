@@ -1,5 +1,5 @@
-function summaryController($stateParams){
+function orderController($stateParams){
   this.stripeObj = $stateParams.stripeObj;
 }
 
-angular.module('app').controller('summaryController', summaryController);
+angular.module('app').controller('orderController', orderController);

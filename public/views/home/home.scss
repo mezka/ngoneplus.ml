@@ -15,7 +15,7 @@
     border: 1px solid white;
     border-radius: 2px;
     background-color: transparent;
-    font-size: 16px;
+    font-size: 1.5rem;
     
     &:link, &:visited{
         text-decoration: none;
@@ -59,7 +59,7 @@
     }
 }
 
-.oneplus-input{
+.input-subscribe{
     display: block;
     height: 45px;
     border: none;
@@ -96,12 +96,12 @@
 
     .subtitle{
         margin: 10px 0 40px 0;
-        font-size: 2em;
+        font-size: 2rem;
     }
 
     .price-title{
         margin-bottom: 10px;
-        font-size: 1.5em;
+        font-size: 1.5rem;
     }
 
     .btn-transparent{
@@ -178,7 +178,7 @@
 
     color: white;
 
-    .btn-subscribe, .oneplus-input{
+    .btn-subscribe, .input-subscribe{
         display: block;
         width: 80%;
         margin: 5px auto;
