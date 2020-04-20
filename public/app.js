@@ -1,15 +1,10 @@
 var app = angular.module('app', ['ui.router', 'ngAnimate', 'templates']);
 
-app.config(['$qProvider', function ($qProvider) {
-    $qProvider.errorOnUnhandledRejections(false);
-}]);
-
-
 app.config(function($stateProvider, $urlRouterProvider) {
 
     var homeState = {
-        name: 'home',
         url: '/',
+        name: 'home',
         templateUrl: '/views/home/home.html',
         authenticate: false
     };
@@ -19,7 +14,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
         url: '/store',
         templateUrl: '/views/store/store.html',
         controller: 'storeController as store',
-        authenticate: false,
         resolve: {
           storeItems: function(storeService) {
                 return storeService.getStoreItems();
@@ -65,10 +59,25 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     };
 
+    var orderState = {
+      name: 'orders',
+      url: '/orders',
+      templateUrl: '/views/orders/orders.html',
+      data: { requiresAuth: true },
+      controller: 'ordersController as orders',
+      resolve: {
+        pendingorders: function(orderService){
+
+          return orderService.getPendingOrders();
+        }
+      }
+    };
+
     var checkoutState = {
       name: 'checkout',
       url: '/checkout',
       templateUrl: '/views/checkout/checkout.html',
+      data: { requiresAuth: true },
       controller: 'checkoutController as checkout',
       resolve:{
         cartid: function(cartService){
@@ -77,13 +86,32 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     };
 
-    var orderState = {
+    var orderSummaryState = {
       name: 'order',
-      url: '/order',
+      url: '/order/{orderid}',
       templateUrl: '/views/order/order.html',
-      controller: 'orderController as order',
-      params: {
-        stripeObj: null
+      data: { requiresAuth: true },
+      controller: 'orderSummaryController as orderSummary',
+      resolve: {
+        orderSummary: function(orderService, $transition$) {
+            return storeService.getProductById($transition$.params().orderid);
+        },
+      }
+    };
+
+    var userControlPanelState = {
+      name: 'userControlPanel',
+      url: '/user/cp',
+      templateUrl: '/views/usercp/usercp.html',
+      controller: 'userControlPanelController as userCP',
+      data: { requiresAuth: true },
+      resolve: {
+        user: function(userService){
+          return userService.getUserData();
+        },
+        countries: function(locationService){
+          return locationService.getCountries();
+        }
       }
     };
 
@@ -96,7 +124,34 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state(cartState);
     $stateProvider.state(checkoutState);
     $stateProvider.state(orderState);
-
-
+    $stateProvider.state(userControlPanelState);
+    
+    
     $urlRouterProvider.otherwise('/');
-});
+  });
+  
+  authHookRunBlock.$inject = ['$transitions', 'authService'];
+
+  function authHookRunBlock(transitionService, authService) {
+
+    // Matches if the destination state's data property has a truthy 'requiresAuth' property
+    var requiresAuthCriteria = {
+      to: function(state){
+        return state.data && state.data.requiresAuth }
+    };
+      
+    function redirectToLogin(transition){
+      
+      var authService = transition.injector().get('authService');
+
+      var $state = transition.router.stateService;
+      if (!authService.isAuthenticated()) {
+        return $state.target('login', undefined, { location: false });
+      }
+    }
+
+    // Register the "requires auth" hook with the TransitionsService
+    transitionService.onBefore(requiresAuthCriteria, redirectToLogin, {priority: 10});
+  }
+
+app.run(authHookRunBlock);

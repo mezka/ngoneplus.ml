@@ -1,0 +1,38 @@
+<div class="container-fluid px-0">
+    
+    <h2 class="order-heading">Pending Orders</h2>
+
+    <div class="row d-flex justify-content-center no-gutters" ng-repeat="pendingorder in orders.pendingorders">
+        <div class="col-12 order-title-container">
+            <p>Order Number: {{pendingorder.id}}</p>
+            <p>Date: {{pendingorder.createddate | date:'dd-MM-yyyy'}}</p>
+            <p>Order price: {{pendingorder.orderprice | currency }}</p>
+        </div>
+
+        <div class="col-11">
+            <div class="order-item" ng-repeat="orderitem in pendingorder.orderitems">
+                <div class="order-image-container">
+                    <img class="img-fluid order-image" src="./img/store/{{orderitem.optionimages[0]}}" alt="">
+                </div>
+                <div class="order-info-container">
+                    <p>Quantity: {{orderitem.quantity}}</p>
+                    <p ng-class="{strikethrough: orderitem.discount}">Price: {{orderitem.optionprice | currency}}</p>
+                    <p ng-if="orderitem.discount">Discounted price: {{orderitem.discount}}</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-11 order-shipping-container">
+            <div class="shipping-address-text">
+                <p>{{pendingorder.useraddress1}}</p>
+                <p>{{pendingorder.useraddress2}}</p>
+            </div>
+            
+            <button class="btn-pay-order btn-oneplus-red">Pay for this order</button>
+        </div>
+    </div>
+
+    <h2 class="order-heading">Fullfilled Orders</h2>
+
+</div>
+

@@ -19,11 +19,5 @@ FROM '/home/mezka/ngoneplus.ml/db/csv/BundleProducts.csv' DELIMITER ',' CSV HEAD
 COPY Options(optionId,productId,optionName,optionImageColor,optionImageIcon,optionDimensions,optionWeight,optionMaterials,optionInput,optionOutput,optionPrice)
 FROM '/home/mezka/ngoneplus.ml/db/csv/Options.csv' DELIMITER ',' CSV HEADER;
 
-COPY ProductImages(imageId,optionId,imageUrl)
+COPY OptionImages(imageId,optionId,imageUrl)
 FROM '/home/mezka/ngoneplus.ml/db/csv/ProductImages.csv' DELIMITER ',' CSV HEADER;
-
-COPY Users(userId,userEmail,userFirstName,userLastName,userAddress1,userAddress2)
-FROM '/home/mezka/ngoneplus.ml/db/csv/Users.csv' DELIMITER ',' CSV HEADER;
-
-COPY Passwords(userId,passwordHash)
-FROM '/home/mezka/ngoneplus.ml/db/csv/Passwords.csv' DELIMITER ',' CSV HEADER;

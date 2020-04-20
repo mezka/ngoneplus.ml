@@ -59,11 +59,14 @@ massive({
 
     const dbController = require('./controllers/dbController.js');
     const cartController = require('./controllers/cartController.js');
-    const stripeController = require('./controllers/stripeController.js');
+    const orderController = require('./controllers/orderController.js');
     const authController = require('./controllers/authController.js');
+    const userController = require('./controllers/userController.js');
+    const locationApiController = require('./controllers/locationApiController.js');
 
     //AUTH ENDPOINTS
 
+    app.get('/api/login/check', authController.authorize, authController.sendAuthSuccesful);
     app.get('/api/login/success', authController.sendAuthSuccesful);
     app.get('/api/login/failure', authController.sendAuthFailed);
     app.post('/api/logout', authController.authorize, authController.logout); //REQUIRES LOGIN
@@ -81,21 +84,34 @@ massive({
 
     app.post('/api/cart', cartController.addProductToCart);
     app.get('/api/cart', cartController.getCart);
-    app.post('/api/cart/checkout', authController.authorize, dbController.checkoutCart); //REQUIRES LOGIN
+    app.post('/api/cart/checkout', authController.authorize, cartController.checkoutCart); //REQUIRES LOGIN
     app.post('/api/cart/clear', cartController.clearCart);
     app.post('/api/cart/delete', cartController.deleteCartElement);
 
     //CHECKOUT ENDPOINTS
 
-    app.post('/api/cart/charge', authController.authorize, stripeController.makePayment); //REQUIRES LOGIN
+    app.post('/api/cart/charge', authController.authorize, orderController.makePayment); //REQUIRES LOGIN
 
+    //ORDER ENDPOINTS
+    app.get('/api/orders/pending', orderController.getPendingOrders);
+    app.post('/api/orders/pay', orderController.payOrder)
+
+    //USER ENDPOINTS
+    app.get('/api/user', authController.authorize, userController.getUserData);
+
+    //ADDRESS ENDPOINTS
+
+    app.get('/api/address', authController.authorize, userController.getAddresses);
+    app.post('/api/address/add', authController.authorize, userController.addAddress);
+    app.post('/api/address/delete', authController.authorize, userController.deleteAddress);
+    
+    //COUNTRY LIST ENDPOINTS
+
+    app.get('/api/location/countries', locationApiController.getCountries);
+    app.get('/api/location/countries/:country_iso', locationApiController.getStatesByCountryIso);
+    app.get('/api/location/countries/:country_iso/:geo_name', locationApiController.getCitiesByCountryIsoAndStateGeoName)
 
     app.listen(process.env.APPLICATION_PORT, function () {
         console.log(`Listening on port ${process.env.APPLICATION_PORT} ...`);
     });
 });
-
-
-
-
-

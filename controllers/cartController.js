@@ -10,7 +10,6 @@ var cart = {
       if (Array.isArray(req.session.cart)) {
         addCartObjToArray(req.session.cart, cartObj);
       } else {
-          cartObj.tempid = generateTemporaryCartElementId();
           req.session.cart = [cartObj];
       }
 
@@ -43,7 +42,32 @@ var cart = {
   clearCart: function(req, res){
     req.session.cart = [];
     res.status(200).send();
-  }
+  },
+
+  checkoutCart: function (req, res, next) {
+
+    db.order.insert(
+        {
+            userid: req.session.passport.user,
+            orderitem: req.session.cart.map((element) => {
+                const { productname, optionname, imageurl, optionprice, ...orderitem } = element;
+                orderitem.orderid = undefined; //needed for deepInsert, read massiveJs docs for reference
+                orderitem.discount = orderitem.discount? orderitem.discount : 0;
+                return orderitem;
+            })
+        },
+        {
+            deepInsert: true,
+        }
+    )
+    .then(result => {
+        res.status(200).send(result);
+    })
+    .catch(error => {
+        console.log(error);
+        res.status(500).send(error);
+    })
+}
 
 };
 
@@ -60,7 +84,6 @@ function addCartObjToArray(cartArray, newCartObj){
   if(cartObj){
     cartObj.quantity += newCartObj.quantity;
   }else{
-    newCartObj.tempid = generateTemporaryCartElementId();
     cartArray.push(newCartObj);
   }
 }
@@ -82,7 +105,5 @@ function createIterator(){
     return count++;
   };
 }
-
-
 
 module.exports = cart;

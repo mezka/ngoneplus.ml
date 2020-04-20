@@ -4,7 +4,6 @@ var authController = {
   },
 
   sendAuthSuccesful: function(req, res) {
-      console.log(req.session);
       res.status(200).send(req.session.passport);
   },
 
@@ -14,9 +13,6 @@ var authController = {
   },
 
   authorize: function(req, res, next){
-
-    console.log(req.session);
-    
     if(!req.session.passport){
       res.status(401).send({message: 'Authorization failed'});
     }else {

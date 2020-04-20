@@ -1,0 +1,30 @@
+<div class="login-wrapper container-fluid">
+    <h2 class="usercp-heading">User Control Panel</h3>
+
+    <form class="address-form">
+        <div class="row form-group justify-content-center">
+            <label for="email" class="col-sm-2 col-form-label">Email</label>
+            <div class="col-sm-4">
+                <input type="text" readonly class="form-control-plaintext" id="email"
+                    ng-model="userCP.user.useremail">
+            </div>
+        </div>
+
+        <div class="row form-group justify-content-center">
+            <label for="fullname" class="col-sm-2 col-form-label">Full name</label>
+            <div class="col-sm-4">
+                <input type="text" readonly class="form-control-plaintext" id="fullname"
+                    ng-value="userCP.user.userfirstname + ' ' + userCP.user.userlastname">
+            </div>
+        </div>
+    </form>
+
+    <button class="btn-oneplus-red btn-usercp" ng-click="login.logout()">Log Out</button>
+
+    <div ng-repeat="address in userCP.user.addresses">
+        <existing-address-form address="address" countries="userCP.countries" refresh-user-data="userCP.refreshUserData()"></existing-address-form>
+    </div>
+
+    <new-address-form countries="userCP.countries" refresh-user-data="userCP.refreshUserData()"></new-address-form>
+    <button class="btn-oneplus-red btn-usercp" type="button" ng-click="userCP.toggleForm()">Add an address</button>
+</div>

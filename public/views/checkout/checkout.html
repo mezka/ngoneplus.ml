@@ -5,25 +5,25 @@
     
     <div class="row justify-content-center">
         <form class="col-9 col-sm-7 col-md-6 col-lg-5 col-xl-4" ng-submit="checkout.charge()">
-            <fieldset class="form-group">
+            <fieldset class="form-group-column">
                 <label>Name on card:</label>
                 <input class="oneplus-input" type="text" placeholder="Name" required>
             </fieldset>
-            <fieldset class="form-group">
+            <fieldset class="form-group-column">
                 <label>Card number:</label>
                 <input class="oneplus-input" ng-model="checkout.info.cardnumber" type="text" placeholder="Credit Card No." required>
             </fieldset>
 
             <fieldset class="d-flex justify-content-between">
-                <fieldset class="form-group form-group-small">
+                <fieldset class="form-group-column form-group-small">
                     <label>CVC</label>
                     <input class="oneplus-input input-cvc" ng-model="checkout.info.cvc" placeholder="CVC" type="password" required>
                 </fieldset>
-                <fieldset class="form-group form-group-small">
+                <fieldset class="form-group-column form-group-small">
                     <label>Exp Mo</label>
                     <input class="oneplus-input" ng-model="checkout.info.exp_month" type="number" min="1" max="12" name="name" placeholder="MM">
                 </fieldset>
-                <fieldset class="form-group form-group-small">
+                <fieldset class="form-group-column form-group-small">
                     <label>Exp Yr</label>
                     <input class="oneplus-input" ng-model="checkout.info.exp_year" type="number" name="name" min="19" max="99" placeholder="YY">
                 </fieldset>

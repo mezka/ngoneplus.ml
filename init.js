@@ -14,21 +14,22 @@ try{
     throw error;
 }
 
-var db = null;
-
-const connectDb = async () => {
-    db = await massive({ host: process.env.DB_HOST, port: process.env.DB_PORT, database: process.env.DB_NAME, user: process.env.DB_USER, password: process.env.PASSWORD });
-};
+let db = null;
 
 async function init(){
-
-    await connectDb();
+    
+    try{
+        db = await massive({ host: process.env.DB_HOST, port: process.env.DB_PORT, database: process.env.DB_NAME, user: process.env.DB_USER, password: process.env.PASSWORD });
+    } catch (error){
+        console.log('Could not establish connection to database ...');
+        throw error;
+    }
 
     createTables()
         .then(generateCsvFromOds)
         .then(importCsvFiles)
         .catch(error => {
-            console.log(`Unexpected error: ${error}`);
+            throw error;
     });
 }
 
@@ -39,7 +40,7 @@ function createTables() {
         })
         .catch(error => {
             console.log(`Error while attempting to create tables: ${error}`);
-            process.exit(1);
+            throw error;
         });
 };
 
@@ -77,11 +78,10 @@ function importCsvFiles() {
             process.exit(0);
         })
         .catch(error => {
-            console.log(`Error importing CSV files into database: ${error}`);
-            process.exit(1);
+            console.log('Error importing CSV files into database ...');
+            throw error;
         })
 };
-
 
 init();
 

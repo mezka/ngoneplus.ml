@@ -1,9 +1,39 @@
-var stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 var app = require('../index.js');
-
+var stripe = require('stripe')(process.env.STRIPE_SECRET_KEY);
 var db = app.get('db');
 
-var stripeController = {
+var orderController = {
+
+    getPendingOrders: async function(req, res, next){
+
+        try{
+            var pendingOrders = await db.getPendingOrders();
+        } catch(error) {
+            console.log(error);
+            res.status(500).send(error);
+        }
+
+        console.log(pendingOrders);
+
+        res.status(200).send(pendingOrders);
+    },
+
+    payOrder: async function(req, res, next){
+
+        let user;
+
+        try{
+            user = await db.users.findOne({ userid: req.session.passport.user });
+        } catch(err) {
+            res.status(500).send(err);
+        }
+
+        console.log(req.body);
+        console.log(req.user);
+
+        res.status(200).send({'message': 'ok'});
+    },
+
     makePayment: async function(req, res, next) {
 
         let user;
@@ -44,7 +74,6 @@ var stripeController = {
         }).catch(function(err) {
             res.status(400).send(err);
         });
-
     }
 };
 
@@ -53,4 +82,4 @@ var amountToPennies = function(amount) {
 };
 
 
-module.exports = stripeController;
+module.exports = orderController;

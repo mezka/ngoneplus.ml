@@ -9,17 +9,12 @@ function loginController(authService, $state){
 
     authService.attemptLogin(login.user.useremail, login.user.userpassword).then(function(data){
       if(data){
-        $state.go('home');
+        $state.go('userControlPanel');
       }else{
         //TODO FLASH MESSAGE
         console.log('flash wrong password');
       }
     });
-  };
-
-
-  this.isAuthenticated = function(){
-    return authService.isAuthenticated();
   };
 
   this.logout = authService.logout;

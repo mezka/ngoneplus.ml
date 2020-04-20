@@ -1,81 +1,75 @@
-function authService($http){
-
-  this.isAuthenticated = function(){
-    var userId = sessionStorage.getItem('userid');
-
-    console.log(userId);
-
-    if(userId)
-      return true;
-    else {
-      return false;
-    }
-  };
-
-  this.attemptLogin = function(userEmail, userPassword) {
-
+function authService($http) {
+  return {
+    isAuthenticated: function () {
       return $http({
-          method: 'POST',
-          url: '/api/login',
-          data: {
-            email: userEmail,
-            password: userPassword
-          }
-      }).then(function(response){
-          if (response.status === 200){
-              sessionStorage.setItem('userid', response.data.user);
-              return response.data;
-          }
-      }).catch(function(response){
-          console.log(response.status);
+        method: 'GET',
+        url: '/api/login/check'
+      })
+      .then(function(response){
+        console.log(response.data);
+      })
+      .catch(function(error){
+        console.log(error.data);
       });
+    },
+  
+    attemptLogin: function (userEmail, userPassword) {
+  
+      return $http({
+        method: 'POST',
+        url: '/api/login',
+        data: {
+          email: userEmail,
+          password: userPassword
+        }
+      }).then(function (response) {
+        if (response.status === 200) {
+          sessionStorage.setItem('userid', response.data.user);
+          return response.data;
+        }
+      }).catch(function (response) {
+        console.log(response.status);
+      });
+    },
 
-  };
-
-
-  this.logout = function(){
-
-    sessionStorage.clear();
-
-    return $http({
+    logout: function () {
+  
+      sessionStorage.clear();
+  
+      return $http({
         method: 'POST',
         url: '/api/logout'
-    }).then(function(response){
-        if (response.status === 200){
-            console.log(response.data);
-            return response.data;
+      }).then(function (response) {
+        if (response.status === 200) {
+          console.log(response.data);
+          return response.data;
         }
-    }).catch(function(response){
+      }).catch(function (response) {
         console.log(response.status);
-    });
-  };
+      });
+    },
 
-
-  this.register = function(useremail, userfirstname, userlastname, useraddress1, useraddress2, userpassword){
-    return $http({
+    register: function (useremail, userpassword, userfirstname, userlastname, errorCallback = () => {}, successCallback = () => {}) {
+      return $http({
         method: 'POST',
         url: '/api/register',
-        data:{
+        data: {
           useremail: useremail,
+          userpassword: userpassword,
           userfirstname: userfirstname,
-          userlastname: userlastname,
-          useraddress1: useraddress1,
-          useraddress2: useraddress2,
-          userpassword: userpassword
+          userlastname: userlastname
         }
-    }).then(function(response){
-        if (response.status === 200){
-            console.log(response.data);
-            return response.data;
+      }).then(function(response) {
+        if (response.status === 200) {
+          console.log(response.data);
+          return successCallback();
         }
-    }).catch(function(response){
+      }).catch(function(response) {
         console.log(response.status);
-    });
+        return errorCallback();
+      });
+    }
   };
-
-
-
-
 }
 
 angular.module('app').service('authService', authService);

@@ -20,8 +20,7 @@ passport.use(new LocalStrategy({
   try {
      user = await db.users.join({
       password: {
-        relation: 'passwords',
-        decomposeTo: 'object'
+        decomposeTo: 'object',
       }
     }).find({ useremail: email }, { single: true });
   } catch (error) {

@@ -1,5 +1,5 @@
 .login-wrapper{
-    height: calc(100vh - (50px + 76px));
+    min-height: calc(100vh - (50px + 76px));
     background-color: #F9F9F9;
     text-align: center;
 
@@ -19,12 +19,6 @@
 .btn-login{
     padding: 10px 0;
 }
-
-.btn-logout{
-    padding: 10px 0;
-    width: 50%;
-}
-
 .signup-link{
     text-align: center;
 }
