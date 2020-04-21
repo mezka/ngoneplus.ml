@@ -19,7 +19,7 @@
         </div>
     </form>
 
-    <button class="btn-oneplus-red btn-usercp" ng-click="login.logout()">Log Out</button>
+    <button class="btn-oneplus-red btn-usercp" ng-click="userCP.logout()">Log Out</button>
 
     <div ng-repeat="address in userCP.user.addresses">
         <existing-address-form address="address" countries="userCP.countries" refresh-user-data="userCP.refreshUserData()"></existing-address-form>
