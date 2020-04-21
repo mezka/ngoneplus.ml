@@ -26,7 +26,7 @@ angular.module('app')
                             <label for="country" class="col-sm-2 col-form-label">Country</label>
                             <div class="col-sm-9">
                                 <select name="country" class="form-control" ng-model="collapseForm.data.country"
-                                    ng-options="country.name for country in collapseForm.countries track by country.iso_code"
+                                    ng-options="country.name for country in collapseForm.countries track by country.country_iso_code"
                                     ng-change="collapseForm.handleCountrySelect()" required></select>
                             </div>
                         </div>
@@ -95,7 +95,7 @@ angular.module('app')
                     state: vm.data.state? vm.data.state.name : null,
                     country: vm.data.country.name,
                     zipcode: vm.data.zipcode,
-                    country_iso_code:  vm.data.country.iso_code,
+                    country_iso_code:  vm.data.country.country_iso_code,
                     state_id: vm.data.state? vm.data.state.state_id : null,
                     geoname_id: vm.data.city? vm.data.city.geoname_id : null
                 }
@@ -106,7 +106,7 @@ angular.module('app')
 
             vm.handleCountrySelect = function(){
 
-                locationService.getStatesByCountryIso(vm.data.country.iso_code)
+                locationService.getStatesByCountryIso(vm.data.country.country_iso_code)
                 .then(function(data){
                     vm.states = data;
                     
@@ -117,9 +117,8 @@ angular.module('app')
             }
         
             vm.handleStateSelect = function(){
-        
-                if(vm.data.state !== null){
-                    locationService.getCitiesByCountryIsoAndStateGeoName(vm.data.state.iso_code, vm.data.state.state_id)
+                if(vm.data.state){
+                    locationService.getCitiesByCountryIsoAndStateGeoName(vm.data.state.country_iso_code, vm.data.state.state_id)
                     .then(function(data){
                         vm.cities = data;
                     })
