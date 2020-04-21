@@ -134,20 +134,22 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
   function authHookRunBlock(transitionService, authService) {
 
-    // Matches if the destination state's data property has a truthy 'requiresAuth' property
+    // Matches if the destination state's data property has a truthy 'data.requiresAuth' property
     var requiresAuthCriteria = {
       to: function(state){
-        return state.data && state.data.requiresAuth }
+        return state.data && state.data.requiresAuth;
+      }
     };
       
     function redirectToLogin(transition){
-      
-      var authService = transition.injector().get('authService');
 
+      var authService = transition.injector().get('authService');
       var $state = transition.router.stateService;
-      if (!authService.isAuthenticated()) {
-        return $state.target('login', undefined, { location: false });
-      }
+
+      authService.isAuthenticated()
+      .catch(function(){
+        return $state.go('login', undefined, { location: false });
+      });
     }
 
     // Register the "requires auth" hook with the TransitionsService

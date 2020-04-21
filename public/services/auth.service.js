@@ -7,9 +7,11 @@ function authService($http) {
       })
       .then(function(response){
         console.log(response.data);
+        return true
       })
       .catch(function(error){
         console.log(error.data);
+        return Promise.reject(false);
       });
     },
   
