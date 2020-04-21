@@ -2,19 +2,6 @@ const app = require('../index.js');
 const db = app.get('db');
 
 const address = {
-    userHasLoadedAddress: function (req, res, next) {
-        db.address.findOne({
-            userid: req.session.passport.user,
-        }).then(function (result) {
-            if (!result) {
-                res.status(412).send({ message: 'The user has not provided a valid address yet.' })
-            }
-            next();
-        })
-            .catch(function (error) {
-                res.status(500).send(error);
-            });
-    },
 
     getAddresses: function (req, res) {
         db.address.find({
