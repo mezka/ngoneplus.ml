@@ -6,7 +6,7 @@ const teleportApi = {
             axios.get('https://api.teleport.org/api/countries/')
             .then(function(response){
                 resolve(response.data._links['country:items'].map(function(element){
-                    return { name: element.name, iso_code: element.href.substring(50, 52) }
+                    return { name: element.name, country_iso_code: element.href.substring(50, 52) }
                 }));
             })
             .catch(function(error){
@@ -19,7 +19,7 @@ const teleportApi = {
             axios.get('https://api.teleport.org/api/countries/iso_alpha2:' + iso_code + '/admin1_divisions')
             .then(function(response){
                 resolve(response.data._links['a1:items'].map(function(element){
-                    return { name: element.name, iso_code: iso_code, state_id: element.href.substring(79, 81)};
+                    return { name: element.name, country_iso_code: iso_code, state_id: element.href.substring(79, 81)};
                 }));
             })
             .catch(function(error){

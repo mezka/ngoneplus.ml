@@ -74,11 +74,9 @@ angular.module('app')
                     return $scope.states = data; 
                 })
                 .then(function(data){
-                    if(data){
+                    if(data.length){
                         locationService.getCitiesByCountryIsoAndStateGeoName($scope.address.country.country_iso_code, $scope.address.state.state_id)
                         .then(function(data){
-                            console.log('result');
-                            console.log(data);
                             $scope.cities = data;
                         })
                     }
