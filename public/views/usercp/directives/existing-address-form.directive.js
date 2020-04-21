@@ -48,7 +48,7 @@ angular.module('app')
                     <div class="form-group row">
                         <label for="zipcode" class="col-sm-2 col-form-label">Postal Code</label>
                         <div class="col-sm-9">
-                            <input type="text" class="form-control" name="zipcode" ng-model="collapseForm.address.zipcode" required>
+                            <input type="text" class="form-control" name="zipcode" ng-model="address.zipcode" required>
                         </div>
                     </div>
 
@@ -88,7 +88,10 @@ angular.module('app')
                     .then(function(data){
                         $scope.refreshUserData();
                     });
-                    
+                }
+
+                $scope.handleFormSubmit = function(event){
+                    console.log(event);
                 }
             }
         };
