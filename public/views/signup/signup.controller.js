@@ -8,9 +8,10 @@ function signupController(authService, $state){
       signup.user.userpassword,
       signup.user.userfirstname,
       signup.user.userlastname,
-      null,
-      $state.go.bind(this, 'login')
-    );
+    )
+    .then(function(data){
+      $state.go('userCP');
+    })
   };
 };
 

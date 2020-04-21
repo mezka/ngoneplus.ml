@@ -25,10 +25,7 @@ function authService($http) {
           password: userPassword
         }
       }).then(function (response) {
-        if (response.status === 200) {
-          sessionStorage.setItem('userid', response.data.user);
           return response.data;
-        }
       }).catch(function (response) {
         console.log(response.status);
       });
@@ -36,22 +33,17 @@ function authService($http) {
 
     logout: function () {
   
-      sessionStorage.clear();
-  
       return $http({
         method: 'POST',
         url: '/api/logout'
       }).then(function (response) {
-        if (response.status === 200) {
-          console.log(response.data);
           return response.data;
-        }
       }).catch(function (response) {
         console.log(response.status);
       });
     },
 
-    register: function (useremail, userpassword, userfirstname, userlastname, errorCallback = () => {}, successCallback = () => {}) {
+    register: function (useremail, userpassword, userfirstname, userlastname) {
       return $http({
         method: 'POST',
         url: '/api/register',
@@ -62,13 +54,9 @@ function authService($http) {
           userlastname: userlastname
         }
       }).then(function(response) {
-        if (response.status === 200) {
-          console.log(response.data);
-          return successCallback();
-        }
-      }).catch(function(response) {
-        console.log(response.status);
-        return errorCallback();
+        return response.data
+      }).catch(function(error) {
+        console.log(error.data)
       });
     }
   };
