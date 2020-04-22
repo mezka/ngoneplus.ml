@@ -43,14 +43,14 @@ passport.serializeUser(function (user, done) {
   done(null, user.userid);
 });
 
-passport.deserializeUser(function (userId, done) {
-  db.getUserId([userId])
-    .then(result => {
-      done(null, result[0]);
-    })
-    .catch(error => {
-      done(error, null);
-    })
+passport.deserializeUser(async function (userId, done) {
+  try{
+    var user = await db.users.findOne(userId)
+  } catch (error) {
+    done(error, null);
+  }
+
+  done(null, user);
 });
 
 module.exports = passport;
