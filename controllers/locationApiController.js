@@ -5,10 +5,10 @@ const locationApiController = {
         try {
             var countryList = await teleportApi.getCountries();
         } catch (error) {
-            res.status(500).send(error);
+            return res.status(500).send(error);
         }
 
-        res.status(200).send(countryList);
+        return res.status(200).send(countryList);
     },
 
     getStatesByCountryIso: async function(req, res){
@@ -17,20 +17,20 @@ const locationApiController = {
             var stateList = await teleportApi.getStatesByCountryIso(req.params.country_iso)
         } catch (error) {
             console.log(error);
-            res.status(500).send(error);
+            return res.status(500).send(error);
         }
 
-        res.status(200).send(stateList);
+        return res.status(200).send(stateList);
     },
 
     getCitiesByCountryIsoAndStateGeoName: async function(req, res){
         try{
             var cityList = await teleportApi.getCitiesByCountryIsoAndStateGeoName(req.params.country_iso, req.params.geo_name);
         } catch (error) {
-            res.status(500).send(error);
+            return res.status(500).send(error);
         }
 
-        res.status(200).send(cityList);
+        return res.status(200).send(cityList);
     }
 }
 
