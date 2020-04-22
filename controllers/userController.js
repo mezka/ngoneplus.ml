@@ -7,10 +7,10 @@ const address = {
         db.address.find({
             userid: req.session.passport.user,
         }).then(function (result) {
-            res.status(200).send(result);
+            return res.status(200).send(result);
         })
         .catch(function (error) {
-            res.status(500).send(error);
+            return res.status(500).send(error);
         });
     },
 
@@ -58,10 +58,10 @@ const address = {
         try{
             var deleteAddress = await db.address.destroy(req.body.addressid);
         } catch(error){
-            res.status(500).send(error);
+            return res.status(500).send(error);
         }
 
-        res.status(200).send({status: 'Ok', message: 'deleteAddress'});
+        return res.status(200).send({status: 'Ok', message: 'deleteAddress'});
     },
 
     getUserData: function (req, res) {
@@ -93,11 +93,11 @@ const address = {
         })
         .then(function(result){
             console.log(result[0].addresses);
-            res.status(200).send(result[0]);
+            return res.status(200).send(result[0]);
         })
         .catch(function(error){
             console.log(error);
-            res.status(500).send(error);
+            return res.status(500).send(error);
         })
     }
 }
