@@ -43,8 +43,8 @@
         <div class="col-12 col-sm-5  col-md-6  col-lg-7 col-xl-8 cart-qty-total">
             <p>You have <span ng-bind="cart.calculateTotalQty()"></span> items in your cart</p>
             <form>
-                <label for="Address">Choose your shipping address: </label>
-                <select class="form-control" ng-model="cart.selectedAddress" ng-options="address.id as address.name for address in cart.addresses" required>
+                <label for="Address">Choose your shipping address: </label>    
+                <select class="form-control" ng-model="cart.selectedAddressId" ng-options="address.id as address.name for address in cart.addresses" required>
                 </select>
             </form>
         </div>

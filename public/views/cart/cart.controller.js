@@ -1,10 +1,8 @@
-function cartController(items, addresses, cartService, $state, $scope, Swal) {
+function cartController(items, addresses, cartService, $state, Swal) {
     cart = this;
     cart.items = items? items : [];
     cart.addresses = addresses;
     cart.selectedAddressId = addresses && addresses.length? addresses[0].id : null;
-
-    console.log(addresses);
 
     cart.calculateSubTotal = function() {
         return cart.items.reduce(function(prevValue, currentItem){ return prevValue + currentItem.quantity * currentItem.optionprice }, 0);
@@ -36,7 +34,7 @@ function cartController(items, addresses, cartService, $state, $scope, Swal) {
       .then(function(data){})
       .catch(function(error){ console.log(error) });
 
-      $scope.items = [];
+      cart.items = [];
     };
 
     cart.checkoutCart = function(){

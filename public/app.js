@@ -190,3 +190,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
   }
 
 app.run(authHookRunBlock);
+
+
+//needed for Batarang support
+angular.element(document).ready(() => {
+    maybeBootstrap();
+});
