@@ -8,20 +8,20 @@ const dbController = {
 
         db.getStoreElements()
             .then(result => {
-                res.status(200).send(result);
+                return res.status(200).send(result);
             })
             .catch(error => {
-                res.status(500).send(error);
+                return res.status(500).send(error);
             })
     },
     getProductById: function (req, res, next) {
 
         db.getProductById([req.params.id])
             .then(result => {
-                res.status(200).send(result);
+                return res.status(200).send(result);
             })
             .catch(error => {
-                res.status(500).send(error);
+                return res.status(500).send(error);
             })
     },
 
