@@ -13,11 +13,11 @@ var cart = {
           req.session.cart = [cartObj];
       }
 
-      res.status(200).send(cartObj);
+      return res.status(200).send(cartObj);
   },
 
   getCart: function(req, res) {
-      res.status(200).json(req.session.cart);
+      return res.status(200).json(req.session.cart);
   },
 
   updateCartElement: function(req, res){
@@ -26,7 +26,7 @@ var cart = {
 
     cartObj = newCartObj;
 
-    res.status(200).json(rew.session.cart);
+    return res.status(200).json(rew.session.cart);
   },
 
   deleteCartElement: function(req, res){
@@ -36,12 +36,12 @@ var cart = {
     if(toDeleteIndex !== -1)
       req.session.cart.splice(toDeleteIndex, 1);
 
-    res.status(200).json(req.session.cart);
+    return res.status(200).json(req.session.cart);
   },
 
   clearCart: function(req, res){
     req.session.cart = [];
-    res.status(200).send();
+    return res.status(200).send({});
   },
 
   checkoutCart: function (req, res, next) {
@@ -64,11 +64,11 @@ var cart = {
         }
     )
     .then(result => {
-        res.status(200).send(result);
+        return res.status(200).send(result);
     })
     .catch(error => {
         console.log(error);
-        res.status(500).send(error);
+        return res.status(500).send(error);
     })
 }
 
