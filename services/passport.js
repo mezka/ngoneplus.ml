@@ -15,10 +15,8 @@ passport.use(new LocalStrategy({
   passwordField: 'password'
 }, async function (email, password, done) {
 
-  let user = null;
-
   try {
-     user = await db.users.join({
+     var user = await db.users.join({
       password: {
         decomposeTo: 'object',
       }
@@ -40,17 +38,17 @@ passport.use(new LocalStrategy({
 
 
 passport.serializeUser(function (user, done) {
-  done(null, user.userid);
+  return done(null, user.userid);
 });
 
 passport.deserializeUser(async function (userId, done) {
   try{
     var user = await db.users.findOne(userId)
   } catch (error) {
-    done(error, null);
+    return done(error, null);
   }
 
-  done(null, user);
+  return done(null, user);
 });
 
 module.exports = passport;
