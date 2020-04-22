@@ -1,4 +1,10 @@
-var app = angular.module('app', ['ui.router', 'ngAnimate', 'templates']);
+var SweetAlert = angular.module('SweetAlert', []);
+
+SweetAlert.factory('Swal', function(){
+  return window.Swal;
+})
+
+var app = angular.module('app', ['ui.router', 'ngAnimate', 'templates', 'SweetAlert']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
@@ -55,7 +61,34 @@ app.config(function($stateProvider, $urlRouterProvider) {
       resolve:{
         items: function(cartService){
           return cartService.getCart();
-        }
+        },
+        addresses: function(userService){
+          
+          var addressParse = function(addressObj){
+            var out = addressObj.address1;
+
+            if(addressObj.address2){
+              out += ', ' + addressObj.address2;
+            }
+            if(addressObj.city){
+              out += ', ' + addressObj.city;
+            }
+            if(addressObj.state){
+              out += ', ' + addressObj.state;
+            }
+            out += ', ' + addressObj.country;
+
+            return {id: addressObj.id, name: out};
+          }
+
+          return userService.getAddressList()
+          .then(function(data){
+            return data.map(addressParse);
+          })
+          .catch(function(result){
+            return null;
+          })
+        },
       }
     };
 

@@ -1,6 +1,10 @@
-function cartController(items, cartService, $state, $scope) {
+function cartController(items, addresses, cartService, $state, $scope, Swal) {
     cart = this;
     cart.items = items? items : [];
+    cart.addresses = addresses;
+    cart.selectedAddressId = addresses && addresses.length? addresses[0].id : null;
+
+    console.log(addresses);
 
     cart.calculateSubTotal = function() {
         return cart.items.reduce(function(prevValue, currentItem){ return prevValue + currentItem.quantity * currentItem.optionprice }, 0);
@@ -36,7 +40,22 @@ function cartController(items, cartService, $state, $scope) {
     };
 
     cart.checkoutCart = function(){
-      cartService.checkoutCart($state.go.bind(this, 'checkout'), $state.go.bind(this, 'login'));
+
+      if(!cart.addresses){
+        Swal.fire({
+          icon: 'error',
+          title: 'User has no shipping address loaded',
+          showConfirmButton: false,
+          html: 'Redirecting to User Control Panel ...',
+          timer: 2000
+        })
+
+        setTimeout($state.go.bind(this, 'userControlPanel'), 2000);
+
+        return;
+      }
+
+      cartService.checkoutCart(cart.selectedAddressId);
     };
 }
 

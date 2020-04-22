@@ -84,6 +84,7 @@ CREATE TABLE Public.LocationData(
 CREATE TABLE Public.Order(
   id SERIAL PRIMARY KEY,
   userId INTEGER REFERENCES Public.Users(userId) ON DELETE CASCADE,
+  addressId INTEGER REFERENCES Public.Address(id) NOT NULL,
   createdDate timestamptz NOT NULL DEFAULT now(),
   paid BOOLEAN DEFAULT FALSE
 );

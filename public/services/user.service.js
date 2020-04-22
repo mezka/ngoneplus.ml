@@ -4,9 +4,11 @@ function userService($http){
             method: 'GET',
             url: '/api/address',
         }).then(function(response) {
+            console.log(response.data);
             return response.data;
-        }).catch(function(response) {
-            console.log(response);
+        }).catch(function(error) {
+            console.log(error);
+            return Promise.reject(error);
         });
     };
 
@@ -16,8 +18,9 @@ function userService($http){
             url: '/api/user'
         }).then(function(response){
             return response.data;
-        }).catch(function(response){
-            console.log(response);
+        }).catch(function(error){
+            console.log(error);
+            return Promise.reject(error);
         })
     };
 
@@ -28,8 +31,9 @@ function userService($http){
             data: addressData
         }).then(function(response){
             return response.data;
-        }).catch(function(response){
-            console.log(response);
+        }).catch(function(error){
+            console.log(error);
+            return Promise.reject(error);
         })
     },
 

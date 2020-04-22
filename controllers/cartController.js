@@ -46,9 +46,12 @@ var cart = {
 
   checkoutCart: function (req, res, next) {
 
+    console.log(req.body);
+
     db.order.insert(
         {
             userid: req.session.passport.user,
+            addressid: req.body.addressid,
             orderitem: req.session.cart.map((element) => {
                 const { productname, optionname, imageurl, optionprice, ...orderitem } = element;
                 orderitem.orderid = undefined; //needed for deepInsert, read massiveJs docs for reference

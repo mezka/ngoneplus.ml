@@ -13,6 +13,7 @@ const configuration = {
     src: {
       js: [
         './public/vendor/js/jquery.slim.js',
+        './public/vendor/js/sweetalert2.all.js',
         './public/vendor/js/bootstrap.bundle.js',
         './public/vendor/js/angular.js',
         './public/vendor/js/angular-animate.js',
@@ -37,6 +38,7 @@ const configuration = {
     vendor: {
       src: {
         js: [
+          './node_modules/sweetalert2/dist/sweetalert2.all.js',
           './node_modules/jquery/dist/jquery.slim.js',
           './node_modules/bootstrap/dist/js/bootstrap.bundle.js',
           './node_modules/angular-animate/angular-animate.js',

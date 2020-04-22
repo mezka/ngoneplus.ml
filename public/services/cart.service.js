@@ -37,15 +37,18 @@ function cartService($http, $state) {
                 console.log(response.status);
             });
         },
-        checkoutCart: function() {
+        checkoutCart: function(addressid) {
             return $http({
                 method: 'POST',
-                url: '/api/cart/checkout'
+                url: '/api/cart/checkout',
+                data: {
+                    addressid: addressid,
+                }
             }).then(function(response) {
                 if (response.status === 200) {
                     $state.go('orders');
-                    return response.data;
                 }
+                return response.data;
             }).catch(function(error) {
                 if(error.status === 401){
                     $state.go('login');
