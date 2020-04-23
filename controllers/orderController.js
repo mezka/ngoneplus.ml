@@ -47,9 +47,9 @@ var orderController = {
         }, 0);
 
         // Create a new customer and then a new charge for that customer:
-        stripe.customers.create({
-            email: user.useremail,
-        }).then(function(customer) {
+        stripe.customers.retrieve(user.stripeid)
+        .then(function(customer) {
+
             return stripe.customers.createSource(customer.id, {
                 source: {
                     object: 'card',
@@ -68,6 +68,7 @@ var orderController = {
         }).then(function(charge) {
             return res.status(200).send(charge);
         }).catch(function(err) {
+            console.log(err);
             return res.status(400).send(err);
         });
     }
