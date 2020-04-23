@@ -4,23 +4,27 @@
     <h1>Final check-out</h1>
 
     <div class="row justify-content-center">
-        <form class="col-10 justify-content-center" ng-submit="payment.charge()">
+        <form class="col-10 justify-content-center" ng-submit="payment.charge($event)">
             <fieldset class="form-group">
                 <label for="cardname">Name on card:</label>
-                <input ng-model="payment.cardname" class="form-control form-control-lg" type="text" placeholder="Name">
+                <input ng-model="payment.info.cardname" class="form-control form-control-lg" type="text" placeholder="Name" required>
             </fieldset>
             <fieldset class="form-group">
-                <label for="cardnumber">Name on card:</label>
-                <input ng-model="payment.cardnumber" class="form-control form-control-lg" type="number" placeholder="Credit Card No.">
+                <label for="cardnumber">Card number:</label>
+                <input ng-model="payment.info.cardnumber" class="form-control form-control-lg" minlenght="16" maxlength="16" pattern="^\d{16}$" placeholder="Credit Card No." required>
             </fieldset>
             <div class="form-row form-group justify-content-between">
-                <fieldset class="col-auto d-flex flex-column">
+                <fieldset class="col-4 d-flex flex-column">
                     <label class="text-center" for="cardcvc">CVC</label>
-                    <input ng-model="payment.cvc" class="form-control form-control-lg" min="001" max="999" placeholder="999" type="number" name="cardcvc">
+                    <input ng-model="payment.info.cvc" class="form-control form-control-lg" minlenght="3" maxlength="3" pattern="^\d{3}$" name="cardcvc" required>
                 </fieldset>
-                <fieldset class="col-auto d-flex flex-column">
-                    <label class="text-center" for="cardexpmo">Expiry Info</label>
-                    <input ng-model="payment.expt_year" class="form-control form-control-lg" type="month" name="cardexpmo">
+                <fieldset class="col-4 d-flex flex-column">
+                    <label class="text-center" for="exp_month">Expiry Month</label>
+                    <input ng-model="payment.info.exp_month" class="form-control form-control-lg" minlenght="2" maxlength="2" pattern="^\d{2}$" type="text" name="exp_month" required>
+                </fieldset>
+                <fieldset class="col-4 d-flex flex-column">
+                    <label class="text-center" for="exp_year">Expiry Year</label>
+                    <input ng-model="payment.info.exp_year" class="form-control form-control-lg" minlenght="2" maxlength="2" pattern="^\d{2}$" type="text" name="exp_year" required>
                 </fieldset>
             </div>
 

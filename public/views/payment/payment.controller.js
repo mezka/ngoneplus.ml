@@ -1,19 +1,19 @@
 function paymentController(paymentService, $state){
 
   var payment = this;
-  payment.orderid = $state.params.orderid;
 
-  console.log('hit');
-  console.log($state.params);
+  payment.info = {};
+  payment.info.orderid = $state.params.orderid
 
-  payment.charge = function(){
+  payment.charge = function(event){
 
-    console.log(payment)
+    event.preventDefault();
 
-    // checkoutService.charge(checkout.info).then(function(data){
-    //   console.log(data);
-    //   $state.go('order', {stripeObj: data});
-    // });
+    console.log(payment.info);
+
+    paymentService.charge(payment.info).then(function(data){
+      console.log(data);
+    });
   };
 }
 
