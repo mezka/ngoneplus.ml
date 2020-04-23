@@ -1,6 +1,7 @@
 node_modules
 .env
 public/dist/*
+public/vendor
 public/bundle.js
 public/angularTemplateCache.js
 public/*.css
