@@ -49,11 +49,18 @@ function cartController(items, addresses, cartService, $state, Swal) {
         })
 
         setTimeout($state.go.bind(this, 'userControlPanel'), 2000);
-
         return;
       }
 
-      cartService.checkoutCart(cart.selectedAddressId);
+      cartService.checkoutCart(cart.selectedAddressId)
+      .then(function(data){
+        $state.go('payment', {orderid: data.id});
+      })
+      .catch(function(error){
+        if(error.status === 401){
+          $state.go('login');
+        }
+      })
     };
 }
 

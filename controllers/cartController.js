@@ -46,8 +46,6 @@ var cart = {
 
   checkoutCart: function (req, res, next) {
 
-    console.log(req.body);
-
     db.order.insert(
         {
             userid: req.session.passport.user,

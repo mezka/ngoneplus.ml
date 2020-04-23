@@ -100,36 +100,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
       controller: 'ordersController as orders',
       resolve: {
         pendingorders: function(orderService){
-
           return orderService.getPendingOrders();
         }
       }
     };
 
-    var checkoutState = {
-      name: 'checkout',
-      url: '/checkout',
-      templateUrl: '/views/checkout/checkout.html',
+    var paymentState = {
+      name: 'payment',
+      url: '/order/{orderid}/payment',
+      templateUrl: '/views/payment/payment.html',
       data: { requiresAuth: true },
-      controller: 'checkoutController as checkout',
-      resolve:{
-        cartid: function(cartService){
-          cartService.checkoutCart();
-        }
-      }
-    };
-
-    var orderSummaryState = {
-      name: 'order',
-      url: '/order/{orderid}',
-      templateUrl: '/views/order/order.html',
-      data: { requiresAuth: true },
-      controller: 'orderSummaryController as orderSummary',
-      resolve: {
-        orderSummary: function(orderService, $transition$) {
-            return storeService.getProductById($transition$.params().orderid);
-        },
-      }
+      params: { orderid: null},
+      controller: 'paymentController as payment',
     };
 
     var userControlPanelState = {
@@ -155,8 +137,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state(loginState);
     $stateProvider.state(signupState);
     $stateProvider.state(cartState);
-    $stateProvider.state(checkoutState);
     $stateProvider.state(orderState);
+    $stateProvider.state(paymentState);
     $stateProvider.state(userControlPanelState);
     
     

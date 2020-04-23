@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<div class="checkout-wrapper">
+    
+    <h1>Final check-out</h1>
+
+    <div class="row justify-content-center">
+        <form class="col-10 justify-content-center" ng-submit="payment.charge()">
+            <fieldset class="form-group">
+                <label for="cardname">Name on card:</label>
+                <input ng-model="payment.cardname" class="form-control form-control-lg" type="text" placeholder="Name">
+            </fieldset>
+            <fieldset class="form-group">
+                <label for="cardnumber">Name on card:</label>
+                <input ng-model="payment.cardnumber" class="form-control form-control-lg" type="number" placeholder="Credit Card No.">
+            </fieldset>
+            <div class="form-row form-group justify-content-between">
+                <fieldset class="col-auto d-flex flex-column">
+                    <label class="text-center" for="cardcvc">CVC</label>
+                    <input ng-model="payment.cvc" class="form-control form-control-lg" min="001" max="999" placeholder="999" type="number" name="cardcvc">
+                </fieldset>
+                <fieldset class="col-auto d-flex flex-column">
+                    <label class="text-center" for="cardexpmo">Expiry Info</label>
+                    <input ng-model="payment.expt_year" class="form-control form-control-lg" type="month" name="cardexpmo">
+                </fieldset>
+            </div>
+
+            <div class="d-flex justify-content-between">
+                <fieldset>
+                    <input class="align-middle py-3" type="checkbox" name="cardsave">
+                    <label class="form-check-label py-3" for="cardsave">Save card</label>
+                </fieldset>
+                <button class="btn-oneplus-red btn-checkout" type="sumbit">Confirm</button>
+            </div>
+        </form>
+    </div>
+</div>

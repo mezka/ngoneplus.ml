@@ -20,6 +20,10 @@
 
     <button class="btn-oneplus-red btn-usercp" ng-click="userCP.logout()">Log Out</button>
 
+    <h2 class="h1 my-4">Payment Methods</h2>
+
+    <!-- todo -->
+
     <h2 class="h1 my-4">Addresses</h2>
 
     <existing-address-form ng-repeat="address in userCP.user.addresses" address="address" countries="userCP.countries" refresh-user-data="userCP.refreshUserData()"></existing-address-form>

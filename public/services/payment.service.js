@@ -1,4 +1,4 @@
-function checkoutService($http) {
+function paymentService($http) {
 
     this.charge = function(info) {
         return $http({
@@ -20,4 +20,4 @@ function checkoutService($http) {
     };
 }
 
-angular.module('app').service('checkoutService', checkoutService);
+angular.module('app').service('paymentService', paymentService);

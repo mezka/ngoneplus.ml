@@ -45,19 +45,13 @@ function cartService($http, $state) {
                     addressid: addressid,
                 }
             }).then(function(response) {
-                if (response.status === 200) {
-                    $state.go('orders');
-                }
                 return response.data;
             }).catch(function(error) {
-                if(error.status === 401){
-                    $state.go('login');
-                }
-                return error;
+                console.log(error);
+                return Promise.reject(error);
             });
         },
         clearCart: function() {
-
             return $http({
                 method: 'POST',
                 url: '/api/cart/clear'
