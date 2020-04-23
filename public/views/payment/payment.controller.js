@@ -1,4 +1,4 @@
-function paymentController(paymentService, $state){
+function paymentController(paymentService, $state, Swal){
 
   var payment = this;
 
@@ -12,7 +12,15 @@ function paymentController(paymentService, $state){
     console.log(payment.info);
 
     paymentService.charge(payment.info).then(function(data){
-      console.log(data);
+      
+      Swal.fire({
+        icon: 'success',
+        title: 'Payment was successful',
+        text: "You'll be redirected shortly",
+        timer: 2000
+      });
+
+      setTimeout($state.go.bind(this, 'userControlPanel'), 2000);
     });
   };
 }
