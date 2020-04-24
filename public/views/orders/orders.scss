@@ -3,19 +3,20 @@
     margin: 20px 0 20px 0;
 }
 
-.order-title-container{
+.order-title-row{
     background-color: #F6F6F6;
     border-top: 1px solid #DDDDDD;
     border-bottom: 1px solid #DDDDDD;
 
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+    color: #555555;
 
-    min-height: 30px;
-    
+    h3{
+        margin: 0.5rem 0;
+        font-size: 1rem;
+    }
+
     p{
-        margin: 0;
+        font-size: 1.2rem;
     }
 }
 
@@ -30,7 +31,6 @@
 }
 
 .order-image-container{
-    width: 35%;
     display: flex;
     justify-content: center;
 }
@@ -40,7 +40,6 @@
 }
 
 .order-info-container{
-    width: 65%;
     text-align: end;
 }
 

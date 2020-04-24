@@ -4,7 +4,7 @@ SweetAlert.factory('Swal', function(){
   return window.Swal;
 })
 
-var app = angular.module('app', ['ui.router', 'ngAnimate', 'templates', 'SweetAlert', 'ngFlash']);
+var app = angular.module('app', ['ui.router', 'ngAnimate', 'templates', 'SweetAlert', 'ngFlash', 'utils']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
@@ -62,28 +62,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
         items: function(cartService){
           return cartService.getCart();
         },
-        addresses: function(userService){
-          
-          var addressParse = function(addressObj){
-            var out = addressObj.address1;
-
-            if(addressObj.address2){
-              out += ', ' + addressObj.address2;
-            }
-            if(addressObj.city){
-              out += ', ' + addressObj.city;
-            }
-            if(addressObj.state){
-              out += ', ' + addressObj.state;
-            }
-            out += ', ' + addressObj.country;
-
-            return {id: addressObj.id, name: out};
-          }
-
+        addresses: function(userService, parseAddressObjToString){
           return userService.getAddressList()
           .then(function(data){
-            return data.map(addressParse);
+            return data.map(function(addressObj){
+              return {id: addressObj.id, name: parseAddressObjToString(addressObj)};
+            });
           })
           .catch(function(result){
             return null;
@@ -96,13 +80,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
       name: 'orders',
       url: '/orders',
       templateUrl: '/views/orders/orders.html',
-      data: { requiresAuth: true },
+      // data: { requiresAuth: true },
       controller: 'ordersController as orders',
-      resolve: {
-        pendingorders: function(orderService){
-          return orderService.getPendingOrders();
-        }
-      }
+      // resolve: {
+      //   pendingorders: function(orderService){
+      //     return orderService.getPendingOrders();
+      //   }
+      // }
     };
 
     var paymentState = {

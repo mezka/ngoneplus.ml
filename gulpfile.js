@@ -20,6 +20,7 @@ const configuration = {
         './public/vendor/js/angular-ui-router.js',
         './node_modules/angular-flash-alert/dist/angular-flash.js',
         './public/angularTemplateCache.js',
+        './public/utils/**/*.js',
         './public/app.js',
         './public/services/*.js',
         './public/views/**/*.js',
