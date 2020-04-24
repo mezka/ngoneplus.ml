@@ -1,19 +1,20 @@
-function loginController(authService, $state){
+function loginController(authService, $state, Flash){
 
   var login = this;
 
   login.user = { useremail: '', userpassword: ''};
 
-
   login.attempt = function(){
 
-    authService.attemptLogin(login.user.useremail, login.user.userpassword).then(function(data){
-      if(data){
+    authService.attemptLogin(login.user.useremail, login.user.userpassword)
+    .then(function(data){
         $state.go('userControlPanel');
-      }else{
-        //TODO FLASH MESSAGE
-        console.log('flash wrong password');
-      }
+    })
+    .catch(function(error){
+        if(error.status === 401){
+          Flash.clear();
+          Flash.create('danger', error.data.message, 3000, {container: 'flash-fixed'}, false);
+        }
     });
   };
 

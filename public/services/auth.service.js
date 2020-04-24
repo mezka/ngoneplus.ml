@@ -26,8 +26,6 @@ function authService($http) {
         }
       }).then(function (response) {
           return response.data;
-      }).catch(function (response) {
-        console.log(response.status);
       });
     },
 

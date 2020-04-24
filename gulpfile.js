@@ -18,6 +18,7 @@ const configuration = {
         './public/vendor/js/angular.js',
         './public/vendor/js/angular-animate.js',
         './public/vendor/js/angular-ui-router.js',
+        './node_modules/angular-flash-alert/dist/angular-flash.js',
         './public/angularTemplateCache.js',
         './public/app.js',
         './public/services/*.js',
@@ -43,6 +44,7 @@ const configuration = {
           './node_modules/bootstrap/dist/js/bootstrap.bundle.js',
           './node_modules/angular-animate/angular-animate.js',
           './node_modules/angular-ui-router/release/angular-ui-router.js',
+          './node_modules/angular-flash-alert/dist/angular-flash.js',
           './node_modules/angular/angular.js',
         ],
         css: [

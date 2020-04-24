@@ -4,7 +4,7 @@ SweetAlert.factory('Swal', function(){
   return window.Swal;
 })
 
-var app = angular.module('app', ['ui.router', 'ngAnimate', 'templates', 'SweetAlert']);
+var app = angular.module('app', ['ui.router', 'ngAnimate', 'templates', 'SweetAlert', 'ngFlash']);
 
 app.config(function($stateProvider, $urlRouterProvider) {
 
