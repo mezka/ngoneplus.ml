@@ -1,4 +1,4 @@
-function cartController(items, addresses, cartService, $state, Swal) {
+function cartController(items, addresses, cartService, $state, Swal, authService) {
     cart = this;
     cart.items = items? items : [];
     cart.addresses = addresses;
@@ -39,10 +39,23 @@ function cartController(items, addresses, cartService, $state, Swal) {
 
     cart.checkoutCart = function(){
 
-      if(!cart.addresses){
+      authService.isAuthenticated()
+      .catch(function(){
         Swal.fire({
           icon: 'error',
-          title: 'User has no shipping address loaded',
+          title: "User is not logged in",
+          showConfirmButton: false,
+          html: 'Redirecting to Login Panel ...',
+          timer: 2000
+        })
+
+        setTimeout($state.go.bind(this, 'userControlPanel'), 2000);
+      })
+
+      if(!cart.addresses || !cart.addresses.length ){
+        Swal.fire({
+          icon: 'error',
+          title: "User has no shipping address loaded",
           showConfirmButton: false,
           html: 'Redirecting to User Control Panel ...',
           timer: 2000
