@@ -1,6 +1,6 @@
 var authController = {
   sendAuthFailed: function(req, res) {
-      res.status(401).send({message: 'Authentication failed'});
+      res.status(401).send({message: req.session.messages[0]});
   },
 
   sendAuthSuccesful: function(req, res) {

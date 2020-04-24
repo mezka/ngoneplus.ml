@@ -54,7 +54,7 @@ massive({
     app.post('/api/login', passport.authenticate('local', {
         successRedirect: '/api/login/success',
         failureRedirect: '/api/login/failure',
-        failureFlash: false
+        failureMessage: true
     }));
 
     const dbController = require('./controllers/dbController.js');
