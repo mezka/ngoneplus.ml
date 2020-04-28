@@ -1,0 +1,10 @@
+.address-row-flex{
+    display: flex;
+    justify-content: space-around;
+}
+
+@media (min-width: 576px) {
+    .address-row-flex {
+      justify-content: center;
+    }
+}

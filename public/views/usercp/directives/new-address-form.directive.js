@@ -8,69 +8,75 @@ angular.module('app')
             refreshUserData: '&'
         },
         template:`
-                <div class="collapse" id="collapseExample">
-                    <form class="card card-body" ng-submit="collapseForm.handleFormSubmit()">
-                        <div class="form-group row">
-                            <label for="address1" class="col-sm-2 col-form-label">Address 1</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="address1" ng-model="collapseForm.data.address1" required>
-                            </div>
+        <div class="modal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Add new address</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+                <form class="modal-body" ng-submit="modalForm.handleFormSubmit()">
+                    <div class="form-group row">
+                        <label for="address1" class="col-sm-2 col-form-label">Address 1</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="address1" ng-model="modalForm.data.address1" required>
                         </div>
-                        <div class="form-group row">
-                            <label for="address2" class="col-sm-2 col-form-label">Address 2</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="address2" ng-model="collapseForm.data.address2">
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="address2" class="col-sm-2 col-form-label">Address 2</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="address2" ng-model="modalForm.data.address2">
                         </div>
-                        <div class="form-group row">
-                            <label for="country" class="col-sm-2 col-form-label">Country</label>
-                            <div class="col-sm-9">
-                                <select name="country" class="form-control" ng-model="collapseForm.data.country"
-                                    ng-options="country.name for country in collapseForm.countries track by country.country_iso_code"
-                                    ng-change="collapseForm.handleCountrySelect()" required></select>
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="country" class="col-sm-2 col-form-label">Country</label>
+                        <div class="col-sm-9">
+                            <select name="country" class="form-control" ng-model="modalForm.data.country"
+                                ng-options="country.name for country in modalForm.countries track by country.country_iso_code"
+                                ng-change="modalForm.handleCountrySelect()" required></select>
                         </div>
-                        <div class="form-group row ng-scope-margin-fix" ng-if="collapseForm.data.country && collapseForm.states.length !== 0">
-                            <label for="state" class="col-sm-2 col-form-label">Province/District</label>
-                            <div class="col-sm-9">
-                                <select name="state" class="form-control" ng-model="collapseForm.data.state"
-                                    ng-options="state.name for state in collapseForm.states track by state.state_id"
-                                    ng-change="collapseForm.handleStateSelect()" required></select>
-                            </div>
+                    </div>
+                    <div class="form-group row ng-scope-margin-fix" ng-if="modalForm.data.country && modalForm.states.length !== 0">
+                        <label for="state" class="col-sm-2 col-form-label">Province/District</label>
+                        <div class="col-sm-9">
+                            <select name="state" class="form-control" ng-model="modalForm.data.state"
+                                ng-options="state.name for state in modalForm.states track by state.state_id"
+                                ng-change="modalForm.handleStateSelect()" required></select>
                         </div>
+                    </div>
 
-                        <div class="form-group row ng-scope-margin-fix" ng-if="collapseForm.data.state && collapseForm.cities.length !== 0">
-                            <label for="city" class="col-sm-2 col-form-label">City/Town</label>
-                            <div class="col-sm-9">
-                                <select name="city" class="form-control" ng-model="collapseForm.data.city"
-                                    ng-options="city.name for city in collapseForm.cities track by city.geoname_id" required></select>
-                            </div>
+                    <div class="form-group row ng-scope-margin-fix" ng-if="modalForm.data.state && modalForm.cities.length !== 0">
+                        <label for="city" class="col-sm-2 col-form-label">City/Town</label>
+                        <div class="col-sm-9">
+                            <select name="city" class="form-control" ng-model="modalForm.data.city"
+                                ng-options="city.name for city in modalForm.cities track by city.geoname_id" required></select>
                         </div>
-                        <div class="form-group row">
-                            <label for="zipcode" class="col-sm-2 col-form-label">Postal Code</label>
-                            <div class="col-sm-9">
-                                <input type="text" class="form-control" name="zipcode" ng-model="collapseForm.data.zipcode" required>
-                            </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="zipcode" class="col-sm-2 col-form-label">Postal Code</label>
+                        <div class="col-sm-9">
+                            <input type="text" class="form-control" name="zipcode" ng-model="modalForm.data.zipcode" required>
                         </div>
-
-                        <div class="form-group row">
-                            <div class="col-sm">
-                                <input type="submit" class="btn-oneplus-red btn-usercp" value="Save address">
-                            </div>
-                        </div>
-                    </form>
-                </div>
+                    </div>
+                </form>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary background-oneplus-red" ng-click="modalForm.handleFormSubmit()">Save</button>
+            </div>
+            </div>
+        </div>
+        </div>
                  `,
 
         link: function(scope, element){
-
-            
-            scope.$on('toggleForm', function(){
-                element.collapse('toggle')
+            scope.$on('toggleModal', function(){
+                element.modal()
             });
             
             scope.toggle = function(){
-                element.collapse('toggle');
+                element.modal()
             };
         },
         
@@ -136,7 +142,7 @@ angular.module('app')
                 }.bind(this));
             }
         },
-        controllerAs: 'collapseForm',
+        controllerAs: 'modalForm',
         bindToController: true
     }
 });

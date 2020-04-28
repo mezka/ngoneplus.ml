@@ -5,8 +5,8 @@ function userControlPanelController($scope, user, countries, userService, authSe
     vm.user = user;
     vm.countries = countries;
 
-    vm.toggleForm = function(){
-        $scope.$broadcast('toggleForm');
+    vm.toggleModal = function(){
+        $scope.$broadcast('toggleModal');
     };
 
     vm.refreshUserData = function(){

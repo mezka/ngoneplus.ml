@@ -1,32 +1,30 @@
 <div class="login-wrapper container-fluid">
-    <h2 class="h1 my-4">User Control Panel</h3>
+    <h2 class="h1 my-4">Control Panel</h3>
 
-    <form class="address-form">
-        <div class="row form-group justify-content-around">
-            <label for="email" class="col-auto col-form-label">Email</label>
-            <div class="col-auto">
-                <input type="text" readonly class="form-control-plaintext" id="email"
-                    ng-model="userCP.user.useremail">
-            </div>
-        </div>
-        <div class="row form-group justify-content-around">
-            <label for="fullname" class="col-auto col-form-label">Full name</label>
-            <div class="col-auto">
-                <input type="text" readonly class="form-control-plaintext" id="fullname"
-                    ng-value="userCP.user.userfirstname + ' ' + userCP.user.userlastname">
-            </div>
-        </div>
-    </form>
+    <div class="row d-flex justify-content-center">
+        <p class="col-3">Email</p><p class="col-8 col-sm-7 font-weight-bold" ng-bind="userCP.user.useremail" ></p>
+    </div>
 
-    <button class="btn-oneplus-red btn-usercp" ng-click="userCP.logout()">Log Out</button>
+    <div class="row d-flex justify-content-center">
+        <p class="col-3">Full name</p><p class="col-8 col-sm-7 font-weight-bold">{{userCP.user.userfirstname + ' ' + userCP.user.userlastname}}</p>
+    </div>
 
-    <h2 class="h1 my-4">Payment Methods</h2>
+    <button class="btn-oneplus-red btn-logout" ng-click="userCP.logout()">Log Out</button>
 
-    <!-- todo -->
+    <hr>
+
+    <h2 class="h1">Orders</h2>
+
+    <a class="btn btn-oneplus-red" ui-sref="orders">Check your orders</a>
+
+    <hr>
 
     <h2 class="h1 my-4">Addresses</h2>
 
-    <existing-address-form ng-repeat="address in userCP.user.addresses" address="address" countries="userCP.countries" refresh-user-data="userCP.refreshUserData()"></existing-address-form>
+    <existing-address-form ng-repeat="address in userCP.user.addresses" address="address" refresh-user-data="userCP.refreshUserData()"></existing-address-form>
+    
+    <hr>
+    
+    <button class="btn-oneplus-red btn-add" type="button" ng-click="userCP.toggleModal()">Add an address</button>
     <new-address-form countries="userCP.countries" refresh-user-data="userCP.refreshUserData()"></new-address-form>
-    <button class="btn-oneplus-red btn-usercp" type="button" ng-click="userCP.toggleForm()">Add an address</button>
 </div>
