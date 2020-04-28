@@ -84,13 +84,13 @@ massive({
 
     app.post('/api/cart', cartController.addProductToCart);
     app.get('/api/cart', cartController.getCart);
-    app.post('/api/cart/checkout', authController.authorize, cartController.checkoutCart); //REQUIRES LOGIN
+    app.post('/api/cart/checkout', authController.authorize, cartController.checkoutCart);
     app.post('/api/cart/clear', cartController.clearCart);
     app.post('/api/cart/delete', cartController.deleteCartElement);
 
     //PAYMENT ENDPOINTS
 
-    app.post('/api/cart/charge', authController.authorize, orderController.makePayment); //REQUIRES LOGIN
+    app.post('/api/cart/charge', authController.authorize, orderController.makePayment);
 
     //ORDER ENDPOINTS
     app.get('/api/orders', authController.authorize, orderController.getOrdersByUserId);
