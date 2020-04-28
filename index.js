@@ -88,13 +88,12 @@ massive({
     app.post('/api/cart/clear', cartController.clearCart);
     app.post('/api/cart/delete', cartController.deleteCartElement);
 
-    //CHECKOUT ENDPOINTS
+    //PAYMENT ENDPOINTS
 
     app.post('/api/cart/charge', authController.authorize, orderController.makePayment); //REQUIRES LOGIN
 
     //ORDER ENDPOINTS
-    app.get('/api/orders', orderController.getOrders);
-    app.post('/api/orders/pay', orderController.payOrder)
+    app.get('/api/orders', authController.authorize, orderController.getOrdersByUserId);
 
     //USER ENDPOINTS
     app.get('/api/user', authController.authorize, userController.getUserData);

@@ -9,6 +9,7 @@ SELECT id, createddate, address1, address2, city, state, country, zipcode, paid,
                 JOIN OptionImages ON OptionImages.optionId = Options.optionId
                 JOIN Users ON Users.userId = Public.Order.userId
                 JOIN Address ON Address.userId = Users.userId
+                WHERE Public.Order.userid = $1
                 GROUP BY Public.order.id, address1, address2, city, state, country, zipcode, paid, createddate, productname, optionname, quantity, discount, optionprice
             ) as agg_images
     ) as agg_object
