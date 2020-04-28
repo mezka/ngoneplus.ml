@@ -1,47 +1,44 @@
 <div class="container-fluid px-0">
     
-    <h2 class="order-heading">Pending Orders</h2>
+    <h2 class="order-heading">Orders</h2>
 
-    <div class="row" ng-repeat="pendingorder in orders.pendingorders">
+    <div class="row" ng-repeat="currentorder in orders.orderlist">
 
         <div class="col-12">
             <div class="row order-title-row">
                 <div class="col">
                     <h3>ORDER PLACED</h3>
-                    <p>{{pendingorder.createddate | date:'fullDate'}}</p>
+                    <p>{{currentorder.createddate | date:'fullDate'}}</p>
                 </div>
                 <div class="col">
                     <h3>TOTAL</h3>
-                    <p>{{pendingorder.orderprice | currency }}</p>
+                    <p>{{currentorder.orderprice | currency }}</p>
                 </div>
                 <div class="col-auto">
                     <h3>SHIP TO</h3>
-                    <p>{{pendingorder.address}}</p>
+                    <p>{{currentorder.address}}</p>
                 </div>
                 <div class="col-auto">
-                    <h3>ORDER #{{pendingorder.id}}</h3>
+                    <h3>ORDER #{{currentorder.id}}</h3>
                 </div>
             </div>
         </div>
-        <div class="col-12 my-4" ng-repeat="orderitem in pendingorder.orderitems">
+        <div class="col-12 my-4" ng-repeat="currentorderitem in currentorder.orderitems">
             <div class="row" >
                 <div class="col-auto order-image-container">
-                    <img class="img-fluid order-image" src="./img/store/{{orderitem.optionimages[0]}}" alt="">
+                    <img class="img-fluid order-image" src="./img/store/{{currentorderitem.optionimages[0]}}" alt="">
                 </div>
                 <div class="col d-flex align-items-center justify-content-center">
-                    <h4>{{orderitem.productname + ' ' + orderitem.optionname}}</h4>
+                    <h4>{{currentorderitem.productname + ' ' + currentorderitem.optionname}}</h4>
                 </div>
                 <div class="col-auto d-flex flex-column justify-content-center text-right">
-                    <p>Quantity: {{orderitem.quantity}}</p>
-                    <p ng-class="{strikethrough: orderitem.discount}">Price: {{orderitem.optionprice | currency}}</p>
-                    <p ng-if="orderitem.discount">Discounted price: {{orderitem.discount}}</p>
-                    <button class="btn-pay-order btn-oneplus-red">Pay for this order</button>
+                    <p>Quantity: {{currentorderitem.quantity}}</p>
+                    <p ng-class="{strikethrough: currentorderitem.discount}">Price: {{currentorderitem.optionprice | currency}}</p>
+                    <p ng-if="currentorderitem.discount">Discounted price: {{currentorderitem.discount}}</p>
                 </div>
             </div>
         </div>
+        <button ng-click="orders.payForOrder(currentorder.orderid)" class="btn-pay-order btn-oneplus-red">Pay for this order</button>
     </div>
-
-    <h2 class="order-heading">Fullfilled Orders</h2>
-
 </div>
 

@@ -4,18 +4,20 @@ var db = app.get('db');
 
 var orderController = {
 
-    getPendingOrders: async function(req, res, next){
+    getOrders: async function(req, res, next){
 
         try{
-            var pendingOrders = await db.getPendingOrders();
+            var orders = await db.getOrders();
+
+            console.log(orders);
         } catch(error) {
             console.log(error);
             return res.status(500).send(error);
         }
 
-        console.log(pendingOrders);
+        console.log(orders);
 
-        return res.status(200).send(pendingOrders);
+        return res.status(200).send(orders);
     },
 
     payOrder: async function(req, res, next){

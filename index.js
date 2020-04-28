@@ -93,7 +93,7 @@ massive({
     app.post('/api/cart/charge', authController.authorize, orderController.makePayment); //REQUIRES LOGIN
 
     //ORDER ENDPOINTS
-    app.get('/api/orders/pending', orderController.getPendingOrders);
+    app.get('/api/orders', orderController.getOrders);
     app.post('/api/orders/pay', orderController.payOrder)
 
     //USER ENDPOINTS

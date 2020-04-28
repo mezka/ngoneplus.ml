@@ -1,13 +1,28 @@
-function orderService($http) {
+function orderService($http, parseAddressObjToString) {
 
-    this.getPendingOrders = function(){
+    this.getOrders = function(){
         return $http({
             method: 'GET',
-            url:'/api/orders/pending'
+            url:'/api/orders'
         }).then(function(response){
-            if(response.status === 200){
-                return response.data;
-            }
+            return response.data.map(function(order){
+                order.address = parseAddressObjToString(order);
+
+                delete order.address1;
+                delete order.address2;
+                delete order.city;
+                delete order.state;
+                delete order.country;
+                delete order.zipcode;
+
+                order.orderprice = order.orderitems.reduce(
+                function (acum, element) {
+                    return acum + element.quantity * element.optionprice * (100 - element.discount) / 100;
+                }, 0);
+
+                return order;
+            })
+            
         }).catch(function(error){
             console.log(error);
         });
@@ -26,5 +41,6 @@ function orderService($http) {
         });
     }
 }
+
 
 angular.module('app').service('orderService', orderService);

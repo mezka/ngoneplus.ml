@@ -80,13 +80,13 @@ app.config(function($stateProvider, $urlRouterProvider) {
       name: 'orders',
       url: '/orders',
       templateUrl: '/views/orders/orders.html',
-      // data: { requiresAuth: true },
+      data: { requiresAuth: true },
       controller: 'ordersController as orders',
-      // resolve: {
-      //   pendingorders: function(orderService){
-      //     return orderService.getPendingOrders();
-      //   }
-      // }
+      resolve: {
+        orderlist: function(orderService){
+          return orderService.getOrders();
+        }
+      }
     };
 
     var paymentState = {
