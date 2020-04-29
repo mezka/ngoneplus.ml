@@ -12,7 +12,7 @@
         <h2 class="h1 my-5 text-center card-body">Fulfilled Orders</h2>
     </div>
 
-    <order ng-repeat="currentorder in (fulfilledOrders = (orders.orderlist | filter: { paid: true }))" currentorder="currentorder"pay-for-order="orders.payForOrder(orderid)"></order>
+    <order ng-repeat="currentorder in (fulfilledOrders = (orders.orderlist | filter: { paid: true }))" currentorder="currentorder"></order>
 
     <p class="text-center h2 my-5" ng-if="!fulfilledOrders.length">None Available</p>
 </div>

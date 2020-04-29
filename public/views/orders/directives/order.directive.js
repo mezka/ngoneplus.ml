@@ -43,7 +43,7 @@ angular.module('app')
                   </div>
               </div>
           </div>
-          <button ng-click="payForOrder({orderid: currentorder.id})" class="btn-pay-order btn-oneplus-red">Pay for this order</button>
+          <button ng-if="!currentorder.paid" ng-click="payForOrder({orderid: currentorder.id})" class="btn-pay-order btn-oneplus-red">Pay for this order</button>
         </div>
       `,
     }
