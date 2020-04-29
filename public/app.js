@@ -91,7 +91,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     var paymentState = {
       name: 'payment',
-      url: '/order/{orderid}/payment',
+      url: '/order/payment',
       templateUrl: '/views/payment/payment.html',
       data: { requiresAuth: true },
       params: { orderid: null},
@@ -114,6 +114,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
       }
     };
 
+    var receiptState = {
+      name: 'receipt',
+      url: '/order/payment/receipt',
+      templateUrl: '/views/receipt/receipt.html'
+    };
+
 
     $stateProvider.state(homeState);
     $stateProvider.state(storeState);
@@ -124,7 +130,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     $stateProvider.state(orderState);
     $stateProvider.state(paymentState);
     $stateProvider.state(userControlPanelState);
-    
+    $stateProvider.state(receiptState);
     
     $urlRouterProvider.otherwise('/');
   });
