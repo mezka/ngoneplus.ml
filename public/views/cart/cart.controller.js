@@ -49,8 +49,8 @@ function cartController(items, addresses, cartService, $state, Swal, authService
           timer: 2000
         })
 
-        setTimeout($state.go.bind(this, 'userControlPanel'), 2000);
-      })
+        return setTimeout($state.go.bind(this, 'login'), 2000);
+      });
 
       if(!cart.addresses || !cart.addresses.length ){
         Swal.fire({
