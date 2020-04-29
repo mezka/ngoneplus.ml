@@ -117,7 +117,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
     var receiptState = {
       name: 'receipt',
       url: '/order/payment/receipt',
-      templateUrl: '/views/receipt/receipt.html'
+      templateUrl: '/views/receipt/receipt.html',
+      controller: 'receiptController as receipt',
+      data: { requiresAuth: true },
+      params: { receipt_url: null, amount: null, message: null},
     };
 
 

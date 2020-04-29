@@ -48,31 +48,38 @@ var orderController = {
                 customer: source.customer
             });
         }).then(async function(responseData) {
+
+            console.log(responseData.receipt_url);
+
             try{
-                var paid = await db.order.update(req.body.orderid, { paid: true });
+                var paid = await db.order.update(req.body.orderid, { paid: true, receipt_url: responseData.receipt_url });
             } catch(err){
+
+                console.log(err);
+
                 return res.status(500).send(err);
             }
-
-            return res.status(200).send(charge);
+            return res.status(200).send({message: responseData.outcome.seller_message, amount: responseData.amount, receipt_url: responseData.receipt_url});
         }).catch(function(err) {
 
+            console.log(err);
+
             switch (err.type) {
-                case 'api_connection_error':
-                case 'api_error':
-                case 'authentication_error':
-                case 'idempotency_error':
-                case 'invalid_request_error':
-                case 'rate_limit_error':
-                case 'validation_error':
+                case 'StripeConnectionError':
+                case 'StripeAPIError':
+                case 'StripeAuthenticationError':
+                case 'StripeIdempotencyError':
+                case 'StripeInvalidRequestError':
+                case 'StripeRateLimitError':
+                case 'StripeInvalidGrantError':
                     res.status(err.statusCode).send({type: err.type, message: "Error: Payment failed, there was an error regarding the payment service provider but nothing was charged, please contact an administrator."});
                     break;
-                case 'card_error':
+                case 'StripeCardError':
                     res.status(err.statusCode).send({type: err.type, message: err.message});
                     break;
+                default:
+                    res.status(520).send({type: 'Unknown error', message: 'Error: Unknown'});
             }
-            
-            return res.status(500).send(err);
         });
     }
 };

@@ -86,7 +86,8 @@ CREATE TABLE Public.Order(
   userId INTEGER REFERENCES Public.Users(userId) ON DELETE CASCADE,
   addressId INTEGER REFERENCES Public.Address(id) NOT NULL,
   createdDate timestamptz NOT NULL DEFAULT now(),
-  paid BOOLEAN DEFAULT FALSE
+  paid BOOLEAN DEFAULT FALSE,
+  receipt_url VARCHAR(140)
 );
 
 CREATE TABLE Public.OrderItem(

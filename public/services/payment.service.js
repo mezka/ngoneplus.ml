@@ -13,8 +13,9 @@ function paymentService($http) {
             }
         }).then(function(response) {
             return response.data;
-        }).catch(function(response) {
-            console.log(response);
+        }).catch(function(error) {
+            console.log(error);
+            throw error;
         });
     };
 }
