@@ -1,8 +1,12 @@
 const gulp = require('gulp');
 const sass = require('gulp-sass');
+const babel = require('gulp-babel');
+const plumber = require('gulp-plumber');
 const sourcemaps = require('gulp-sourcemaps');
+const ngAnnotate = require('gulp-ng-annotate')
 const concat = require('gulp-concat');
-const uglify = require('gulp-uglify');
+const uglify = require('gulp-uglify-es').default;
+const notify = require('gulp-notify');
 const minifyCss = require('gulp-clean-css');
 const mode = require('gulp-mode')();
 const angularTemplateCache = require('gulp-angular-templatecache');
@@ -94,11 +98,18 @@ function bundleCss() {
 
 function bundleJs() {
   return gulp.src(configuration.paths.src.js)
-    .pipe(mode.development(sourcemaps.write()))
+    .pipe(plumber({
+      errorHandler: notify.onError({
+        message: 'Error'
+      })
+    }))
     .pipe(concat('bundle.js'))
-    .pipe(mode.production(uglify({ mangle: false })))
-    .pipe(mode.development(sourcemaps.write()))
-    .pipe(gulp.dest('./public'));
+    .pipe(babel())
+    .pipe(ngAnnotate())
+    .pipe(sourcemaps.init())
+    .pipe(mode.production(uglify({output: { comments: false }})))
+    .pipe(sourcemaps.write('.'))
+    .pipe(gulp.dest('./public'))
 }
 
 function createAngularTemplateCache(){
@@ -115,7 +126,7 @@ function copyFolders() {
 
 function copyFiles() {
   return gulp
-    .src(['./public/index.html', './public/bundle.js', './public/style.css', ])
+    .src(['./public/index.html', './public/bundle.js', './public/bundle.js.map', './public/style.css', ])
     .pipe(gulp.dest('./public/dist'))
 }
 

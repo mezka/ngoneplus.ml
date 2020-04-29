@@ -3,7 +3,6 @@ const massive = require('massive');
 const express = require('express');
 const bodyParser = require('body-parser');
 const session = require('express-session');
-const cors = require('cors');
 
 //LOAD DOTENV CONFIG
 
@@ -21,8 +20,6 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({
     extended: true
 }));
-
-app.use(cors());
 
 app.use(session({
     saveUninitialized: false,

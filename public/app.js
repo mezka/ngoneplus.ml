@@ -22,9 +22,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: '/views/store/store.html',
         controller: 'storeController as store',
         resolve: {
-          storeItems: function(storeService) {
+          storeItems: ['storeService', function(storeService) {
                 return storeService.getStoreItems();
-            }
+            }]
         }
     };
 
@@ -34,9 +34,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
         templateUrl: '/views/product/product.html',
         controller: 'productController as product',
         resolve: {
-            options: function(storeService, $transition$) {
+            options: ['storeService', '$transition$', function(storeService, $transition$) {
                 return storeService.getProductById($transition$.params().productid);
-            },
+            }],
         }
     };
 
@@ -60,10 +60,10 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: '/views/cart/cart.html',
       controller: 'cartController as cart',
       resolve:{
-        items: function(cartService){
+        items: ['cartService', function(cartService){
           return cartService.getCart();
-        },
-        addresses: function(userService, parseAddressObjToString){
+        }],
+        addresses: ['userService', 'parseAddressObjToString', function(userService, parseAddressObjToString){
           return userService.getAddressList()
           .then(function(data){
             return data.map(function(addressObj){
@@ -73,7 +73,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
           .catch(function(result){
             return null;
           })
-        },
+        }],
       }
     };
 
@@ -84,9 +84,9 @@ app.config(function($stateProvider, $urlRouterProvider) {
       data: { requiresAuth: true },
       controller: 'ordersController as orders',
       resolve: {
-        orderlist: function(orderService){
+        orderlist: ['orderService', function(orderService){
           return orderService.getOrders();
-        }
+        }]
       }
     };
 
@@ -107,18 +107,18 @@ app.config(function($stateProvider, $urlRouterProvider) {
       data: { requiresAuth: true },
       params: { modal: false},
       resolve: {
-        user: function(userService){
+        user: ['userService', function(userService){
           return userService.getUserData();
-        },
-        countries: function(locationService){
+        }],
+        countries: ['locationService', function(locationService){
           return locationService.getCountries();
-        }
+        }]
       },
-      onEnter: function($rootScope, $stateParams){
+      onEnter: ['$rootScope', '$stateParams', function($rootScope, $stateParams){
         if($stateParams.modal){
           setTimeout($rootScope.$broadcast.bind($rootScope), 0, 'toggleModal')
         }
-      },
+      }],
     };
 
     var receiptState = {
