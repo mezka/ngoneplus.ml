@@ -1,4 +1,4 @@
-function userControlPanelController($scope, user, countries, userService, authService, $state){
+function userControlPanelController($rootScope, user, countries, userService, authService, $state){
     
     var vm = this;
 
@@ -6,7 +6,7 @@ function userControlPanelController($scope, user, countries, userService, authSe
     vm.countries = countries;
 
     vm.toggleModal = function(){
-        $scope.$broadcast('toggleModal');
+        $rootScope.$broadcast('toggleModal');
     };
 
     vm.refreshUserData = function(){

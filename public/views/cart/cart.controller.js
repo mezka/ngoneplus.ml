@@ -61,7 +61,8 @@ function cartController(items, addresses, cartService, $state, Swal, authService
           timer: 2000
         })
 
-        setTimeout($state.go.bind(this, 'userControlPanel'), 2000);
+
+        setTimeout($state.go.bind(this, 'userControlPanel', { modal: true }), 2000);
         return;
       }
 

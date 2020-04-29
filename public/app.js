@@ -6,6 +6,7 @@ SweetAlert.factory('Swal', function(){
 
 var app = angular.module('app', ['ui.router', 'ngAnimate', 'templates', 'SweetAlert', 'ngFlash', 'utils']);
 
+
 app.config(function($stateProvider, $urlRouterProvider) {
 
     var homeState = {
@@ -104,6 +105,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       templateUrl: '/views/usercp/usercp.html',
       controller: 'userControlPanelController as userCP',
       data: { requiresAuth: true },
+      params: { modal: false},
       resolve: {
         user: function(userService){
           return userService.getUserData();
@@ -111,7 +113,12 @@ app.config(function($stateProvider, $urlRouterProvider) {
         countries: function(locationService){
           return locationService.getCountries();
         }
-      }
+      },
+      onEnter: function($rootScope, $stateParams){
+        if($stateParams.modal){
+          setTimeout($rootScope.$broadcast.bind($rootScope), 0, 'toggleModal')
+        }
+      },
     };
 
     var receiptState = {
@@ -165,7 +172,6 @@ app.config(function($stateProvider, $urlRouterProvider) {
   }
 
 app.run(authHookRunBlock);
-
 
 //needed for Batarang support
 angular.element(document).ready(() => {
