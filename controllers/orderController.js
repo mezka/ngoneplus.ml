@@ -24,20 +24,12 @@ var orderController = {
             res.status(500).send(err);
         }
             
-        console.log('hit');
-        console.log(order);
-
         order = order[0];
-
-        console.log(order.orderitems);
 
         const amount = order.orderitems.reduce(function(sumTotal, currElement) {
             return sumTotal + currElement.quantity * currElement.optionprice * ((100 - currElement.discount) / 100);
         }, 0);
 
-        console.log(amount);
-
-        // Create a new customer and then a new charge for that customer:
         stripe.customers.retrieve(order.stripeid)
         .then(function(customer) {
 
