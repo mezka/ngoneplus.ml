@@ -32,7 +32,6 @@ var orderController = {
 
         stripe.customers.retrieve(order.stripeid)
         .then(function(customer) {
-
             return stripe.customers.createSource(customer.id, {
                 source: {
                     object: 'card',
@@ -48,22 +47,32 @@ var orderController = {
                 currency: 'usd',
                 customer: source.customer
             });
-        }).then(async function(charge) {
-
-            console.log(charge);
-
+        }).then(async function(responseData) {
             try{
                 var paid = await db.order.update(req.body.orderid, { paid: true });
             } catch(err){
                 return res.status(500).send(err);
             }
 
-            console.log(paid);
-
             return res.status(200).send(charge);
         }).catch(function(err) {
-            console.log(err);
-            return res.status(400).send(err);
+
+            switch (err.type) {
+                case 'api_connection_error':
+                case 'api_error':
+                case 'authentication_error':
+                case 'idempotency_error':
+                case 'invalid_request_error':
+                case 'rate_limit_error':
+                case 'validation_error':
+                    res.status(err.statusCode).send({type: err.type, message: "Error: Payment failed, there was an error regarding the payment service provider but nothing was charged, please contact an administrator."});
+                    break;
+                case 'card_error':
+                    res.status(err.statusCode).send({type: err.type, message: err.message});
+                    break;
+            }
+            
+            return res.status(500).send(err);
         });
     }
 };
