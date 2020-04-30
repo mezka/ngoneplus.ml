@@ -1,9 +1,10 @@
-.checkout-wrapper {
-    height: calc(100vh - 60px);
+.payment-form{
+    max-width: 576px;
+    margin: 0 auto;
+}
 
-    h1{
-        text-align: center;
-    }
+.payment-container {
+    height: calc(100vh - 60px);
 }
 
 .form-group-column{
@@ -15,11 +16,7 @@
     }
 }
 
-.form-group-small{
-    width: 30%;
-}
-
-.btn-checkout{
+.btn-payment{
     display: block;
     margin: 0 auto;
     width: 50%;
