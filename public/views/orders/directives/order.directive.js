@@ -11,20 +11,22 @@ angular.module('app')
         <div class="row">
           <div class="col-12">
               <div class="row order-title-row">
-                  <div class="col">
+                  <div class="col-9 col-sm-3 col-md-auto">
                       <h3>ORDER PLACED</h3>
                       <p>{{currentorder.createddate | date:'fullDate'}}</p>
                   </div>
-                  <div class="col">
+                  <div class="col-3 col-sm-auto">
                       <h3>TOTAL</h3>
                       <p>{{currentorder.orderprice | currency }}</p>
                   </div>
-                  <div class="col-auto">
+                  <div class="col-9 col-sm">
                       <h3>SHIP TO</h3>
                       <p>{{currentorder.address}}</p>
                   </div>
-                  <div class="col-auto">
+                  <div class="col-3 col-sm-auto">
                       <h3>ORDER #{{currentorder.id}}</h3>
+                      <button class="btn-pay-order btn-oneplus-red" ng-if="!currentorder.paid" ng-click="payForOrder({orderid: currentorder.id})">Pay</button>
+                      <p class="text-weight-bolder" ng-if="currentorder.paid">Fulfilled</p>
                   </div>
               </div>
           </div>
@@ -43,7 +45,6 @@ angular.module('app')
                   </div>
               </div>
           </div>
-          <button ng-if="!currentorder.paid" ng-click="payForOrder({orderid: currentorder.id})" class="btn-pay-order btn-oneplus-red">Pay for this order</button>
         </div>
       `,
     }
