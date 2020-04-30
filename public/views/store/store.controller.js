@@ -1,4 +1,4 @@
-function storeController(storeItems, $scope){
+function storeController(storeItems){
   this.items = storeItems;
 }
 
