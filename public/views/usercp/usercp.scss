@@ -1,10 +1,24 @@
-// .btn-usercp{
-//     padding: 6px 0;
-//     width: 160px;
-//     margin: 10px 0px;
-// }
+.usercp-container{
+    min-height: calc(100vh - (50px + 76px));
+    background-color: #F9F9F9;
+    box-sizing: border-box;
+}
 
-.btn-delete, .btn-logout, .btn-add {
+.usercp-actions{
+    max-width: 576px;
+    margin: 0 auto;
+}
+
+
+@media(min-width: 576px){
+
+    .btn-add, .btn-logout, .btn-check-orders {
+        max-width: 30%;
+    }
+
+}
+
+.btn-delete, .btn-logout, .btn-check-orders, .btn-add {
     height: 35px;
     width: 200px;
 }

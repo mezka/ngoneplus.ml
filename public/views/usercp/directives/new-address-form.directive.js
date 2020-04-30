@@ -9,7 +9,7 @@ angular.module('app')
         },
         template:`
                     <div class="modal" tabindex="-1" role="dialog">
-                    <div class="modal-dialog" role="document">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
                         <div class="modal-content">
                         <div class="modal-header">
                             <h5 class="modal-title">Add new address</h5>
@@ -18,19 +18,19 @@ angular.module('app')
                             </button>
                         </div>
                             <form class="modal-body" ng-submit="handleFormSubmit()">
-                                <div class="form-group row">
+                                <div class="form-group row d-flex justify-content-around">
                                     <label for="address1" class="col-sm-2 col-form-label">Address 1</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" name="address1" ng-model="data.address1" required>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="form-group row d-flex justify-content-around">
                                     <label for="address2" class="col-sm-2 col-form-label">Address 2</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" name="address2" ng-model="data.address2">
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="form-group row d-flex justify-content-around">
                                     <label for="country" class="col-sm-2 col-form-label">Country</label>
                                     <div class="col-sm-9">
                                         <select name="country" class="form-control" ng-model="data.country"
@@ -38,7 +38,7 @@ angular.module('app')
                                             ng-change="handleCountrySelect()" required></select>
                                     </div>
                                 </div>
-                                <div class="form-group row ng-scope-margin-fix" ng-if="data.country && states.length !== 0">
+                                <div class="form-group row ng-scope-margin-fix d-flex justify-content-around" ng-if="data.country && states.length !== 0">
                                     <label for="state" class="col-sm-2 col-form-label">Province/District</label>
                                     <div class="col-sm-9">
                                         <select name="state" class="form-control" ng-model="data.state"
@@ -47,14 +47,14 @@ angular.module('app')
                                     </div>
                                 </div>
 
-                                <div class="form-group row ng-scope-margin-fix" ng-if="data.state && cities.length !== 0">
+                                <div class="form-group row ng-scope-margin-fix d-flex justify-content-around" ng-if="data.state && cities.length !== 0">
                                     <label for="city" class="col-sm-2 col-form-label">City/Town</label>
                                     <div class="col-sm-9">
                                         <select name="city" class="form-control" ng-model="data.city"
                                             ng-options="city.name for city in cities track by city.geoname_id" required></select>
                                     </div>
                                 </div>
-                                <div class="form-group row">
+                                <div class="form-group row d-flex justify-content-around">
                                     <label for="zipcode" class="col-sm-2 col-form-label">Postal Code</label>
                                     <div class="col-sm-9">
                                         <input type="text" class="form-control" name="zipcode" ng-model="data.zipcode" required>
