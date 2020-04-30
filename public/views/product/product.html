@@ -1,44 +1,45 @@
-<div class="product-wrapper">
-  <div class="gallery-wrapper">
-    <img class="displayed-image swap-animation" ng-src="./img/store/{{product.current.currentimage}}"
-      ng-animate-swap="product.current.currentimage" alt="option-image">
-    <div class="gallery-container">
-      <div class="image-container" ng-class="{'background-white': product.current.currentimage == imageurl}"
-        ng-click="product.changeCurrentImage(imageurl)" ng-repeat="imageurl in product.current.imageurls">
-        <img ng-src="./img/store/{{imageurl}}" alt="">
+<div class="product-container">
+  <div class="container-md product-flex-container">
+    <div class="gallery-wrapper">
+      <img class="displayed-image swap-animation" ng-src="./img/store/{{product.current.currentimage}}"
+        ng-animate-swap="product.current.currentimage" alt="option-image">
+      <div class="gallery-container">
+        <div class="image-container" ng-class="{'background-white': product.current.currentimage == imageurl}"
+          ng-click="product.changeCurrentImage(imageurl)" ng-repeat="imageurl in product.current.imageurls">
+          <img ng-src="./img/store/{{imageurl}}" alt="">
+        </div>
       </div>
     </div>
-  </div>
-
-
-  <div class="option-wrapper">
-    <h3 class="product-title">{{product.current.productname + ' '  + product.current.optionname}}</h3 class="">
-
-    <hr />
-    <p>Options</p>
-
-    <button class="btn-option my-3" ng-click="product.changeCurrentOption(option)" ng-repeat="option in product.options"
-      ng-class="{'border-red': product.current.optionid == option.optionid}">
-      <div class="option-icon-container">
-        <img ng-if="option.optionimageicon" class="option-icon" ng-src="./img/store/{{option.optionimageicon}}" alt="">
-        <div ng-if="option.optionimagecolor" class="option-icon"
-          ng-style="{'background-color': option.optionimagecolor}"></div>
+  
+    <div class="option-wrapper">
+      <h3 class="product-title">{{product.current.productname + ' '  + product.current.optionname}}</h3 class="">
+  
+      <hr />
+      <p>Options</p>
+  
+      <button class="btn-option my-3" ng-click="product.changeCurrentOption(option)" ng-repeat="option in product.options"
+        ng-class="{'border-red': product.current.optionid == option.optionid}">
+        <div class="option-icon-container">
+          <img ng-if="option.optionimageicon" class="option-icon" ng-src="./img/store/{{option.optionimageicon}}" alt="">
+          <div ng-if="option.optionimagecolor" class="option-icon"
+            ng-style="{'background-color': option.optionimagecolor}"></div>
+        </div>
+        <p>
+          {{option.optionname}}
+        </p>
+      </button>
+  
+      <div class="product-prices">
+        <p class="product-regular-price" ng-class="{'text-decoration': product.current.discount? strikethrough : none}">
+          ${{product.current.optionprice}}
+        </p>
+        <p class="product-discounted-price" ng-if="product.current.discount" >
+          {{ product.current.price * (100 - product.current.discount) / 100 }}</p>
       </div>
-      <p>
-        {{option.optionname}}
-      </p>
-    </button>
-
-    <div class="product-prices">
-      <p class="product-regular-price" ng-class="{'text-decoration': product.current.discount? strikethrough : none}">
-        ${{product.current.optionprice}}
-      </p>
-      <p class="product-discounted-price" ng-if="product.current.discount" >
-        {{ product.current.price * (100 - product.current.discount) / 100 }}</p>
+  
+      <button class="btn-cart btn-oneplus-red" ng-click="product.addCurrentOptionToCart()">
+        Add to cart
+      </button>
     </div>
-
-    <button class="btn-cart btn-oneplus-red" ng-click="product.addCurrentOptionToCart()">
-      Add to cart
-    </button>
   </div>
 </div>

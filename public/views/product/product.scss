@@ -1,4 +1,16 @@
-.product-wrapper{
+@media(min-width:768px){
+
+    .product-flex-container{
+        display: flex;
+    }
+
+    .option-wrapper, .gallery-wrapper {
+        width: 50%;
+    }
+
+}
+
+.product-container{
     background-color: #F6F6F6;
     font-family: 'Helvetica Neue', sans-serif;
     box-sizing: border-box;
@@ -117,14 +129,3 @@ opacity:1;
     color: black;
 }
 
-@media(min-width:768px){
-
-    .product-wrapper{
-        display: flex;
-    }
-
-    .option-wrapper, .gallery-wrapper {
-        width: 50%;
-    }
-
-}
