@@ -1,4 +1,4 @@
-<div class="cart-wrapper container-fluid">
+<div class="cart-wrapper container-fluid container-md">
     <p class="cart-title">Shopping Cart</p>
     <div class="cart-element" ng-repeat="item in cart.items">
         <div class="cart-img-container">
@@ -42,7 +42,7 @@
     <div class="row cart-summary-container">
         <div class="col-12 col-sm-5  col-md-6  col-lg-7 col-xl-8 cart-qty-total">
             <p>You have <span ng-bind="cart.calculateTotalQty()"></span> items in your cart</p>
-            <form>
+            <form ng-if="cart.addresses.length">
                 <label for="Address">Choose your shipping address: </label>    
                 <select class="form-control" ng-model="cart.selectedAddressId" ng-options="address.id as address.name for address in cart.addresses" required>
                 </select>
