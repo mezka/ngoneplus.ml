@@ -21,6 +21,7 @@ async function init(){
     try{
         db = await massive({ host: process.env.DB_HOST, port: process.env.DB_PORT, database: process.env.DB_NAME, user: process.env.DB_USER, password: process.env.PASSWORD });
     } catch (error){
+        console.log(error);
         console.log('Could not establish connection to database ...');
         throw error;
     }
