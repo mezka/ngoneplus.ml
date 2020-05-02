@@ -16,8 +16,8 @@ FROM '/home/mezka/ngoneplus.ml/db/csv/BundleImages.csv' DELIMITER ',' CSV HEADER
 COPY BundleProducts(bundleId,productId)
 FROM '/home/mezka/ngoneplus.ml/db/csv/BundleProducts.csv' DELIMITER ',' CSV HEADER;
 
-COPY Options(optionId,productId,optionName,optionImageColor,optionImageIcon,optionDimensions,optionWeight,optionMaterials,optionInput,optionOutput,optionPrice)
+COPY Options(optionId,productId,optionName,optionImageColor,optionImageIcon,optionDimensions,optionWeight,optionMaterials,optionPrice)
 FROM '/home/mezka/ngoneplus.ml/db/csv/Options.csv' DELIMITER ',' CSV HEADER;
 
 COPY OptionImages(imageId,optionId,imageUrl)
-FROM '/home/mezka/ngoneplus.ml/db/csv/ProductImages.csv' DELIMITER ',' CSV HEADER;
+FROM '/home/mezka/ngoneplus.ml/db/csv/OptionImages.csv' DELIMITER ',' CSV HEADER;

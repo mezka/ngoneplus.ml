@@ -1,9 +1,13 @@
-fs = require('fs');
-XLSX = require('xlsx');
+const fs = require('fs').promises;
+const path = require('path');
+const XLSX = require('xlsx');
 
-var workbook = XLSX.readFile('schema.ods');
+const workbook = XLSX.readFile('schema.ods');
 
-for(var i = 0; i < workbook.SheetNames.length; i++){
-    console.log(workbook.SheetNames[i]);
-    fs.writeFile('./db/csv/' + workbook.SheetNames[i] + '.csv', XLSX.utils.sheet_to_csv(workbook.Sheets[workbook.SheetNames[i]]));
+for(const worksheetName in workbook.Sheets){
+    try{
+        fs.writeFile(path.join(__dirname, `db/csv/${worksheetName}.csv`), XLSX.utils.sheet_to_csv(workbook.Sheets[worksheetName]))
+    } catch (err){
+        console.log(err);
+    }
 }

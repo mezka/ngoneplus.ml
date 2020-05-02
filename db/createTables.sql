@@ -43,8 +43,6 @@ CREATE TABLE Public.Options(
   optionDimensions VARCHAR(100),
   optionWeight VARCHAR(50),
   optionMaterials VARCHAR(60),
-  optionInput VARCHAR(60),
-  optionOutput VARCHAR(60),
   optionPrice DOUBLE PRECISION
 );
 

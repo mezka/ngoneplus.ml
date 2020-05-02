@@ -48,6 +48,6 @@
     "gulp-sourcemaps": "^2.6.5",
     "gulp-uglify-es": "^2.0.0",
     "nodemon": "^2.0.1",
-    "xlsx": "^0.15.2"
+    "xlsx": "^0.16.0"
   }
 }
