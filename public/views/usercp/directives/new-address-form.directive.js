@@ -21,19 +21,19 @@ angular.module('app')
                                 <div class="form-group row">
                                     <label for="address1" class="col-sm-3 col-form-label">Address 1</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="address1" ng-model="data.address1" required>
+                                        <input type="text" class="oneplus-input w-100" name="address1" ng-model="data.address1" required>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="address2" class="col-sm-3 col-form-label">Address 2</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="address2" ng-model="data.address2">
+                                        <input type="text" class="oneplus-input w-100" name="address2" ng-model="data.address2">
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="country" class="col-sm-3 col-form-label">Country</label>
                                     <div class="col-sm-9">
-                                        <select name="country" class="form-control" ng-model="data.country"
+                                        <select name="country" class="oneplus-input w-100" ng-model="data.country"
                                             ng-options="country.name for country in countries track by country.country_iso_code"
                                             ng-change="handleCountrySelect()" required></select>
                                     </div>
@@ -41,7 +41,7 @@ angular.module('app')
                                 <div class="form-group row ng-scope-margin-fix" ng-if="data.country && states.length !== 0">
                                     <label for="state" class="col-sm-3 col-form-label">Province/District</label>
                                     <div class="col-sm-9">
-                                        <select name="state" class="form-control" ng-model="data.state"
+                                        <select name="state" class="oneplus-input w-100" ng-model="data.state"
                                             ng-options="state.name for state in states track by state.state_id"
                                             ng-change="handleStateSelect()" required></select>
                                     </div>
@@ -50,14 +50,14 @@ angular.module('app')
                                 <div class="form-group row ng-scope-margin-fix" ng-if="data.state && cities.length !== 0">
                                     <label for="city" class="col-sm-3 col-form-label">City/Town</label>
                                     <div class="col-sm-9">
-                                        <select name="city" class="form-control" ng-model="data.city"
+                                        <select name="city" class="oneplus-input w-100" ng-model="data.city"
                                             ng-options="city.name for city in cities track by city.geoname_id" required></select>
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label for="zipcode" class="col-sm-3 col-form-label">Postal Code</label>
                                     <div class="col-sm-9">
-                                        <input type="text" class="form-control" name="zipcode" ng-model="data.zipcode" required>
+                                        <input type="text" class="oneplus-input w-100" name="zipcode" ng-model="data.zipcode" required>
                                     </div>
                                 </div>
                             </form>
