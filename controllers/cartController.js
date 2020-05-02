@@ -1,19 +1,25 @@
-var app = require('../index.js');
+const app = require('../index.js');
+const db = app.get('db');
 
-var db = app.get('db');
-
-var cart = {
+const cartController = {
   addProductToCart: function(req, res) {
 
-      var cartObj = req.body;
+      const cartObj = req.body;
 
-      if (Array.isArray(req.session.cart)) {
-        addCartObjToArray(req.session.cart, cartObj);
+      if (req.session.cart) {
+        const cartObjWithSameOptionId = req.session.cart.find(function(element){ return element.optionid === this.optionid }, cartObj);
+
+        if(cartObjWithSameOptionId){
+          cartObjWithSameOptionId.quantity++;
+        } else {
+          req.session.cart.push(cartObj);
+        }
+
       } else {
           req.session.cart = [cartObj];
       }
 
-      return res.status(200).send(cartObj);
+      return res.status(200).send(req.session.cart);
   },
 
   getCart: function(req, res) {
@@ -21,20 +27,22 @@ var cart = {
   },
 
   updateCartElement: function(req, res){
-    var newCartObj = req.body;
-    var cartObj = req.session.cart.find(createCallbackKeyEqualsValue('tempid', newCartObj.tempid));
+    const newCartObj = req.body;
+    const idxToUpdate = req.session.cart.findIndex(function(element) { return element.optionid === this.optionid }, newCartObj);
 
-    cartObj = newCartObj;
+    if(idxToUpdate !== -1){
+      req.session.cart[idxToUpdate] = newCartObj;
+    }
 
-    return res.status(200).json(rew.session.cart);
+    return res.status(200).json(req.session.cart);
   },
 
   deleteCartElement: function(req, res){
+    const cartObj = req.body;
+    const idxToDelete = req.session.cart.findIndex(function(element) { return element.optionid === this.optionid }, cartObj);
 
-    var toDeleteIndex = req.session.cart.findIndex(createCallbackKeyEqualsValue('tempid', req.body.tempid));
-
-    if(toDeleteIndex !== -1)
-      req.session.cart.splice(toDeleteIndex, 1);
+    if(idxToDelete !== -1)
+      req.session.cart.splice(idxToDelete, 1);
 
     return res.status(200).json(req.session.cart);
   },
@@ -68,43 +76,7 @@ var cart = {
         console.log(error);
         return res.status(500).send(error);
     })
-}
-
+  }
 };
 
-
-function addCartObjToArray(cartArray, newCartObj){
-
-
-  //search for cartObj with same optionid
-
-  cartObj = cartArray.find(createCallbackKeyEqualsValue('optionid', newCartObj.optionid));
-
-  //if found add quantity and price
-
-  if(cartObj){
-    cartObj.quantity += newCartObj.quantity;
-  }else{
-    cartArray.push(newCartObj);
-  }
-}
-
-function createCallbackKeyEqualsValue(key, value){
-
-  return function keyEqualsValue(element){
-      return element[key] === value;
-  };
-}
-
-var generateTemporaryCartElementId = createIterator();
-
-
-function createIterator(){
-  var count = 0;
-
-  return function(){
-    return count++;
-  };
-}
-
-module.exports = cart;
+module.exports = cartController;

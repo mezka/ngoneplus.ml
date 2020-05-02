@@ -1,5 +1,5 @@
 
-function cartService($http, $state) {
+function cartService($http) {
 
     return {
         addProductToCart: function(productid, optionid, productname, optionname, imageurl, optionprice, quantity, discount) {
@@ -63,14 +63,28 @@ function cartService($http, $state) {
                 console.log(response.status);
             });
         },
-        deleteCartItem: function(tempid) {
+        deleteCartItem: function(optionid) {
 
             return $http({
                 method: 'POST',
                 url: '/api/cart/delete',
-                data: {
-                    tempid: tempid,
+                data: { optionid }
+            }).then(function(response) {
+                if (response.status === 200) {
+                    console.log(response.data);
+                    return response.data;
                 }
+            }).catch(function(response) {
+                console.log(response.status);
+            });
+        },
+
+        updateCartItem: function(cartObj) {
+
+            return $http({
+                method: 'POST',
+                url: '/api/cart/update',
+                data: cartObj
             }).then(function(response) {
                 if (response.status === 200) {
                     console.log(response.data);
