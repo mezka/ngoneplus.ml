@@ -1,17 +1,15 @@
 function paymentController(paymentService, $state, Swal){
 
-  var payment = this;
+  const vm = this;
 
-  payment.info = {};
-  payment.info.orderid = $state.params.orderid
+  vm.info = {};
+  vm.info.orderid = $state.params.orderid
 
-  payment.charge = function(event){
+  vm.charge = (event) => {
 
     event.preventDefault();
 
-    console.log(payment.info);
-
-    paymentService.charge(payment.info)
+    paymentService.charge(vm.info)
     .then(function(data){
       console.log(data);
       Swal.fire({
