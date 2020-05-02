@@ -1,11 +1,11 @@
 function ordersController(orderlist, $state) {
     
-    var vm = this;
+    const vm = this;
 
     vm.orderlist = orderlist;
     
     vm.payForOrder = function(orderid){
-        $state.go('payment', {orderid: orderid});
+        $state.go('payment', {orderid});
     };
 }
 
