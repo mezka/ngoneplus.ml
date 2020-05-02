@@ -1,4 +1,3 @@
-
 function cartService($http) {
 
     return {

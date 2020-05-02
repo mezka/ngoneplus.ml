@@ -6,8 +6,6 @@ function cartController(items, addresses, cartService, $state, Swal, authService
   cart.addresses = addresses;
   cart.selectedAddressId = addresses && addresses.length ? addresses[0].id : null;
 
-  console.log(items);
-
   cart.calculateSubTotal = () => cart.items.reduce((prevValue, item) => { return prevValue + item.quantity * item.optionprice }, 0);
   cart.calculateTotal = () => cart.items.reduce((prevValue, item) => { return prevValue + item.quantity * item.optionprice * (100 - item.discount) / 100 }, 0);
   cart.calculateTotalQty = () => cart.items.reduce(function (prevValue, item) { return prevValue + item.quantity }, 0);
@@ -17,14 +15,6 @@ function cartController(items, addresses, cartService, $state, Swal, authService
     cartService.deleteCartItem(cart.items[index].optionid)
       .then(function (data) { cart.items.splice(index, 1) })
       .catch(function (error) { console.log(error) });
-  };
-
-  cart.clearCart = () => {
-    cartService.clearCart()
-      .then(function (data) { })
-      .catch(function (error) { console.log(error) });
-
-    cart.items = [];
   };
 
   cart.checkoutCart = () => {
