@@ -1,8 +1,11 @@
-<!DOCTYPE html>
-<div class="row d-flex justify-content-center">
-    <div class="col-6">
-        <h1>Payment Succesful</h1>
-        <p>Amount: ${{receipt.data.amount / 100}}</p>
-        <p>Receipt: {{receipt.data.receipt_url}}</p>
+<div class="container receipt-container">
+    <div class="row d-flex justify-content-center mt-4">
+        <div class="col-6">
+            <h1 class="text-center">Payment Succesful</h1>
+            <p class="text-center">Amount: ${{receipt.data.amount / 100}}</p>
+            <p class="text-center">
+                <a href="{{receipt.data.receipt_url}}" target="_blank">Check your receipt</a>
+            </p>
+        </div>
     </div>
 </div>

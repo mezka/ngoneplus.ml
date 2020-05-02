@@ -1,0 +1,90 @@
+optionId,productId,optionName,optionImageColor,optionImageIcon,optionDimensions,optionWeight,optionMaterials,optionPrice
+1,1,64GB Gunmetal,#5A5050,,152.7 x 74.7 x 7.35 mm,158g,Anodized aluminum,439
+2,1,64GB SoftGold,#B1A897,,152.7 x 74.7 x 7.35 mm,158g,Anodized aluminum,439
+3,2,Sandstone,#333333,,152.5 x 76.8 x 9.2mm,18g,PC,19.95
+4,2,Bamboo,,/cases/3t-protective-case/bamboo/iconbg.jpg,152.5 x 76.8 x 9mm,12g,Bamboo+Kevlar,24.95
+5,2,Ebony Wood,,/cases/3t-protective-case/ebony-wood/iconbg.jpg,153.5 x 76.8 x 9mm,12g,Ebony+Kevlar,24.95
+6,2,Karbon,,/cases/3t-protective-case/karbon/iconbg.jpg,154.5 x 76.8 x 9mm,12g,Kevlar,24.95
+7,2,Rosewood,,/cases/3t-protective-case/rosewood/iconbg.jpg,155.5 x 76.8 x 9mm,12g,Rosewood+Kevlar,24.95
+8,3,Black,#333333,,155 x 78.5 x 13mm,85g,PC+PU,19.95
+9,3,Gray,#B0B0B0,,155 x 78.5 x13mm,85g,PC+PU,19.95
+10,4,Cardinal Red,#8A343D,,158 x 83 x 12.2mm,98g,PC + Silicone,24.95
+11,4,Dark Matter,#333333,,158 x 83 x 12.2mm,98g,PC + Silicone,24.95
+12,4,Saharan White,#FFFFFF,,158 x 83 x 12.2mm,98g,PC + Silicone,24.95
+13,5,Bamboo,,/cases/2-styleswap/bamboo/iconbg.jpg,127.9 x 80.9 x 7.1 mm,18g,PC + Bamboo,18.89
+14,5,Black Apricot,,/cases/2-styleswap/black-apricot/iconbg.jpg,127.9 x 80.9 x 7.1 mm,18g,PC + Wood,18.89
+15,5,Karbon,,/cases/2-styleswap/karbon/iconbg.jpg,127.9 x 80.9 x 7.1 mm,18g,PC + Kevlar,18.89
+16,5,Rosewood,,/cases/2-styleswap/rosewood/iconbg.jpg,127.9 x 80.9 x 7.1 mm,18g,PC + Wood,18.89
+17,6,Black,#333333,,153.4 x 80 x 14.5mm,55g,PU + PC,13.99
+18,6,White,#FFFFFF,,153.4 x 80 x 14.5mm,55g,PU + PC,13.99
+19,6,Gray,#B0B0B0,,153.4 x 80 x 14.5mm,55g,PU + PC,13.99
+20,6,Blue,#9BC9E3,,153.4 x 80 x 14.5mm,55g,PU + PC,13.99
+21,6,Yellow,#FBD326,,153.4 x 80 x 14.5mm,55g,PU + PC,13.99
+22,7,Red,#EB0028,,153.9 x 77.6 x 11.45 mm,23.9g,Silicone + PC,10.49
+23,7,White,#FFFFFF,,153.9 x 77.6 x 11.45 mm,23.9g,Silicone + PC,10.49
+24,7,Blue,#33AFD9,,153.9 x 77.6 x 11.45 mm,23.9g,Silicone + PC,10.49
+25,8,Sandstone,#333333,,141.8 x 70.8 x 8.3mm,13g,Sandstone PET,13.99
+26,8,Bamboo,,/cases/x-protective-case/bamboo/iconbg.jpg,141.8 x 70.8 x 8.3mm,13g,Nan Bamboo,17.49
+27,8,Black Apricot,,/cases/x-protective-case/black-apricot/iconbg.jpg,141.8 x 70.8 x 8.3mm,13g,Black Apricot,17.49
+28,8,Karbon,,/cases/x-protective-case/karbon/iconbg.jpg,141.8 x 70.8 x 8.3mm,13g,DuPont Kevlar fiber,17.49
+29,8,Rosewood,,/cases/x-protective-case/rosewood/iconbg.jpg,141.8 x 70.8 x 8.3mm,13g,Rosewood,17.49
+30,9,Black,#333333,,142 x 72 x 10.5mm,48g,PET,10.49
+31,9,White,#FFFFFF,,142 x 72 x 10.5mm,48g,PET,10.49
+32,9,Orange,#E6621D,,142 x 72 x 10.5mm,48g,PET,10.49
+33,9,Gray,#B0B0B0,,142 x 72 x 10.5mm,48g,PET,10.49
+34,10,Red,#EB0028,,143.2 x 72.4 x 9.6mm,17g,Silicone+PC,10.49
+35,10,Black,#333333,,143.2 x 72.4 x 9.6mm,17g,Silicone+PC,10.49
+36,10,White,#FFFFFF,,143.2 x 72.4 x 9.6mm,17g,Silicone+PC,10.49
+37,10,Blue,#33AFD9,,143.2 x 72.4 x 9.6mm,17g,Silicone+PC,10.49
+38,11,Clear,#E8E8EA,,141.6 x 70.8 x 8.4mm,15g,PC,6.29
+39,11,Gray,#B0B0B0,,141.6 x 70.8 x 8.4mm,15g,PC,6.29
+40,12,Ocean,#333C4B,,,,"Rich Tuscan vegetable tan leather, German wool felt",59.49
+41,12,Neutral,#797876,,,,"Rich Tuscan vegetable tan leather, German wool felt",59.49
+42,13,Black,#333333,,159.7 x 81 x 15.5 mm,49.45g,Silicone,4.54
+43,13,White,#FFFFFF,,159.7 x 81 x 15.5 mm,49.45g,Silicone,4.54
+44,13,Green,#A9C500,,159.7 x 81 x 15.5 mm,49.45g,Silicone,4.54
+45,13,Blue,#33AFD9,,159.7 x 81 x 15.5 mm,49.45g,Silicone,4.54
+46,14,Sandstone,#333333,,Not Specified,Not Specified,PC,13.99
+47,15,Black,#333333,,149.6 x 71.5 x 0.6mm,12g,Glass,19.95
+48,15,White,#FFFFFF,,149.6 x 71.5 x 0.6mm,12g,Glass,19.95
+49,16,,,,144 x 66.2 x 0.45mm,9g,Glass,12.95
+50,17,,,,148.8 x 71.9 x 0.15mm,4.5g,PET,5.99
+51,18,,,,132.5 x 62 x 0.2mm,9g,Tempered Glass,12.99
+52,19,,,,132.5 x 62 x 0.15mm,4g,PET,5.99
+53,20,US 100cm,,,33 x 33 x 70mm,71g,PC,19.95
+54,20,US 150cm,,,33 x 33 x 70mm,71g,PC,19.95
+55,21,100cm,,,100cm long,40g,TPE+PC+PBT,14.95
+56,21,150cm,,,150cm long,56g,TPE+PC+PBT,19.95
+57,22,,,,10cm long,10g,TPE,9.95
+58,23,,,,,,Not Specified,29.95
+59,24,,,,150cm long,,Not Specified,5.99
+60,25,,,,7.5cm long,13g,Not Specified,7.99
+61,26,,,,Not Specified,,Not Specified,6.99
+62,27,Black,#333333,,142.8 × 72.6 × 16.2 mm,220g,Not Specified,19
+63,27,White,#FFFFFF,,142.8 × 72.6 × 16.2 mm,220g,Not Specified,19
+64,28,Black,#333333,,Not Specified,Not Specified,Not Specified,19.95
+65,28,White,#FFFFFF,,Not Specified,Not Specified,Not Specified,19.95
+66,29,Gold,#EFDFB4,,Not Specified,Not Specified,Not Specified,49.99
+67,29,Graphite,#B9B9B9,,Not Specified,Not Specified,Not Specified,49.99
+68,30,,,,445 x 150 x 450mm,708g,600D Polyester,50
+69,31,Black,#333333,,350 x 130 x 390mm,740g,Canvas,50
+70,31,Blue Gray,#3F5263,,351 x 130 x 390mm,741g,Canvas,50
+71,32,,,,380 x 290 x 130mm,930g,Canvas + Leather,99
+72,33,XS,,,Not Specified,Not Specified,"95% Cotton, 5% Polyurethane",20
+73,33,S,,,Not Specified,Not Specified,"96% Cotton, 5% Polyurethane",20
+74,33,M,,,Not Specified,Not Specified,"97% Cotton, 5% Polyurethane",20
+75,33,L,,,Not Specified,Not Specified,"98% Cotton, 5% Polyurethane",20
+76,33,XL,,,Not Specified,Not Specified,"99% Cotton, 5% Polyurethane",20
+77,33,XXL,,,Not Specified,Not Specified,"100% Cotton, 5% Polyurethane",20
+78,33,4XL,,,Not Specified,Not Specified,"101% Cotton, 5% Polyurethane",20
+79,33,5XL,,,Not Specified,Not Specified,"102% Cotton, 5% Polyurethane",20
+80,34,XS,,,Not Specified,Not Specified,"103% Cotton, 5% Polyurethane",20
+81,34,S,,,Not Specified,Not Specified,"104% Cotton, 5% Polyurethane",20
+82,34,M,,,Not Specified,Not Specified,"105% Cotton, 5% Polyurethane",20
+83,34,L,,,Not Specified,Not Specified,"106% Cotton, 5% Polyurethane",20
+84,34,XL,,,Not Specified,Not Specified,"107% Cotton, 5% Polyurethane",20
+85,34,XXL,,,Not Specified,Not Specified,"108% Cotton, 5% Polyurethane",20
+86,34,4XL,,,Not Specified,Not Specified,"109% Cotton, 5% Polyurethane",20
+87,34,5XL,,,Not Specified,Not Specified,"110% Cotton, 5% Polyurethane",20
+88,1,128GB Gunmetal,#5A5050,,152.7 x 74.7 x 7.35 mm,158g,Anodized aluminum,479
+89,1,128GB SoftGold,#B1A897,,152.7 x 74.7 x 7.35 mm,158g,Anodized aluminum,479

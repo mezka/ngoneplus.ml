@@ -11,7 +11,6 @@ function paymentController(paymentService, $state, Swal){
 
     paymentService.charge(vm.info)
     .then(function(data){
-      console.log(data);
       Swal.fire({
         icon: 'success',
         title: 'Payment was successful',
@@ -19,7 +18,7 @@ function paymentController(paymentService, $state, Swal){
         timer: 2000
       });
 
-      $state.go('receipt', data);
+      $state.go('receipt', { orderid: vm.info.orderid });
 
     })
     .catch(function(error){

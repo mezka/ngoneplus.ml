@@ -31,6 +31,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     var productState = {
         name: 'product',
         url: '/product/{productid}',
+        params: {productid: null},
         templateUrl: '/views/product/product.html',
         controller: 'productController as product',
         resolve: {
@@ -123,11 +124,17 @@ app.config(function($stateProvider, $urlRouterProvider) {
 
     var receiptState = {
       name: 'receipt',
-      url: '/order/payment/receipt',
+      url: '/order/receipt/:orderid',
       templateUrl: '/views/receipt/receipt.html',
       controller: 'receiptController as receipt',
       data: { requiresAuth: true },
-      params: { receipt_url: null, amount: null, message: null},
+      params: {orderid: null},
+      resolve: {
+        receiptData: ['orderService', '$transition$', function(orderService, $transition$){
+
+          return orderService.getOrderById($transition$.params().orderid);
+        }]
+      }
     };
 
 

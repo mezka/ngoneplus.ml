@@ -1,9 +1,6 @@
-function receiptController($state){
-  
-  var vm = this;
-  vm.data = $state.params
-
-  console.log($state.params);
+function receiptController(receiptData){
+  const vm = this;
+  vm.data = receiptData;
 }
 
 angular.module('app').controller('receiptController', receiptController);

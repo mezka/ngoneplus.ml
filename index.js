@@ -92,6 +92,7 @@ massive({
 
     //ORDER ENDPOINTS
     app.get('/api/orders', authController.authorize, orderController.getOrdersByUserId);
+    app.get('/api/order/:orderid', authController.authorize, orderController.getOrderById);
 
     //USER ENDPOINTS
     app.get('/api/user', authController.authorize, userController.getUserData);

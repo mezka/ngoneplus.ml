@@ -85,7 +85,8 @@ CREATE TABLE Public.Order(
   addressId INTEGER REFERENCES Public.Address(id) NOT NULL,
   createdDate timestamptz NOT NULL DEFAULT now(),
   paid BOOLEAN DEFAULT FALSE,
-  receipt_url VARCHAR(140)
+  amount DOUBLE PRECISION DEFAULT NULL,
+  receipt_url VARCHAR(140) DEFAULT NULL
 );
 
 CREATE TABLE Public.OrderItem(

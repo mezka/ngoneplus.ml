@@ -31,12 +31,23 @@ function orderService($http, parseAddressObjToString) {
     this.payForOrder = function(orderid){
         return $http({
             method: 'POST',
-            url:'/api/orders/pending'
+            url: '/api/orders/pending'
         }).then(function(response){
             if(response.status === 200){
                 return response.data;
             }
         }).catch(function(error){
+            console.log(error);
+        });
+    }
+
+    this.getOrderById = (orderid) => {
+        return $http({
+            method: 'GET',
+            url: `/api/order/${orderid}`
+        }).then((response) => {
+            return response.data
+        }).catch((error) => {
             console.log(error);
         });
     }

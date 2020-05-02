@@ -16,7 +16,19 @@ var orderController = {
         return res.status(200).send(orders);
     },
 
-    makePayment: async function(req, res, next) {
+    getOrderById: async (req, res) => {
+
+        try{
+            var order = await db.order.findOne({ id: req.params.orderid, userid: req.session.passport.user })
+        } catch (error) {
+            console.log(error);
+            res.status(500).send(error);
+        }
+
+        return res.status(200).send(order);
+    },
+
+    makePayment: async function(req, res) {
 
         try{
             var order = await db.getOrderItemsAndUserByOrderId(req.body.orderid);
@@ -52,14 +64,14 @@ var orderController = {
             console.log(responseData.receipt_url);
 
             try{
-                var paid = await db.order.update(req.body.orderid, { paid: true, receipt_url: responseData.receipt_url });
+                var paid = await db.order.update(req.body.orderid, { paid: true, amount: responseData.amount, receipt_url: responseData.receipt_url });
             } catch(err){
 
                 console.log(err);
 
                 return res.status(500).send(err);
             }
-            return res.status(200).send({message: responseData.outcome.seller_message, amount: responseData.amount, receipt_url: responseData.receipt_url});
+            return res.status(200).send({ amount: responseData.amount, receipt_url: responseData.receipt_url});
         }).catch(function(err) {
 
             console.log(err);
