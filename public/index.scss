@@ -1,30 +1,28 @@
-$oneplusred: #EB0029;
-$fontgray: #666666;
-$lightgray: #E6E6E6;
+@import '_variables';
 
 @font-face {
     font-family: 'Helvetica Neue';
-    src: url('./fonts/HelveticaNeueMd.ttf') format('truetype');
+    src: url('../fonts/HelveticaNeueMd.ttf') format('truetype');
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Helvetica Neue';
-    src: url('./fonts/HelveticaNeueTh.ttf') format('truetype');
+    src: url('../fonts/HelveticaNeueTh.ttf') format('truetype');
     font-weight: 100;
-    font-style: normal;
+    font-style: thin;
 }
 @font-face {
     font-family: 'Helvetica Neue';
-    src: url('./fonts/HelveticaNeueLight.ttf') format('truetype');
+    src: url('../fonts/HelveticaNeueLight.ttf') format('truetype');
     font-weight: 300;
-    font-style: normal;
+    font-style: lighter;
 }
 @font-face {
     font-family: 'Helvetica Neue';
-    src: url('./fonts/HelveticaNeueBd.ttf') format('truetype');
+    src: url('../fonts/HelveticaNeueBd.ttf') format('truetype');
     font-weight: 700;
-    font-style: normal;
+    font-style: bold;
 }
 
 
@@ -81,6 +79,8 @@ body {
 
 .login-link, .cart-link, .nav-link, .social-media-link {
 
+    color: $fontgray;
+    
     cursor: pointer;
 
     &:hover{
