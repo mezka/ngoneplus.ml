@@ -18,7 +18,8 @@ function cartController(items, addresses, cartService, $state, Swal, authService
   };
 
   cart.checkoutCart = () => {
-    authService.isAuthenticated()
+    if(cart.items.length){
+      authService.isAuthenticated()
       .catch(function () {
         Swal.fire({
           icon: 'error',
@@ -27,23 +28,21 @@ function cartController(items, addresses, cartService, $state, Swal, authService
           html: 'Redirecting to Login Panel ...',
           timer: 2000
         })
-
         return setTimeout($state.go.bind(this, 'login'), 2000);
       });
 
-    if (!cart.addresses || !cart.addresses.length) {
-      Swal.fire({
-        icon: 'error',
-        title: "User has no shipping address loaded",
-        showConfirmButton: false,
-        html: 'Redirecting to User Control Panel ...',
-        timer: 2000
-      })
-
-      return setTimeout($state.go.bind(this, 'userControlPanel', { modal: true }), 2000);
-    }
-
-    cartService.checkoutCart(cart.selectedAddressId)
+      if (!cart.addresses || !cart.addresses.length) {
+        Swal.fire({
+          icon: 'error',
+          title: "User has no shipping address loaded",
+          showConfirmButton: false,
+          html: 'Redirecting to User Control Panel ...',
+          timer: 2000
+        })
+        return setTimeout($state.go.bind(this, 'userControlPanel', { modal: true }), 2000);
+      }
+      
+      cartService.checkoutCart(cart.selectedAddressId)
       .then(function (data) {
         $state.go('payment', { orderid: data.id });
       })
@@ -51,7 +50,8 @@ function cartController(items, addresses, cartService, $state, Swal, authService
         if (error.status === 401) {
           $state.go('login');
         }
-      })
+      });
+    }
   };
 }
 
