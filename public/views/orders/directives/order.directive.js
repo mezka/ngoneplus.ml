@@ -26,7 +26,7 @@ angular.module('app')
                   <div class="col-3 col-sm-auto">
                       <h3>ORDER #{{currentorder.id}}</h3>
                       <button class="btn-pay-order btn-oneplus-red" ng-if="!currentorder.paid" ng-click="payForOrder({orderid: currentorder.id})">Pay</button>
-                      <p class="text-weight-bolder" ng-if="currentorder.paid">Fulfilled</p>
+                      <p class="font-weight-bolder" ng-if="currentorder.paid">Fulfilled</p>
                   </div>
               </div>
           </div>
