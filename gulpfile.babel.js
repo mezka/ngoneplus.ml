@@ -38,6 +38,7 @@ const configuration = {
         'public/**/*.{eot,svg,ttf,woff,woff2,otf}',
         'node_modules/font-awesome/**/*.{eot,svg,ttf,woff,woff2,otf}',
         'public/**/*.{png,jpeg,jpg,svg}',
+        'public/favicon.ico',
       ],
     },
   }
