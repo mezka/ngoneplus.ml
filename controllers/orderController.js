@@ -61,13 +61,9 @@ var orderController = {
             });
         }).then(async function(responseData) {
 
-            console.log(responseData.receipt_url);
-
             try{
                 var paid = await db.order.update(req.body.orderid, { paid: true, amount: responseData.amount, receipt_url: responseData.receipt_url });
             } catch(err){
-
-                console.log(err);
 
                 return res.status(500).send(err);
             }
