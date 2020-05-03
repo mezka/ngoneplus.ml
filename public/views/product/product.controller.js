@@ -25,10 +25,7 @@ function productController(options, cartService, $stateParams){
       vm.current.imageurls[0],
       vm.current.optionprice,
       1,
-      vm.current.discount)
-    .then(function(data){
-      console.log(data);
-    });
+      vm.current.discount);
   };
 }
 
