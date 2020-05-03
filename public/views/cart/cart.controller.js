@@ -6,10 +6,10 @@ function cartController(items, addresses, cartService, $state, Swal, authService
   cart.addresses = addresses;
   cart.selectedAddressId = addresses && addresses.length ? addresses[0].id : null;
 
-  cart.calculateSubTotal = () => cart.items.reduce((prevValue, item) => { return prevValue + item.quantity * item.optionprice }, 0);
-  cart.calculateTotal = () => cart.items.reduce((prevValue, item) => { return prevValue + item.quantity * item.optionprice * (100 - item.discount) / 100 }, 0);
-  cart.calculateTotalQty = () => cart.items.reduce(function (prevValue, item) { return prevValue + item.quantity }, 0);
-  cart.calculateTotalDiscount = () => cart.items.reduce((prevValue, item) => { return prevValue + item.quantity * item.optionprice * (100 - item.discount? item.discount : 0) / 100 }, 0)
+  cart.calculateSubTotal = () => cart.items.reduce((prevValue, item) =>  prevValue + item.quantity * item.optionprice, 0);
+  cart.calculateTotal = () => cart.items.reduce((prevValue, item) =>  prevValue + item.quantity * item.optionprice * (100 - (item.discount? item.discount : 0)) / 100 , 0);
+  cart.calculateTotalQty = () => cart.items.reduce((prevValue, item) => prevValue + item.quantity, 0);
+  cart.calculateTotalDiscount = () => cart.items.reduce((prevValue, item) =>  prevValue + item.quantity * item.optionprice * (100 - (item.discount? item.discount : 0)) / 100, 0)
 
   cart.deleteCartItem = (index) => {
     cartService.deleteCartItem(cart.items[index].optionid)
