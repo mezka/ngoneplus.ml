@@ -39,7 +39,7 @@ function cartController(items, addresses, cartService, $state, Swal, authService
           html: 'Redirecting to User Control Panel ...',
           timer: 2000
         })
-        return setTimeout($state.go.bind(this, 'userControlPanel', { modal: true }), 2000);
+        return setTimeout($state.go.bind(this, 'usercp', { modal: true }), 2000);
       }
       
       cartService.checkoutCart(cart.selectedAddressId)

@@ -8,7 +8,7 @@ function loginController(authService, $state, Flash){
 
     authService.attemptLogin(login.user.useremail, login.user.userpassword)
     .then(function(data){
-        $state.go('userControlPanel');
+        $state.go('usercp');
     })
     .catch(function(error){
         if(error.status === 401){

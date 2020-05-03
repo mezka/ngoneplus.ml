@@ -21,10 +21,10 @@
                     <div class="bar"></div>
                 </button>
                 <div class="dropdown-menu" aria-labelledby="dropdownMenuOffset">
-                    <a href="#" class="dropdown-item oneplus-nav-item">Oneplus 3T</a>
+                    <a ui-sref="login" class="dropdown-item oneplus-nav-item">Login</a>
+                    <a ui-sref="signup" class="dropdown-item oneplus-nav-item">Signup</a>
+                    <a ui-sref="usercp" class="dropdown-item oneplus-nav-item">User Control Panel</a>
                     <a ui-sref="store" class="dropdown-item oneplus-nav-item">Store</a>
-                    <a href="#" class="dropdown-item oneplus-nav-item">Support</a>
-                    <a href="#" class="dropdown-item oneplus-nav-item">Community</a>
                 </div>
             </div>
 
@@ -40,7 +40,7 @@
                 </nav>
             </nav>
             <nav class="col-2 d-flex justify-content-center align-items-center justify-content-sm-around">
-                <a ui-sref="userControlPanel" class="login-link"><i class="fa fa-user fa-2x d-none d-sm-block" aria-hidden="true"></i></a>
+                <a ui-sref="usercp" class="login-link"><i class="fa fa-user fa-2x d-none d-sm-block" aria-hidden="true"></i></a>
                 <a ui-sref="cart" class="cart-link"><i class="fa fa-shopping-cart fa-2x" aria-hidden="true"></i></a>
                 <a href="#" class="flag-link d-none d-sm-block">
                     <img src="./img/index/usa.png" alt="usa-flag">

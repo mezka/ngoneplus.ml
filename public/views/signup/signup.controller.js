@@ -10,7 +10,7 @@ function signupController(authService, $state){
       signup.user.userlastname,
     )
     .then(function(data){
-      $state.go('userControlPanel');
+      $state.go('usercp');
     })
   };
 };

@@ -101,7 +101,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
     };
 
     var userControlPanelState = {
-      name: 'userControlPanel',
+      name: 'usercp',
       url: '/user/cp',
       templateUrl: '/views/usercp/usercp.html',
       controller: 'userControlPanelController as userCP',
