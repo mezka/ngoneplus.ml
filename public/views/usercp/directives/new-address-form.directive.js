@@ -73,12 +73,11 @@ angular.module('app')
         link: function(scope, element){
 
             scope.$on('toggleModal', function(){
-                console.log('hitmodal');
                 element.modal()
             });
             
             scope.toggle = function(){
-                element.modal()
+                element.modal('toggle')
             };
         },
         
@@ -138,8 +137,7 @@ angular.module('app')
                 .then(function(result){
 
                     $scope.refreshUserData();
-                    setTimeout($scope.toggle, 500);
-
+                    $scope.toggle();
                 });
             }
         },
