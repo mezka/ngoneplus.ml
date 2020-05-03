@@ -5,15 +5,11 @@ function storeService($http) {
         return $http({
             method: 'GET',
             url: '/api/store'
-        }).then(function(response) {
-            if (response.status === 200) {
-                console.log('/api/store');
-
-                console.log(response.data);
-
-                return response.data;
-            } else
-                console.log('Get store items failed, logging response.status: ', response.status);
+        }).then((response) => {
+            return response.data;
+        }).catch((error) => {
+            console.log(error.data);
+            return error.data;
         });
 
     };
@@ -22,12 +18,11 @@ function storeService($http) {
         return $http({
             method: 'GET',
             url: '/api/product/' + productid
-        }).then(function(response) {
-            if (response.status === 200) {
-                console.log('/api/product/*');
-                return response.data;
-            } else
-                console.log('Get store elements failed, logging response.status: ', response.status);
+        }).then((response) => {
+            return response.data;
+        }).catch((error) => {
+            console.log(error.data);
+            return error.data;
         });
     };
 
