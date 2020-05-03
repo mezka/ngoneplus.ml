@@ -40,6 +40,10 @@ body {
     font-weight: 300;
 }
 
+.container-min-height{
+    min-height: calc(100vh - (50px + 58px));
+}
+
 .ng-scope{
     margin: inherit;
 }
