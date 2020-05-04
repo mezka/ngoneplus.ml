@@ -179,3 +179,8 @@ app.config(function($stateProvider, $urlRouterProvider) {
   }
 
 app.run(authHookRunBlock);
+
+app.run(function($state) {
+  $state.defaultErrorHandler(function(error) {
+  });
+})
