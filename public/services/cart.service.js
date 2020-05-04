@@ -16,11 +16,9 @@ function cartService($http) {
                     discount: discount
                 }
             }).then(function(response) {
-                if (response.status === 200) {
-                    return response.data;
-                }
-            }).catch(function(response) {
-                console.log(response.status);
+                return response.data;
+            }).catch(function(error) {
+                console.log(error);
             });
         },
         getCart: function() {
@@ -28,12 +26,9 @@ function cartService($http) {
                 method: 'GET',
                 url: '/api/cart'
             }).then(function(response) {
-                if (response.status === 200) {
-                    console.log(response.data);
-                    return response.data;
-                }
-            }).catch(function(response) {
-                console.log(response.status);
+                return response.data;
+            }).catch(function(error) {
+                console.log(error);
             });
         },
         checkoutCart: function(addressid) {
@@ -55,11 +50,9 @@ function cartService($http) {
                 method: 'POST',
                 url: '/api/cart/clear'
             }).then(function(response) {
-                if (response.status === 200) {
-                    return response.data;
-                }
-            }).catch(function(response) {
-                console.log(response.status);
+                return response.data;
+            }).catch(function(error) {
+                console.log(error);
             });
         },
         deleteCartItem: function(optionid) {
@@ -69,12 +62,9 @@ function cartService($http) {
                 url: '/api/cart/delete',
                 data: { optionid }
             }).then(function(response) {
-                if (response.status === 200) {
-                    console.log(response.data);
-                    return response.data;
-                }
-            }).catch(function(response) {
-                console.log(response.status);
+                return response.data;
+            }).catch(function(error) {
+                console.log(error);
             });
         },
 
@@ -85,12 +75,9 @@ function cartService($http) {
                 url: '/api/cart/update',
                 data: cartObj
             }).then(function(response) {
-                if (response.status === 200) {
-                    console.log(response.data);
-                    return response.data;
-                }
-            }).catch(function(response) {
-                console.log(response.status);
+                return response.data;
+            }).catch(function(error) {
+                console.log(error);
             });
         }
     }

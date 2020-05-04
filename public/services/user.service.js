@@ -44,8 +44,8 @@ function userService($http){
             data: { addressid: addressId }
         }).then(function(response){
             return response.data;
-        }).catch(function(response){
-            console.log(response);
+        }).catch(function(error){
+            console.log(error);
         })
     }
 }

@@ -16,8 +16,6 @@ const address = {
 
     addAddress: async function (req, res) {
 
-        console.log(req.body);
-
         try{
             var result =  await db.address.insert({
                     userid: req.session.passport.user,
@@ -41,8 +39,6 @@ const address = {
                 }
             );
             
-            console.log(result);
-
         } catch (error) {
             console.log(error);
             return res.status(500).send(error);
@@ -53,8 +49,6 @@ const address = {
 
     deleteAddress: async function(req, res){
         
-        console.log(req.body);
-
         try{
             var deleteAddress = await db.address.destroy(req.body.addressid);
         } catch(error){
@@ -92,7 +86,6 @@ const address = {
             }
         })
         .then(function(result){
-            console.log(result[0].addresses);
             return res.status(200).send(result[0]);
         })
         .catch(function(error){

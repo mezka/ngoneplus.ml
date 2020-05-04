@@ -6,11 +6,10 @@ function authService($http) {
         url: '/api/login/check'
       })
       .then(function(response){
-        console.log(response.data);
         return true
       })
       .catch(function(error){
-        console.log(error.data);
+        console.log(error);
         return Promise.reject(false);
       });
     },
@@ -36,8 +35,8 @@ function authService($http) {
         url: '/api/logout'
       }).then(function (response) {
           return response.data;
-      }).catch(function (response) {
-        console.log(response.status);
+      }).catch(function (error) {
+        console.log(error);
       });
     },
 
@@ -54,7 +53,7 @@ function authService($http) {
       }).then(function(response) {
         return response.data
       }).catch(function(error) {
-        console.log(error.data)
+        console.log(error)
       });
     }
   };
