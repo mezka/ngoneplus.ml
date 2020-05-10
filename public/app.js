@@ -117,7 +117,7 @@ app.config(function($stateProvider, $urlRouterProvider) {
       },
       onEnter: ['$rootScope', '$stateParams', function($rootScope, $stateParams){
         if($stateParams.modal){
-          setTimeout($rootScope.$broadcast.bind($rootScope), 0, 'toggleModal')
+          setTimeout(() => { $rootScope.$broadcast('toggleModal') }, 0)
         }
       }],
     };
